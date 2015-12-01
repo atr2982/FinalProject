@@ -1,9 +1,7 @@
 {
   "name": "beerpedia",
   "version": "1.0.0",
-
   "description": "full sail final project",
-
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/atr2982/FinalProject/issues"
   },
-  "homepage": "https://github.com/atr2982/FinalProject#readme"
+  "homepage": "https://github.com/atr2982/FinalProject#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
 }
