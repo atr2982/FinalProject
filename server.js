@@ -7,7 +7,7 @@ var express = require('express'),
          db = mongojs('beerdata',['userlist']),
  bodyParser = require('body-parser');
 
-app.use(express.static(__dirname + "/public"));//tells the server where to look for static files in the "public" folder
+
 app.use(bodyParser.json());
 
 app.get('/beerdata', function(req,res){
@@ -27,9 +27,13 @@ app.post('/beerdata', function(req,res){//*data flow 4* app.get written to match
     //req is the data going into the front end
     db.userlist.insert(req.body,function(err,doc){//doc is the object that is
        res.json(doc);//*data flow 5* res is the data coming back from the server/ res gets transferred to controller.js -->
+
     });
 });
 
 
+app.get('*', function (req, res) {
+    res.sendFile('/public/index.html');
+});
 app.listen(3000);
 console.log("running on 3000");
