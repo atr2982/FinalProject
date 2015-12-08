@@ -1,7 +1,26 @@
 <!DOCTYPE html>
 <div ng-controller="homepageCtrl">
 
-    <h1>Angular route working</h1>
+    <div class="nav">
+
+        <nav id="nav2">
+            <ul id="authNave">
+                <li>Pocket Tap</li>
+                <li><button id="logout" class="btn btn-danger" ng-click="logout()">Logout</button></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <h1>Hello {{user.email}}</h1>
+
+    <h2>{{user.username}}'s recent checked in beers:</h2>
+
+    <div ng-repeat="beer in beerlist">
+
+        <p>beer.name</p>
+
+    </div>
 
 
 </div>
