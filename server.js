@@ -1,13 +1,24 @@
-var express = require('express'),
-    app = express(),
-    mongojs = require('mongojs'),
-    db = mongojs('beerdata', ['userlist']),
-    bodyParser = require('body-parser');
+var express =           require('express'),
+    app =               express(),
+    mongojs =           require('mongojs'),
+    db =                mongojs('beerdata',['userlist']),
+    bodyParser =        require('body-parser'),
+    passport =          require('passport'),
+    LocalStrategy  =    require('passport-local').Strategy;
 
-
-app.use(express.static(__dirname + "/public")); //tells the server where to look for static files in the "public" folder
+app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
 
+passport.use(new LocalStrategy(
+    function(username, password, done) {
+        db.userlist.findOne({ username: username }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) { return done(null, false); }
+            if (!user.verifyPassword(password)) { return done(null, false); }
+            return done(null, user);
+        });
+    }
+));
 
 
 //GET USER DATA
@@ -69,7 +80,9 @@ app.put('/beerdata/:id', function(req, res) {
 });
 
 
-
+app.get('*', function (req, res) {
+    res.sendFile('/index.html');
+});
 
 app.listen(3000);
 console.log("running on 3000"); 

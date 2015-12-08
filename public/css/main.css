@@ -2,6 +2,47 @@
     margin-bottom:2%;
 }
 
+<<<<<<< HEAD
 form {
     margin-bottom: 60px;
 }
+=======
+ul{
+    list-style-type: none;
+    padding: 2% 0;
+    background: #000;
+}
+
+#top-nav{
+    background: #606060;
+}
+
+nav{
+    background: #606060;
+
+}
+
+.nav-list{
+    background: #606060;
+
+}
+
+#authNav li{
+    display:inline;
+}
+
+ul li{
+    font-size: 1.7em;
+    text-align: center;
+    color: #FFF;
+}
+
+#register{
+    float: right;
+    background: none;
+    text-decoration: underline;
+    border:none;
+}
+
+
+>>>>>>> d15b5428664dcbe437742090be76721511dae1cb
