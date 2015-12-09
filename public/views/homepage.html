@@ -53,14 +53,71 @@
                 </table>
             </div>
         </div>
-
+        
+        
         <h1>Beer Search</h1>
         <div class="col-lg-12">
             <label for="search">Search</label>
             <input id="search" class="form-control" ng-model="search.term">
             <button class="btn btn-primary" ng-click="search()">Search</button>
-            <p>{{details}}</p>
+<!--            <p>{{beers}}</p>-->
+        </div>
+        <div>
+            <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in beers">
+                <h2>{{items.beer.beer_name}}</h2>
+                <img src="{{items.beer.beer_label}}">
+                <p>STYLE - {{items.beer.beer_style}}</p>
+                <p>ABV   - {{items.beer.beer_abv}}</p>
+                <p>INFO  - {{items.beer.beer_description}}</p>
+            </div>
+        </div>
+        
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+        <h1>Search Trending Beers</h1>
+        <div class="col-lg-12">
+            <button class="btn btn-primary" ng-click="trending()">Search Them Now! Don't Miss Out!</button>
+        </div>
+        <div>
+            <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in trendingBeers">
+                <h2>{{items.beer.beer_name}}</h2>
+                <img src="{{items.beer.beer_label}}">
+                <p>STYLE - {{items.beer.beer_style}}</p>
+                <p>ABV   - {{items.beer.beer_abv}}</p>
+                <p>INFO  - {{items.beer.beer_description}}</p>
+            </div>
         </div>
 
-
+        
+        
+        
+        
+        
+        
+        
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

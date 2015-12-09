@@ -11,7 +11,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         })
 
-    }])
+}])
 
 .controller('AppCtrl', ["$scope", "$http", "$location", function ($scope, $http, $location) {
     $scope.signUp1 = false;
@@ -33,9 +33,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
     };
 
-    }])
-
-
+}])
 
 .controller('homepageCtrl', ["$scope", "$http", "$location", function ($scope, $http, $location) {
 
@@ -54,7 +52,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     };
 
     refresh();
-    
+
     //REMOVE
     //REMOVE  
     $scope.remove = function (id) {
@@ -98,9 +96,42 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         console.log($scope.search.term);
         $http.get("https://api.untappd.com/v4/search/beer?q=" + $scope.search.term + "&limit=10&client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
             .success(function (response) {
-                $scope.details = response;
+                $scope.beers = response.response.beers.items;
                 console.log(response);
             });
     };
+    
+    //TRENDING
+    //TRENDING   
+    //*data flow 2* controller receives data from view when button is clicked below
+    $scope.trending = function () {
 
-    }]);
+        console.log($scope.search.term);
+        $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
+            .success(function (response) {
+                $scope.trendingBeers = response.response.micro.items;
+                console.log(response);
+            });
+    };
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+}]);

@@ -55,6 +55,7 @@ app.delete('/beerdata/:id', function(req, res) {
 });
 
 
+
 //EDIT
 //EDIT
 app.get('/beerdata/:id', function(req, res) {
@@ -67,7 +68,8 @@ app.get('/beerdata/:id', function(req, res) {
 });
 
 
-//update after edit
+//UPDATE AFTER EDIT
+//UPDATE AFTER EDIT
 app.put('/beerdata/:id', function(req, res) {
     var id = req.params.id;
     console.log(req.body.name);
@@ -80,9 +82,9 @@ app.put('/beerdata/:id', function(req, res) {
 });
 
 
-app.get('*', function (req, res) {
-    res.sendFile('/index.html');
-});
+//app.get('*', function (req, res) {
+//    res.sendFile('/index.html');
+//});
 
 app.listen(3000);
 console.log("running on 3000"); 
