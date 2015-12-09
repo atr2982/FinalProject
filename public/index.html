@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+
 <head>
 
     <title>BeerPedia</title>
@@ -12,11 +13,13 @@
     <link type="text/css" rel="stylesheet" href="css/main.css">
 
 </head>
+
 <body>
 
+    <div ng-view></div>
 
-<div ng-view></div>
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="Controllers/controller.js"></script>
 </body>
+
 </html>

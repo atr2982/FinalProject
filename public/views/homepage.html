@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <div ng-controller="homepageCtrl">
     <div class="nav">
@@ -19,28 +20,46 @@
 
     <div class="col-md-6">
 
-       <button ng-click="getLocation()">Bars Near You</button>
+        <button ng-click="getLocation()">Bars Near You</button>
 
         <div ng-repeat="key in objArr">
-            <hr><div><b>{{key[0].name}}</b></div>
+            <div class="beerApi">
+                <hr><div><b>{{key[0].name}}</b></div>
                 <div>{{key[0].location.address}}</div>
-                <p>{{key[0].location.city}}, {{key[0].location.state}}</p><hr>
+                <p>{{key[0].location.city}}, {{key[0].location.state}}</p>
+                <button ng-click="addBarWlist()">Add to Wishlist</button><hr>
+            </div>
 
-            <div><b>{{key[1].name}}</b></div>
+            <div class="beerApi">
+                <div><b>{{key[1].name}}</b></div>
                 <div>{{key[1].location.address}}</div>
-                <p>{{key[1].location.city}}, {{key[1].location.state}}</p><hr>
+                <p>{{key[1].location.city}}, {{key[1].location.state}}</p>
+                <button ng-click="addBarWlist()">Add to Wishlist</button><hr>
 
-            <div><b>{{key[2].name}}</b></div>
+            </div>
+
+            <div class="beerApi">
+                <div><b>{{key[2].name}}</b></div>
                 <div>{{key[2].location.address}}</div>
-                <p>{{key[2].location.city}}, {{key[2].location.state}}</p><hr>
+                <p>{{key[2].location.city}}, {{key[2].location.state}}</p>
+                <button ng-click="addBarWlist()">Add to Wishlist</button><hr>
 
-            <div><b>{{key[3].name}}</b></div>
+            </div>
+
+            <div class="beerApi">
+                <div><b>{{key[3].name}}</b></div>
                 <div>{{key[3].location.address}}</div>
-                <p>{{key[3].location.city}}, {{key[3].location.state}}</p><hr>
+                <p>{{key[3].location.city}}, {{key[3].location.state}}</p>
+                <button ng-click="addBarWlist()">Add to Wishlist</button><hr>
 
-            <div><b>{{key[4].name}}</b></div>
+            </div>
+
+            <div class="beerApi">
+                <div><b>{{key[4].name}}</b></div>
                 <div>{{key[4].location.address}}</div>
-                <p>{{key[4].location.city}}, {{key[4].location.state}}</p><hr>
+                <p>{{key[4].location.city}}, {{key[4].location.state}}</p>
+                <button ng-click="addBarWlist()">Add to Wishlist</button><hr>
+
             </div>
         </div>
     </div>

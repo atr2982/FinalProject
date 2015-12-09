@@ -2,6 +2,10 @@
     margin-bottom:2%;
 }
 
+form {
+    margin-bottom: 60px;
+}
+
 ul{
     list-style-type: none;
     padding: 2% 0;
@@ -39,4 +43,14 @@ ul li{
     border:none;
 }
 
+img {
+    margin-bottom: 5px;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.beers {
+    border: 1px solid black;
+    margin-bottom: 60px;  
+}
 
