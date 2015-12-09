@@ -1,38 +1,55 @@
-/**
- * Created by patrickhalton on 12/2/15.
- */
-var express = require('express'),
-        app = express(),
-    mongojs = require('mongojs'),
-         db = mongojs('beerdata',['userlist']),
- bodyParser = require('body-parser'),
-    passport       = require('passport'),
-    LocalStrategy  = require('passport-local').Strategy;
+//server variables
+
+        var express     = require('express'),
+                app     = express(),
+            mongojs     = require('mongojs'),
+                 db     = mongojs('beerdata',['userlist']),
+         bodyParser     = require('body-parser'),
+           passport     = require('passport'),
+        LocalStrategy   = require('passport-local').Strategy,
+        expressSession  = require('express-session'),
+              objectId  = require('mongojs').ObjectId;
+
+//severside management
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
-
-passport.use(new LocalStrategy(
+passport.use(new LocalStrategy({session: true},
     function(username, password, done) {
         db.userlist.findOne({ username: username }, function (err, user) {
             if (err) { return done(err); }
             if (!user) { return done(null, false); }
-            if (!user.verifyPassword(password)) { return done(null, false); }
+            if (user.password != password) { return done(null, false); }
             return done(null, user);
         });
-    }
+     }
 ));
+
+passport.serializeUser(function(user,done){
+    done(null, user._id);
+});
+passport.deserializeUser(function(id,done){
+    db.userlist.findOne({'_id' :objectId(id)}, function(err,user){
+        done(err,user);
+    });
+});
+
+app.use(expressSession({
+    secret : 'must work',
+    resave : false,
+    saveUninitialized : false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+//server routes
 
 app.get('/beerdata', function(req,res){
         console.log("GET request");
-
-db.userlist.find(function(err,docs){
-
-    console.log("i received");
-    res.json(docs);
-
-     });
-
+        db.userlist.find(function(err,docs){
+            console.log("i received");
+            res.json(docs);
+        });
 });
 
 app.post('/beerdata', function(req,res){//*data flow 4* app.get written to match $http.get in controller.js so the server can receive the data
@@ -43,6 +60,24 @@ app.post('/beerdata', function(req,res){//*data flow 4* app.get written to match
 
     });
 });
+
+app.post('/login',passport.authenticate('local'), function(req,res){
+
+        res.json(req.user);
+});
+
+app.get('/userCheck',function(req,res){
+    console.log(req.user);
+    res.json(req.user);
+
+});
+
+app.post('/logout',function(req,res){
+   req.logout();
+   res.sendStatus(200);
+});
+
+//express traffic
 
 app.get('*', function (req, res) {
     res.sendFile('/index.html');
