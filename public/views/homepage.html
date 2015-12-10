@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<div ng-controller="homepageCtrl">
+<div id="home-control" ng-controller="homepageCtrl">
     <div class="nav">
         <nav id="nav2">
             <ul id="authNave">
@@ -10,8 +10,8 @@
     </div>
 
     <div class="col-md-6">
-        <h1>Hello {{userObj.username}}</h1>
-        <h2>{{userObj.username}}'s recent checked in beers:</h2>
+        <h1 class="user-header">Hello {{userObj.username}}</h1>
+        <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
         <div ng-repeat="beer in beerlist">
             <p>beer.name</p>
         </div>
@@ -21,27 +21,11 @@
 
        <button ng-click="getLocation()">Bars Near You</button>
 
-        <div ng-repeat="key in objArr">
-            <hr><div><b>{{key[0].name}}</b></div>
-                <div>{{key[0].location.address}}</div>
-                <p>{{key[0].location.city}}, {{key[0].location.state}}</p><hr>
-
-            <div><b>{{key[1].name}}</b></div>
-                <div>{{key[1].location.address}}</div>
-                <p>{{key[1].location.city}}, {{key[1].location.state}}</p><hr>
-
-            <div><b>{{key[2].name}}</b></div>
-                <div>{{key[2].location.address}}</div>
-                <p>{{key[2].location.city}}, {{key[2].location.state}}</p><hr>
-
-            <div><b>{{key[3].name}}</b></div>
-                <div>{{key[3].location.address}}</div>
-                <p>{{key[3].location.city}}, {{key[3].location.state}}</p><hr>
-
-            <div><b>{{key[4].name}}</b></div>
-                <div>{{key[4].location.address}}</div>
-                <p>{{key[4].location.city}}, {{key[4].location.state}}</p><hr>
-            </div>
+        <div class="dataBar" ng-repeat="key in locations">
+            <div class="data-info"><b>{{key.name}}</b></div>
+                <div class="data-info">{{key.location.address}}</div>
+                <p class="data-info">{{key.location.city}}, {{key.location.state}}</p>
+            <hr>
         </div>
     </div>
 </div>

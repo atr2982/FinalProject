@@ -42,8 +42,9 @@ angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routePro
     if($rootScope.userObj == undefined){
         $location.path('/')
     }
-      console.log($rootScope.userObj);
-      $scope.logout = function(){
+
+    console.log($rootScope.userObj);
+    $scope.logout = function(){
           $http.post('/logout');
           $rootScope.userObj = undefined;
           $location.path('/');
@@ -63,7 +64,8 @@ angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routePro
                       var lo = position.coords.longitude;
                       $http.get('https://api.foursquare.com/v2/venues/search?client_id='+clientId+'&client_secret='+clientSecret+'&v=20130815&ll='+la+','+lo+'&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=craft beer').success(function(response){
                           $rootScope.objArr = [];
-                          $rootScope.objArr.push(response.response.venues);
+//                          $rootScope.objArr.push(response.response.venues);
+                          $rootScope.locations = response.response.venues;
                       });
               }
       };

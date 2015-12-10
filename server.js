@@ -62,14 +62,12 @@ app.post('/beerdata', function(req,res){//*data flow 4* app.get written to match
 });
 
 app.post('/login',passport.authenticate('local'), function(req,res){
-
         res.json(req.user);
 });
 
 app.get('/userCheck',function(req,res){
     console.log(req.user);
     res.json(req.user);
-
 });
 
 app.post('/logout',function(req,res){
