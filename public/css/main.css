@@ -54,3 +54,27 @@ img {
     margin-bottom: 60px;  
 }
 
+
+.appName {
+    color: #f2f2f2;
+}
+
+#twitterbootstrap .navbar .nav,
+#twitterbootstrap .navbar .nav > li
+{
+    padding-left:30px;
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+    *zoom:1; /* hasLayout ie7 trigger */
+    vertical-align: top;
+}
+
+
+#twitterbootstrap .navbar-inner {
+    text-align:center;
+}
+
+.navbar .brand.hidden-desktop{
+    float:none;
+}

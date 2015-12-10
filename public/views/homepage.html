@@ -1,16 +1,10 @@
-<!DOCTYPE html>
 <div ng-controller="homepageCtrl">
 
-    <div class="nav">
 
-        <nav id="nav2">
-            <ul id="authNave">
-                <li>Pocket Tap</li>
-                <li><button id="logout" class="btn btn-danger" ng-click="logout()">Logout</button></li>
-            </ul>
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+            <h2 class="appName navbar-text">PocketTap</h2>
         </nav>
 
-    </div>
 
     <h1>Hello {{user.email}}</h1>
 
@@ -21,103 +15,87 @@
         <p>beer.name</p>
 
     </div>
-    
-        <h1>Registered Users</h1>
-        <div class="col-lg-12">
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="user in userList">
-                            <td>{{user.username}}</td>
-                            <td>{{user.email}}</td>
-                            <td>
-                                <button class="btn btn-danger" ng-click="remove(user._id)">Remove</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-warning" ng-click="edit(user._id)">Edit</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-primary" ng-click="update()">Update</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-info" ng-click="clear()">Clear</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        
-        <h1>Beer Search</h1>
-        <div class="col-lg-12">
-            <label for="search">Search</label>
-            <input id="search" class="form-control" ng-model="search.term">
-            <button class="btn btn-primary" ng-click="search()">Search</button>
-<!--            <p>{{beers}}</p>-->
-        </div>
-        <div>
-            <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in beers">
-                <h2>{{items.beer.beer_name}}</h2>
-                <img src="{{items.beer.beer_label}}">
-                <p>STYLE - {{items.beer.beer_style}}</p>
-                <p>ABV   - {{items.beer.beer_abv}}</p>
-                <p>INFO  - {{items.beer.beer_description}}</p>
-            </div>
-        </div>
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
 
-        
-        <h1>Search Trending Beers</h1>
-        <div class="col-lg-12">
-            <button class="btn btn-primary" ng-click="trending()">Search Them Now! Don't Miss Out!</button>
+    <h1>Registered Users</h1>
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in userList">
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                            <button class="btn btn-danger" ng-click="remove(user._id)">Remove</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-warning" ng-click="edit(user._id)">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" ng-click="update()">Update</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-info" ng-click="clear()">Clear</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div>
-            <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in trendingBeers">
-                <h2>{{items.beer.beer_name}}</h2>
-                <img src="{{items.beer.beer_label}}">
-                <p>STYLE - {{items.beer.beer_style}}</p>
-                <p>ABV   - {{items.beer.beer_abv}}</p>
-                <p>INFO  - {{items.beer.beer_description}}</p>
-            </div>
-        </div>
+    </div>
 
-        
-        
-        
-        
-        
-        
-        
+
+    <h1>Beer Search</h1>
+    <div class="col-lg-12">
+        <label for="search">Search</label>
+        <input id="search" class="form-control" ng-model="search.term">
+        <button class="btn btn-primary" ng-click="search()">Search</button>
+        <!--            <p>{{beers}}</p>-->
+    </div>
+    <div>
+        <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in beers">
+            <h2>{{items.beer.beer_name}}</h2>
+            <img src="{{items.beer.beer_label}}">
+            <p>STYLE - {{items.beer.beer_style}}</p>
+            <p>ABV - {{items.beer.beer_abv}}</p>
+            <p>INFO - {{items.beer.beer_description}}</p>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <h1>Search Trending Beers</h1>
+    <div class="col-lg-12">
+        <button class="btn btn-primary" ng-click="trending()">Search Them Now! Don't Miss Out!</button>
+    </div>
+    <div>
+        <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in trendingBeers">
+            <h2>{{items.beer.beer_name}}</h2>
+            <img src="{{items.beer.beer_label}}">
+            <p>STYLE - {{items.beer.beer_style}}</p>
+            <p>ABV - {{items.beer.beer_abv}}</p>
+            <p>INFO - {{items.beer.beer_description}}</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

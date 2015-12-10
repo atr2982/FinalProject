@@ -26,13 +26,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.post('/beerdata', $scope.user).success(function (response) { //*data flow 3* $http(ajax call) to server.js file
                 console.log(response);
                 $location.path('/home');
-
             })
-
         }
-
     };
-
 }])
 
 .controller('homepageCtrl', ["$scope", "$http", "$location", function ($scope, $http, $location) {
