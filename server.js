@@ -6,7 +6,8 @@ var express = require('express'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     expressSession = require('express-session'),
-    objectId = require('mongojs').ObjectId;
+    objectId = require('mongojs').ObjectId,
+    UserManagement = require('user-management');
 
 //severside management
 
@@ -16,7 +17,7 @@ passport.use(new LocalStrategy({
         session: true
     },
     function (username, password, done) {
-    console.log(username,password);
+//    console.log(username,password);
         db.userlist.findOne({
             username: username
         }, function (err, user) {
@@ -58,30 +59,36 @@ app.use(passport.session());
 //server routes
 
 app.get('/beerdata', function (req, res) {
-    console.log("GET request");
     db.userlist.find(function (err, docs) {
-        console.log("i received");
         res.json(docs);
     });
 });
 
-
 //REGISTER
 //REGISTER
 app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to match $http.get in controller.js so the server can receive the data
-    console.log(req.body);
-    //req is the data going into the front end
-    db.userlist.insert(req.body, function (err, doc) { //doc is the object that is
-        res.json(doc); //*data flow 5* res is the data coming back from the server/ res gets transferred to controller.js -->
-    });
-});
+    console.log('request user',req.body.username);
 
+            db.userlist.findOne({'username' : req.body.username},function(err,docs){
+                console.log(docs);
+
+                if(docs){
+                    console.log('user exists');
+                }else{
+                    db.userlist.insert(req.body, function (err, doc) {
+                        res.json(docs);
+                    })
+                }
+
+            });
+
+});
 
 //DELETE
 //DELETE
 app.delete('/beerdata/:id', function (req, res) {
     var id = req.params.id;
-    console.log(id);
+//    console.log(id);
     db.userlist.remove({
         _id: mongojs.ObjectId(id)
     }, function (err, doc) {
@@ -90,22 +97,18 @@ app.delete('/beerdata/:id', function (req, res) {
 });
 
 
-
 //EDIT
 //EDIT
 app.get('/beerdata/:id', function (req, res) {
     var id = req.params.id;
-    console.log(id);
+//    console.log(id);
     db.userlist.findOne({
         _id: mongojs.ObjectId(id)
     }, function (err, doc) {
-        console.log(doc);
+//        console.log(doc);
         res.json(doc);
     });
 });
-
-
-
 
 
 //CHECKIN BEER
@@ -120,7 +123,7 @@ app.put('/beerdata/:uname', function (req, res) {
     }, {
         $push: {
             beers: {
-                bname: "Another Beer",
+                bname: "Yet Another Beer",
                 blabel: "www.labelurl.com",
                 syle: "wheat",
                 abv: 5.2,
@@ -142,7 +145,7 @@ app.post('/login', passport.authenticate('local'), function (req, res) {
 });
 
 app.get('/userCheck', function (req, res) {
-    console.log(req.user);
+//    console.log(req.user);
     res.json(req.user);
 });
 

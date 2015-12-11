@@ -26,9 +26,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/');
             alert("passwords do not match");
         } else {
-            console.log($scope.user);
             $http.post('/beerdata', $scope.user).success(function (response) { //*data flow 3* $http(ajax call) to server.js file
-                console.log(response);
                 $location.path('/home');
             })
         }
@@ -36,7 +34,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
     $scope.login = function () {
         $http.post('/login', $scope.user).success(function (response) { //*data flow 3* $http(ajax call) to server.js file
-            console.log("our obj",response);
             $rootScope.userObj = response;
             $location.path('/home');
         })
@@ -49,7 +46,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $location.path('/')
     }
 
-    console.log($rootScope.userObj);
     $scope.logout = function () {
         $http.post('/logout');
         $rootScope.userObj = undefined;
@@ -61,11 +57,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     //*data flow 2* controller receives data from view when button is clicked below
     $scope.search = function () {
 
-        console.log($scope.search.term);
         $http.get("https://api.untappd.com/v4/search/beer?q=" + $scope.search.term + "&limit=10&client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
             .success(function (response) {
                 $scope.beers = response.response.beers.items;
-                console.log(response);
             });
     };
 
@@ -74,11 +68,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     //*data flow 2* controller receives data from view when button is clicked below
     $scope.trending = function () {
 
-        console.log($scope.search.term);
         $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
             .success(function (response) {
                 $scope.trendingBeers = response.response.micro.items;
-                console.log(response);
             });
     };
 
