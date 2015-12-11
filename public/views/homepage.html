@@ -1,50 +1,28 @@
-<div ng-controller="homepageCtrl">
+<!DOCTYPE html>
 
-
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <h2 class="appName navbar-text">PocketTap</h2>
-        </nav>
-
-
-    <h1>Hello {{user.email}}</h1>
-
-    <h2>{{user.username}}'s recent checked in beers:</h2>
-
-    <div ng-repeat="beer in beerlist">
-
-        <p>beer.name</p>
-
+   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+                <h2 class="navbar-text">Pocket Tap</h2>
+                <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+    </nav>
+   <div id="home-control" ng-controller="homepageCtrl">
+    
+    <div class="col-md-6">
+        <h1 class="user-header">Hello {{userObj.username}}</h1>
+        <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
+        <div ng-repeat="beer in beerlist">
+            <p>beer.name</p>
+        </div>
     </div>
 
-    <h1>Registered Users</h1>
-    <div class="col-lg-12">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="user in userList">
-                        <td>{{user.username}}</td>
-                        <td>{{user.email}}</td>
-                        <td>
-                            <button class="btn btn-danger" ng-click="remove(user._id)">Remove</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-warning" ng-click="edit(user._id)">Edit</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary" ng-click="update()">Update</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-info" ng-click="clear()">Clear</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="col-md-6">
+
+       <button ng-click="getLocation()">Bars Near You</button>
+
+        <div class="dataBar" ng-repeat="key in locations">
+            <div class="data-info"><b>{{key.name}}</b></div>
+                <div class="data-info">{{key.location.address}}</div>
+                <p class="data-info">{{key.location.city}}, {{key.location.state}}</p>
+            <hr>
         </div>
     </div>
 
@@ -59,7 +37,7 @@
     <div>
         <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in beers">
             <h2>{{items.beer.beer_name}}</h2>
-            <img src="{{items.beer.beer_label}}">
+            <img ng-src="{{items.beer.beer_label}}">
             <p>STYLE - {{items.beer.beer_style}}</p>
             <p>ABV - {{items.beer.beer_abv}}</p>
             <p>INFO - {{items.beer.beer_description}}</p>
@@ -84,18 +62,11 @@
     <div>
         <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in trendingBeers">
             <h2>{{items.beer.beer_name}}</h2>
-            <img src="{{items.beer.beer_label}}">
+            <img ng-src="{{items.beer.beer_label}}">
             <p>STYLE - {{items.beer.beer_style}}</p>
             <p>ABV - {{items.beer.beer_abv}}</p>
             <p>INFO - {{items.beer.beer_description}}</p>
         </div>
     </div>
-
-
-
-
-
-
-
 
 </div>

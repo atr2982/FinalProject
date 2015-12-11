@@ -19,6 +19,7 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "express-session": "^1.12.1",
     "mongodb": "^2.0.49",
     "mongojs": "^2.0.0",
     "passport": "^0.3.2",

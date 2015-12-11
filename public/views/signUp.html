@@ -1,67 +1,58 @@
-
     <div id="top-nav" class="col-lg-12">
         <nav id="nav1">
             <ul class="nav-list">
-                <li>Pocket Tap</li>
+                <li id="header">Pocket Tap</li>
             </ul>
         </nav>
     </div>
 
-
 <div ng-controller="AppCtrl" class="container">
 
-    <div class="col-md-6">
-        <h1>Become a beer master!</h1>
+    <div id="info-div" class="col-md-6">
 
-        <p>Craft Beer lovers commence!</p>
-        <p>Create your own personal craft beer mastery log</p>
-        <p>Discover Craft Beer from around the world</p>
-        <p>Find local bars near you now!</p>
+        <h3 id="banner">Become a beer master!</h3>
+        <p class="app-info">Craft Beer lovers commence!</p>
+        <p class="app-info">Create your own personal craft beer mastery log</p>
+        <p class="app-info">Discover Craft Beer from around the world</p>
+        <p class="app-info">Find local bars near you now!</p>
 
     </div>
 
-
-
     <div class="col-md-6">
-
 
         <form ng-hide="signUp1">
 
-            <h2>Login</h2>
+            <h2 class="log-header">Login</h2>
 
-                <label for="userAuth">Username</label>
-                <input id="userAuth" type="text" class="form-control" ng-model="auth.user.username">
+                <label class="app-info" for="userAuth">Username</label>
+                <input id="userAuth" type="text" class="form-control" ng-model="user.username">
 
-                <label for="passAuth">Password</label>
-                <input id="passAuth" type="password" class="form-control" ng-model="auth.user.password">
+                <label class="app-info" for="passAuth">Password</label>
+                <input id="passAuth" type="password" class="form-control" ng-model="user.password">
 
-                <button id="signIn" class="btn btn-primary" ng-click="signUp()">Sign In</button>
+                <button id="signIn" class="btn btn-primary" ng-click="login()">Sign In</button>
 
                 <button id="register" ng-click="signUp1 = true">Click Here To Register</button>
         </form>
 
-
-
-
             <form ng-show="signUp1">
 
-                <h2>Sign Up</h2>
+                <h2 class="log-header">Sign Up</h2>
 
-                <label for="email">Email</label>
-                <input id="email" type="email" class="form-control" ng-model="user.email">
-
-                <label for="user">Username</label>
+                <label class="app-info" for="user">Username</label>
                 <input id="user" type="text" class="form-control" ng-model="user.username">
 
-                <label for="pass">Password</label>
+                <label class="app-info" for="email">Email</label>
+                <input id="email" type="email" class="form-control" ng-model="user.email">
+
+                <label class="app-info" for="pass">Password</label>
                 <input id="pass" type="password" class="form-control" ng-model="user.password">
 
-                <label for="Cpass">Confirm Password</label>
+                <label class="app-info" for="Cpass">Confirm Password</label>
                 <input id="Cpass" type="password" class="form-control" ng-model="user.confirm">
 
                 <button id="addc" class="btn btn-primary" ng-click="signUp()">Sign Up</button>
 
             </form>    <!-- *data flow 1* user click add contact sends to controller-->
         </div>
-
 </div>

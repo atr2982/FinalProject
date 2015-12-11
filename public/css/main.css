@@ -1,3 +1,9 @@
+body{
+    margin-top: 90px;
+    background: url('/img/background.jpg') no-repeat fixed;
+
+}
+
 .form-control{
     margin-bottom:2%;
 }
@@ -12,18 +18,57 @@ ul{
     background: #000;
 }
 
+#addc{
+    margin-top: 1.5%;
+    width:30%
+}
+
+#signIn{
+    margin-top: 1.5%;
+    width:30%
+
+}
+
 #top-nav{
-    background: #606060;
+    background: #d63f3b;
 }
 
 nav{
-    background: #606060;
+    background: #d63f3b;
 
 }
 
 .nav-list{
-    background: #606060;
+    background: #d63f3b;
 
+}
+
+.container{
+    color: #ffffff;
+}
+
+.app-info{
+    font-family: 'Abel', sans-serif;
+    font-size: 1em;
+    color: #fff;
+}
+
+#info-div{
+    margin-bottom: 10%;
+}
+
+.log-header{
+    font-family: 'Abel', sans-serif;
+
+}
+
+#header{
+    font-family: 'Erica One', cursive;
+    font-size:3em;
+}
+
+#banner{
+    margin-bottom: 10%;
 }
 
 #authNav li{
@@ -59,22 +104,26 @@ img {
     color: #f2f2f2;
 }
 
-#twitterbootstrap .navbar .nav,
-#twitterbootstrap .navbar .nav > li
-{
-    padding-left:30px;
-    float:none;
-    display:inline-block;
-    *display:inline; /* ie7 fix */
-    *zoom:1; /* hasLayout ie7 trigger */
-    vertical-align: top;
+.dataBar{
+    background: #fff;
+    padding: 5% 2%;
+    font-size: 2em;
+}
+.user-cont{
+    font-family: 'Abel', sans-serif;
+    color: #fff;
 }
 
-
-#twitterbootstrap .navbar-inner {
-    text-align:center;
+.user-header{
+    font-family: 'Abel', sans-serif;
+    color: #fff;
 }
 
-.navbar .brand.hidden-desktop{
-    float:none;
+.data-info{
+    font-family: 'Abel', sans-serif;
+    font-size: 1em;
+}
+
+#home-control{
+    opacity: 0.9;
 }
