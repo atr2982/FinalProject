@@ -1,5 +1,7 @@
 angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routeProvider) {
         $routeProvider
+
+
               .when('/', {
                 templateUrl: '/views/signUp.html',
                 controller: 'AppCtrl'
@@ -11,13 +13,16 @@ angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routePro
 
 .run(['$rootScope','$http', function($rootScope, $http) {
         $http.get('/userCheck').success(function(response){
-            console.log(response);
-            $rootScope.userObj = response;
+            if(response) {
+                $rootScope.userObj = response;
+            }
+
         });
 }])
 .controller('AppCtrl',["$scope","$rootScope","$http","$location", function ($scope,$rootScope,$http,$location) {
         $scope.signUp1 = false;
         $scope.signUp = function(){
+
             if($scope.user.password != $scope.user.confirm){
                 $location.path('/');
                 alert("passwords do not match");
@@ -42,6 +47,8 @@ angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routePro
     if($rootScope.userObj == undefined){
         $location.path('/')
     }
+
+        console.log("userobj", typeof $rootScope.userObj);
 
     console.log($rootScope.userObj);
     $scope.logout = function(){
@@ -69,6 +76,4 @@ angular.module('myApp',['ngRoute']).config(["$routeProvider",function ($routePro
                       });
               }
       };
-
-
 }]);
