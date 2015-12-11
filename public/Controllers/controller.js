@@ -82,6 +82,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
     };
 
+    //LOCATION
+    //LOCATION   
     $scope.getLocation = function () {
         var x = document.getElementById("loc");
         if (navigator.geolocation) {
@@ -101,6 +103,26 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $rootScope.locations = response.response.venues;
             });
         }
+    };
+    
+    //CHECKIN
+    //CHECKIN  
+    $scope.checkin = function (name, label, style, abv, desc) {
+        console.log($rootScope.userObj.username, name, label, style, abv, desc);
+        
+        var uname = $rootScope.userObj.username;
+        
+//        var bdata = {username: $rootScope.userObj.username,
+//                    bname: name,
+//                    blabel: label, 
+//                    bstyle: style, 
+//                    babv: abv,
+//                    bdesc: desc};
+        
+        
+        $http.put('/beerdata/' + uname, $scope.user).success(function (response) {
+            console.log(response);
+        })
     };
 
 

@@ -41,6 +41,13 @@
             <p>STYLE - {{items.beer.beer_style}}</p>
             <p>ABV - {{items.beer.beer_abv}}</p>
             <p>INFO - {{items.beer.beer_description}}</p>
+            <button class="btn btn-primary" ng-click="checkin(items.beer.beer_name,
+                items.beer.beer_label,
+                items.beer.beer_style,
+                items.beer.beer_abv,
+                items.beer.beer_description)">CheckIn
+            </button>
+            <button class="btn btn-primary" ng-click="wishlist()">Add To WishList</button>
         </div>
     </div>
 

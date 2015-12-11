@@ -105,27 +105,37 @@ app.get('/beerdata/:id', function (req, res) {
 });
 
 
-//UPDATE AFTER EDIT
-//UPDATE AFTER EDIT
-app.put('/beerdata/:id', function (req, res) {
-    var id = req.params.id;
-    console.log(req.body.name);
-    db.userlist.findAndModify({
-        query: {
-            _id: mongojs.ObjectId(id)
-        },
-        update: {
-            $set: {
-                username: req.body.username,
-                email: req.body.email
-            }
-        },
-        new: true
-    }, function (err, doc) {
-        res.json(doc);
 
+
+
+//CHECKIN BEER
+//CHECKIN BEER
+app.put('/beerdata/:uname', function (req, res) {
+
+    console.log(req.params.uname);
+    var name = req.params.uname;
+    
+    db.userlist.update({
+        username: name
+    }, {
+        $push: {
+            beers: {
+                bname: "Another Beer",
+                blabel: "www.labelurl.com",
+                syle: "wheat",
+                abv: 5.2,
+                desc: "really good stuff"
+            }
+        }
+    }, function (err, doc) {
+       res.json(doc); 
     });
 });
+
+
+
+
+
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
     res.json(req.user);
