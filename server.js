@@ -69,22 +69,20 @@ app.get('/beerdata', function (req, res) {
 app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to match $http.get in controller.js so the server can receive the data
     console.log('request user',req.body.username);
 
-    db.userlist.insert(req.body, function (err, doc) {
-
             db.userlist.findOne({'username' : req.body.username},function(err,docs){
+                console.log(docs);
 
-                console.log('doc' , docs.username);
-                if(docs.username == req.body.username){
-                    console.log('user exists')
+                if(docs){
+                    console.log('user exists');
                 }else{
-                    res.json(doc);
+                    db.userlist.insert(req.body, function (err, doc) {
+                        res.json(docs);
+                    })
                 }
+
             });
 
-    });
-
 });
-
 
 //DELETE
 //DELETE
