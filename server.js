@@ -113,21 +113,22 @@ app.get('/beerdata/:id', function (req, res) {
 
 //CHECKIN BEER
 //CHECKIN BEER
-app.put('/beerdata/:uname', function (req, res) {
+app.put('/beerdata/:bdata', function (req, res) {
 
-    console.log(req.params.uname);
-    var name = req.params.uname;
+    console.log(req.params.bdata);
+    console.log(req.body);
+    var name = req.params.bdata;
     
     db.userlist.update({
         username: name
     }, {
         $push: {
             beers: {
-                bname: "Yet Another Beer",
-                blabel: "www.labelurl.com",
-                syle: "wheat",
-                abv: 5.2,
-                desc: "really good stuff"
+                bname: req.body.bname,
+                blabel: req.body.blabel,
+                style: req.body.bstyle,
+                abv: req.body.babv,
+                desc: req.body.bdesc
             }
         }
     }, function (err, doc) {

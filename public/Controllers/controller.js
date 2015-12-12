@@ -100,19 +100,21 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     //CHECKIN
     //CHECKIN  
     $scope.checkin = function (name, label, style, abv, desc) {
-        console.log($rootScope.userObj.username, name, label, style, abv, desc);
+//        console.log($rootScope.userObj.username, name, label, style, abv, desc);
         
-        var uname = $rootScope.userObj.username;
+        var bdata = $rootScope.userObj.username;
         
-//        var bdata = {username: $rootScope.userObj.username,
-//                    bname: name,
-//                    blabel: label, 
-//                    bstyle: style, 
-//                    babv: abv,
-//                    bdesc: desc};
+        var k = {username: $rootScope.userObj.username,
+                    bname: name,
+                    blabel: label, 
+                    bstyle: style, 
+                    babv: abv,
+                    bdesc: desc};
+        
+//        console.log(k);
         
         
-        $http.put('/beerdata/' + uname, $scope.user).success(function (response) {
+        $http.put('/beerdata/' + bdata, k).success(function (response) {
             console.log(response);
         })
     };
