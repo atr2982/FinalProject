@@ -12,6 +12,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         }).when('/wishlist', {
             templateUrl: '/views/wishList.html',
             controller: 'wishListCtrl'
+        }).when('/bars', {
+            templateUrl: '/views/bars.html',
+            controller: 'barCtrl'
         })
  }])
 
@@ -63,6 +66,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
     };
 
+    $scope.bar = function(){
+        $location.path('/bars');
+    }
+
     //SEARCH
     //SEARCH    
     //*data flow 2* controller receives data from view when button is clicked below
@@ -79,35 +86,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
     };
 
-    //LOCATION
-    //LOCATION   
-    $scope.getLocation = function () {
-        var x = document.getElementById("loc");
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-            x.innerHTML = "Geolocation is not supported by this browser.";
-        }
 
-        function showPosition(position) {
-            var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
-            var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
-            var la = position.coords.latitude;
-            var lo = position.coords.longitude;
-            $http.get('https://api.foursquare.com/v2/venues/search?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + ',' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=craft beer').success(function (response) {
-                $rootScope.objArr = [];
-                //                          $rootScope.objArr.push(response.response.venues);
-                $rootScope.locations = response.response.venues;
-            });
-        }
-    };
-    
-    //CHECKIN
-    //CHECKIN  
 
 }])
 
-.controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
 
         $scope.logout = function () {
             $http.post('/logout');
@@ -140,9 +123,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.put('/beerdata/' + bdata, k).success(function (response) {
                 console.log(response);
 
+
             });
-
-
 
         };
 
@@ -189,6 +171,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
                 $scope.checked = response.beers;
 
+
             });
 
             $http.get('/beerdata/' + id).success(function (response) {
@@ -208,5 +191,40 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
+
+}])
+
+
+.controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+
+        //LOCATION
+        //LOCATION
+        $scope.getLocation = function () {
+            var x = document.getElementById("loc");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+            function showPosition(position) {
+                var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
+                var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
+                var la = position.coords.latitude;
+                var lo = position.coords.longitude;
+                $http.get('https://api.foursquare.com/v2/venues/search?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + ',' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=craft beer').success(function (response) {
+                    $rootScope.objArr = [];
+                    //                          $rootScope.objArr.push(response.response.venues);
+                    $rootScope.locations = response.response.venues;
+                });
+            }
+        };
 
 }]);

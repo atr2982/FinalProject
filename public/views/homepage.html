@@ -8,23 +8,12 @@
     
     <div class="col-md-6">
         <button ng-click="beerLocation()">My Beers</button>
+        <button ng-click="bar()">Bars Near You</button>
 
         <h1 class="user-header">Hello {{userObj.username}}</h1>
         <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
         <div ng-repeat="beer in beerlist">
             <p>beer.name</p>
-        </div>
-    </div>
-
-    <div class="col-md-6">
-
-       <button ng-click="getLocation()">Bars Near You</button>
-
-        <div class="dataBar" ng-repeat="key in locations">
-            <div class="data-info"><b>{{key.name}}</b></div>
-                <div class="data-info">{{key.location.address}}</div>
-                <p class="data-info">{{key.location.city}}, {{key.location.state}}</p>
-            <hr>
         </div>
     </div>
 

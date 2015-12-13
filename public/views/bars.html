@@ -1,0 +1,26 @@
+<div ng-init="getLocation()" ng-controller="barCtrl">
+
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <h2 class="navbar-text">Pocket Tap</h2>
+        <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+    </nav>
+
+
+
+    <div class="col-md-6">
+
+        <h1>Bars Near You</h1>
+
+
+
+        <div class="dataBar" ng-repeat="key in locations">
+            <div class="data-info"><b>{{key.name}}</b></div>
+            <div class="data-info">{{key.location.address}}</div>
+            <p class="data-info">{{key.location.city}}, {{key.location.state}}</p>
+            <hr>
+        </div>
+    </div>
+
+
+</div>

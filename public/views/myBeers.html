@@ -32,21 +32,29 @@
         </div>
     </div>
 
-    <div id="left-col" class="col-md-12">
-        <h2>My Beers</h2>
+    <div id="left-col" class="col-md-6">
+        <h2>My Check Ins</h2>
 
             <div>
 
                 <div ng-repeat="key in checked">
 
-                    <p>{{key.bname}}<button ng-click="deleteChecked()">Delete</button></p>
+                    <p>{{key.bname}}<button ng-click="deleteChecked()"></button></p>
 
                 </div>
 
             </div>
     </div>
 
+    <div id="right-col" class="col-md-6">
+        <h2>My Wish List</h2>
 
+        <div ng-repeat="key in wished">
 
+            <p>{{key.wname}}</p>
+
+        </div>
+
+    </div>
 
 </div>
