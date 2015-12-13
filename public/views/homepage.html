@@ -35,7 +35,7 @@
         <!--            <p>{{beers}}</p>-->
     </div>
     <div>
-        <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in beers">
+        <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in beers">
             <h2>{{items.beer.beer_name}}</h2>
             <img ng-src="{{items.beer.beer_label}}">
             <p>STYLE - {{items.beer.beer_style}}</p>
@@ -67,7 +67,7 @@
         <button class="btn btn-primary" ng-click="trending()">Search Them Now! Don't Miss Out!</button>
     </div>
     <div>
-        <div class="beers col-lg-6 col-lg-offset-3" ng-repeat="items in trendingBeers">
+        <div class="beers col-lg-6 col-lg-offset-3" id="trend-beers" ng-repeat="items in trendingBeers">
             <h2>{{items.beer.beer_name}}</h2>
             <img ng-src="{{items.beer.beer_label}}">
             <p>STYLE - {{items.beer.beer_style}}</p>

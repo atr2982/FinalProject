@@ -1,13 +1,15 @@
-var express = require('express'),
-    app = express(),
-    mongojs = require('mongojs'),
-    db = mongojs('beerdata', ['userlist']),
-    bodyParser = require('body-parser'),
-    passport = require('passport'),
-    LocalStrategy = require('passport-local').Strategy,
-    expressSession = require('express-session'),
-    objectId = require('mongojs').ObjectId,
-    UserManagement = require('user-management');
+var express         = require('express'),
+    app             = express(),
+    mongojs         = require('mongojs'),
+    db              = mongojs('beerdata', ['userlist']),
+    bodyParser      = require('body-parser'),
+    passport        = require('passport'),
+    LocalStrategy   = require('passport-local').Strategy,
+    expressSession  = require('express-session'),
+    objectId        = require('mongojs').ObjectId,
+    UserManagement  = require('user-management'),
+    port 		    = process.env.PORT || 3000;
+
 
 //severside management
 
@@ -110,10 +112,9 @@ app.get('/beerdata/:id', function (req, res) {
     });
 });
 
-
 //CHECKIN BEER
 //CHECKIN BEER
-app.put('/beerdata/:uname', function (req, res) {
+app.put('/beerdata/:bdata', function (req, res) {
 
     console.log(req.params.uname);
     var name = req.params.uname;
@@ -123,22 +124,17 @@ app.put('/beerdata/:uname', function (req, res) {
     }, {
         $push: {
             beers: {
-                bname: "Yet Another Beer",
-                blabel: "www.labelurl.com",
-                syle: "wheat",
-                abv: 5.2,
-                desc: "really good stuff"
+                bname: req.body.name,
+                blabel: req.body.blabel,
+                style: req.body.style,
+                abv: req.body.abv,
+                desc: req.body.desc
             }
         }
     }, function (err, doc) {
        res.json(doc); 
     });
 });
-
-
-
-
-
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
     res.json(req.user);
@@ -161,5 +157,5 @@ app.get('*', function (req, res) {
 
 });
 
-app.listen(3000);
-console.log("running on 3000");
+app.listen(port);
+console.log("running on port: ", port);
