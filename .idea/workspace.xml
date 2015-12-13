@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7b1a55-7ff4-4b0a-a655-c98db651371a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/myBeers.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/wishList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Controllers/controller.js" afterPath="$PROJECT_DIR$/public/Controllers/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/homepage.html" afterPath="$PROJECT_DIR$/public/views/homepage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
@@ -32,43 +34,34 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="7" selection-start="3398" selection-end="3398" vertical-scroll-proportion="0.0" vertical-offset="1825" max-vertical-offset="2490">
+            <state line="103" column="7" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="3150">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="16" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="1875">
+            <state line="127" column="52" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.023961661" vertical-offset="1890" max-vertical-offset="3270">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homepage.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
+      <file leaf-file-name="myBeers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="67" selection-start="2396" selection-end="2407" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1260">
+            <state line="33" column="0" selection-start="1554" selection-end="1554" vertical-scroll-proportion="-11.708333" vertical-offset="214" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="36" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5037594" vertical-offset="1420" max-vertical-offset="2160">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="465">
+            <state line="118" column="16" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="2310">
               <folding />
             </state>
           </provider>
@@ -100,10 +93,12 @@
         <option value="$PROJECT_DIR$/public/views/nonAuthNav.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/views/signUp.html" />
-        <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
-        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/views/wishList.html" />
         <option value="$PROJECT_DIR$/public/views/homepage.html" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
+        <option value="$PROJECT_DIR$/public/views/myBeers.html" />
       </list>
     </option>
   </component>
@@ -348,23 +343,11 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="76" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="465">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="16" selection-start="696" selection-end="696" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="780">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="330">
@@ -419,30 +402,44 @@
         <state line="27" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="525" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
+    <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="16" selection-start="2109" selection-end="2109" vertical-scroll-proportion="0.0" vertical-offset="1223" max-vertical-offset="1875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="7" selection-start="3398" selection-end="3398" vertical-scroll-proportion="0.0" vertical-offset="1825" max-vertical-offset="2490">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="665">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="67" selection-start="2396" selection-end="2407" vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1260">
+        <state line="2" column="1" selection-start="18" selection-end="261" vertical-scroll-proportion="0.046801873" vertical-offset="0" max-vertical-offset="975">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="36" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.5037594" vertical-offset="1420" max-vertical-offset="2160">
+        <state line="118" column="16" selection-start="1373" selection-end="1373" vertical-scroll-proportion="0.0" vertical-offset="1615" max-vertical-offset="2310">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="7" selection-start="2595" selection-end="2595" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="3150">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="0" selection-start="1554" selection-end="1554" vertical-scroll-proportion="-11.708333" vertical-offset="214" max-vertical-offset="855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="127" column="52" selection-start="4576" selection-end="4576" vertical-scroll-proportion="0.023961661" vertical-offset="1890" max-vertical-offset="3270">
           <folding />
         </state>
       </provider>

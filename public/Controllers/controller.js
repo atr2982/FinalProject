@@ -6,6 +6,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         }).when('/home', {
             templateUrl: '/views/homepage.html',
             controller: 'homepageCtrl'
+        }).when('/mybeers', {
+            templateUrl: '/views/myBeers.html',
+            controller: 'myBeersCtrl'
+        }).when('/wishlist', {
+            templateUrl: '/views/wishList.html',
+            controller: 'wishListCtrl'
         })
  }])
 
@@ -52,16 +58,15 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $location.path('/');
     };
 
+    $scope.beerLocation = function(){
+        $location.path('/mybeers');
+
+    };
+
     //SEARCH
     //SEARCH    
     //*data flow 2* controller receives data from view when button is clicked below
-    $scope.search = function () {
 
-        $http.get("https://api.untappd.com/v4/search/beer?q=" + $scope.search.term + "&limit=10&client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
-            .success(function (response) {
-                $scope.beers = response.response.beers.items;
-            });
-    };
 
     //TRENDING
     //TRENDING   
@@ -99,22 +104,109 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     
     //CHECKIN
     //CHECKIN  
-    $scope.checkin = function (name, label, style, abv, desc) {
-        console.log($rootScope.userObj.username, name, label, style, abv, desc);
+
+}])
+
+.controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+        $scope.search = function () {
+
+            $http.get("https://api.untappd.com/v4/search/beer?q=" + $scope.search.term + "&limit=10&client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
+                .success(function (response) {
+                    $scope.beers = response.response.beers.items;
+                });
+        };
+
+        $scope.checkin = function (name, label, style, abv, desc) {
+
+            var bdata = $rootScope.userObj.username;
+
+            var k = {username: $rootScope.userObj.username,
+                bname: name,
+                blabel: label,
+                bstyle: style,
+                babv: abv,
+                bdesc: desc};
+
+//        console.log(k);
 
 
-        var bdata = {username: $rootScope.userObj.username,
-                    bname: name,
-                    blabel: label,
-                    bstyle: style,
-                    babv: abv,
-                    bdesc: desc};
-        
-        
-        $http.put('/beerdata/' + bdata, $scope.user).success(function (response) {
-            console.log(response);
-        })
-    };
+            $http.put('/beerdata/' + bdata, k).success(function (response) {
+                console.log(response);
+
+            });
+
+
+
+        };
+
+//        $scope.deleteChecked = function(){
+//
+//            var id = $rootScope.userObj._id;
+//
+//            $http.get('/beerdata/' + id).success(function (response) {
+//                console.log(response);
+//
+//            })
+//
+//        };
+
+        $scope.wishList = function(name, label, style, abv, desc){
+
+            console.log('working');
+
+            var uData = $rootScope.userObj.username;
+
+            var obj = {username: $rootScope.userObj.username,
+                wname: name,
+                wlabel: label,
+                wstyle: style,
+                wabv: abv,
+                wdesc: desc};
+
+
+            $http.put('/beerdata/' + uData, obj).success(function (response) {
+                console.log('wish: ',response);
+
+            })
+
+        };
+
+        $scope.checkedData = function(){
+
+            console.log('function is working');
+
+            var id = $rootScope.userObj._id
+
+            $http.get('/beerdata/' + id).success(function (response) {
+//                console.log(response.beers[0].bname);
+
+                $scope.checked = response.beers;
+
+            });
+
+            $http.get('/beerdata/' + id).success(function (response) {
+                console.log('wished:',response.wishBeers);
+
+                $scope.wished = response.wishBeers;
+
+            });
+
+
+
+        }
+
+
+
+    }])
+
+.controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
 
 }]);

@@ -1,0 +1,52 @@
+<div id="home-control"  ng-init="checkedData()" ng-controller="myBeersCtrl">
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <h2 class="navbar-text">Pocket Tap</h2>
+        <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+    </nav>
+
+    <div class="col-lg-12">
+        <label for="search">Search</label>
+        <input id="search" class="form-control" ng-model="search.term">
+        <button class="btn btn-primary" ng-click="search()">Search</button>
+        <!--            <p>{{beers}}</p>-->
+    </div>
+    <div>
+        <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in beers">
+            <h2>{{items.beer.beer_name}}</h2>
+            <img ng-src="{{items.beer.beer_label}}">
+            <p>STYLE - {{items.beer.beer_style}}</p>
+            <p>ABV - {{items.beer.beer_abv}}</p>
+            <p>INFO - {{items.beer.beer_description}}</p>
+            <button class="btn btn-primary" ng-click="checkin(items.beer.beer_name,
+                    items.beer.beer_label,
+                    items.beer.beer_style,
+                    items.beer.beer_abv,
+                    items.beer.beer_description)">CheckIn
+            </button>
+            <button class="btn btn-primary" ng-click="wishList(items.beer.beer_name,
+                    items.beer.beer_label,
+                    items.beer.beer_style,
+                    items.beer.beer_abv,
+                    items.beer.beer_description)">Add To WishList</button>
+        </div>
+    </div>
+
+    <div id="left-col" class="col-md-12">
+        <h2>My Beers</h2>
+
+            <div>
+
+                <div ng-repeat="key in checked">
+
+                    <p>{{key.bname}}<button ng-click="deleteChecked()">Delete</button></p>
+
+                </div>
+
+            </div>
+    </div>
+
+
+
+
+</div>

@@ -86,9 +86,22 @@ app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to m
 
 });
 
+app.get('/beerdata/:id', function (req, res){
+
+    var id = req.params.id;
+
+    db.userlist.findOne({
+        _id : mongojs.ObjectId(id)
+    },function(err,docs){
+        res.json(docs);
+    })
+
+
+});
+
 //DELETE
 //DELETE
-app.delete('/beerdata/:id', function (req, res) {
+app.get('/beerdata/:id', function (req, res) {
     var id = req.params.id;
 //    console.log(id);
     db.userlist.remove({
@@ -116,24 +129,54 @@ app.get('/beerdata/:id', function (req, res) {
 //CHECKIN BEER
 app.put('/beerdata/:bdata', function (req, res) {
 
-    console.log(req.params.uname);
-    var name = req.params.uname;
+    console.log(req.params.bdata);
+    console.log(req.body);
+    var name = req.params.bdata;
     
     db.userlist.update({
         username: name
     }, {
         $push: {
             beers: {
-                bname: req.body.name,
+
+                bname: req.body.bname,
                 blabel: req.body.blabel,
-                style: req.body.style,
-                abv: req.body.abv,
-                desc: req.body.desc
+                style: req.body.bstyle,
+                abv: req.body.babv,
+                desc: req.body.bdesc
             }
         }
     }, function (err, doc) {
        res.json(doc); 
     });
+});
+
+app.put('/beerdata/:uData', function (req, res) {
+
+//    console.log(req.params.uData);
+//    console.log(req.body);
+    var name = req.params.uData;
+    console.log('looking for: ' , name);
+
+    db.userlist.update({
+        username: name
+    }, {
+        $push: {
+            wishBeers: {
+
+                wname: req.body.wname,
+                wlabel: req.body.wlabel,
+                wstyle: req.body.wstyle,
+                wabv: req.body.wabv,
+                wdesc: req.body.wdesc
+            }
+        }
+    }, function (err, doc) {
+        res.json(doc);
+        console.log(doc);
+    });
+
+
 });
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
