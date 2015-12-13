@@ -68,7 +68,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
     $scope.bar = function(){
         $location.path('/bars');
-    }
+    };
 
     //SEARCH
     //SEARCH    
@@ -97,6 +97,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $rootScope.userObj = undefined;
             $location.path('/');
         };
+
+        $scope.bar = function(){
+            $location.path('/bars');
+        }
 
         $scope.search = function () {
 
@@ -201,6 +205,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.post('/logout');
             $rootScope.userObj = undefined;
             $location.path('/');
+        };
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+
         };
 
 

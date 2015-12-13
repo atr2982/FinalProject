@@ -3,12 +3,13 @@
    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
                 <h2 class="navbar-text">Pocket Tap</h2>
                 <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+    <button class="btn btn-danger" ng-click="beerLocation()">My Beers</button>
+    <button class="btn btn-danger" ng-click="bar()">Bars Near You</button>
     </nav>
    <div id="home-control" ng-controller="homepageCtrl">
     
     <div class="col-md-6">
-        <button ng-click="beerLocation()">My Beers</button>
-        <button ng-click="bar()">Bars Near You</button>
+
 
         <h1 class="user-header">Hello {{userObj.username}}</h1>
         <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
