@@ -161,8 +161,6 @@ app.put('/addcheckin', function (req, res) {
 //WISHLIST
 app.put('/addwishlist', function (req, res) {
 
-    console.log(req.body);
-
         db.userlist.update({
             username: req.body.username
         }, {

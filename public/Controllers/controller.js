@@ -117,7 +117,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             console.log(deletestats);
             
             $http.put('/deletebeer', deletestats).success(function (response) {
-               console.log(response); 
+               console.log(response);
+                
+                if(response){
+                    $route.reload();
+                }
             });
         };
 
@@ -138,6 +142,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             $http.put('/addcheckin', beerstats).success(function (response) {
                 console.log(response);
+                
+                if(response){
+                    $route.reload();
+                }
             });
         };
 
@@ -160,6 +168,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             $http.put('/addwishlist', beerstats).success(function (response) {
                 console.log(response);
+                
+                if(response){
+                    $route.reload();
+                }
             })
         };
 
