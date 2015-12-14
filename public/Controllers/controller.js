@@ -19,10 +19,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
  }])
 
 
-.run(['$rootScope', '$http', function ($rootScope, $http) {
+.run(['$rootScope', '$http', function ($rootScope, $http, $location) {
     $http.get('/userCheck').success(function (response) {
         if(response){
             $rootScope.userObj = response;
+
         }
     });
 }])
@@ -92,6 +93,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 .controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
 
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
+
         $scope.logout = function () {
             $http.post('/logout');
             $rootScope.userObj = undefined;
@@ -100,7 +105,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         $scope.bar = function(){
             $location.path('/bars');
-        }
+        };
 
         $scope.search = function () {
 
@@ -114,6 +119,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             var bdata = $rootScope.userObj.username;
 
+            var checkFunct = true;
+
             var k = {username: $rootScope.userObj.username,
                 bname: name,
                 blabel: label,
@@ -124,7 +131,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 //        console.log(k);
 
 
-            $http.put('/beerdata/' + bdata, k).success(function (response) {
+            $http.put('/beerdata/' + bdata ,k).success(function (response) {
                 console.log(response);
 
                 if(response){
@@ -135,6 +142,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
 
         };
+
+
 
 //        $scope.deleteChecked = function(){
 //
@@ -148,6 +157,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 //        };
 
         $scope.wishList = function(name, label, style, abv, desc){
+
+
 
             console.log('working');
 
@@ -172,7 +183,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             console.log('function is working');
 
-            var id = $rootScope.userObj._id
+            var id = $rootScope.userObj._id;
 
             $http.get('/beerdata/' + id).success(function (response) {
 //                console.log(response.beers[0].bname);
@@ -199,11 +210,19 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
+
 
 }])
 
 
 .controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
 
         $scope.logout = function () {
             $http.post('/logout');

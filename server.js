@@ -99,6 +99,7 @@ app.get('/beerdata/:id', function (req, res){
 
 });
 
+
 //DELETE
 //DELETE
 app.get('/beerdata/:id', function (req, res) {
@@ -133,8 +134,7 @@ app.put('/beerdata/:bdata', function (req, res) {
     console.log(req.body);
     var name = req.params.bdata;
 
-    console.log('looking for: ' , name);
-
+    console.log(req.params.checkFunt);
 
     db.userlist.update({
         username: name
@@ -156,8 +156,8 @@ app.put('/beerdata/:bdata', function (req, res) {
 
 app.put('/beerdata/:uData', function (req, res) {
 
-//    console.log(req.params.uData);
-//    console.log(req.body);
+    console.log(req.params.uData);
+    console.log(req.body);
     var name = req.params.uData;
 
     db.userlist.update({
