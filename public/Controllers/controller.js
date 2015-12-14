@@ -109,59 +109,58 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                     $scope.beers = response.response.beers.items;
                 });
         };
+    
+        $scope.deleteChecked = function (name) {
+            
+            var deletestats = {username: $rootScope.userObj.username, bname: name};
+            
+            console.log(deletestats);
+            
+            $http.put('/deletebeer', deletestats).success(function (response) {
+               console.log(response); 
+            });
+        };
 
+    
         $scope.checkin = function (name, label, style, abv, desc) {
+            
+            console.log("NOT WISHLIST");
 
-            var bdata = $rootScope.userObj.username;
-
-            var k = {username: $rootScope.userObj.username,
+            var beerstats = {
+                type: "checkin",
+                username: $rootScope.userObj.username,
                 bname: name,
                 blabel: label,
                 bstyle: style,
                 babv: abv,
-                bdesc: desc};
+                bdesc: desc
+            };
 
-//        console.log(k);
-
-
-            $http.put('/beerdata/' + bdata, k).success(function (response) {
+            $http.put('/addcheckin', beerstats).success(function (response) {
                 console.log(response);
-
-
             });
-
         };
 
-//        $scope.deleteChecked = function(){
-//
-//            var id = $rootScope.userObj._id;
-//
-//            $http.get('/beerdata/' + id).success(function (response) {
-//                console.log(response);
-//
-//            })
-//
-//        };
 
         $scope.wishList = function(name, label, style, abv, desc){
+            
+            console.log("WISHLIST");
 
-            console.log('working');
+            var wdata = $rootScope.userObj.username;
 
-            var uData = $rootScope.userObj.username;
+            var beerstats = {
+                type: "wishlist",
+                username: $rootScope.userObj.username,
+                bname: name,
+                blabel: label,
+                bstyle: style,
+                babv: abv,
+                bdesc: desc
+            };
 
-            var obj = {username: $rootScope.userObj.username,
-                wname: name,
-                wlabel: label,
-                wstyle: style,
-                wabv: abv,
-                wdesc: desc};
-
-
-            $http.put('/beerdata/' + uData, obj).success(function (response) {
-                console.log('wish: ',response);
-
+            $http.put('/addwishlist', beerstats).success(function (response) {
+                console.log(response);
             })
-
         };
 
         $scope.checkedData = function(){
@@ -172,25 +171,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             $http.get('/beerdata/' + id).success(function (response) {
 //                console.log(response.beers[0].bname);
-
                 $scope.checked = response.beers;
-
-
+                $scope.wished = response.wishList;
             });
-
-            $http.get('/beerdata/' + id).success(function (response) {
-                console.log('wished:',response.wishBeers);
-
-                $scope.wished = response.wishBeers;
-
-            });
-
-
-
         }
-
-
-
     }])
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
@@ -228,7 +212,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
                 var la = position.coords.latitude;
                 var lo = position.coords.longitude;
-                $http.get('https://api.foursquare.com/v2/venues/search?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + ',' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=craft beer').success(function (response) {
+                $http.get('https://api.foursquare.com/v2/venues/search?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + ',' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=tavern').success(function (response) {
                     $rootScope.objArr = [];
                     //                          $rootScope.objArr.push(response.response.venues);
                     $rootScope.locations = response.response.venues;

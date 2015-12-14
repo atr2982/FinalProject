@@ -101,14 +101,23 @@ app.get('/beerdata/:id', function (req, res){
 
 //DELETE
 //DELETE
-app.get('/beerdata/:id', function (req, res) {
-    var id = req.params.id;
-//    console.log(id);
-    db.userlist.remove({
-        _id: mongojs.ObjectId(id)
+app.put('/deletebeer', function (req, res) {
+    
+    console.log(req.body.username, req.body.bname);
+
+    db.userlist.update({
+        username: req.body.username
+    }, {
+        $pull: {
+            beers: {
+                bname: req.body.bname
+            }
+        }
+    }, {
+        multi: true
     }, function (err, doc) {
-        res.json(doc);
-    })
+       res.json(doc); 
+    });
 });
 
 
@@ -127,18 +136,15 @@ app.get('/beerdata/:id', function (req, res) {
 
 //CHECKIN BEER
 //CHECKIN BEER
-app.put('/beerdata/:bdata', function (req, res) {
+app.put('/addcheckin', function (req, res) {
 
-    console.log(req.params.bdata);
     console.log(req.body);
-    var name = req.params.bdata;
-    
+
     db.userlist.update({
-        username: name
+        username: req.body.username
     }, {
         $push: {
             beers: {
-
                 bname: req.body.bname,
                 blabel: req.body.blabel,
                 style: req.body.bstyle,
@@ -147,37 +153,35 @@ app.put('/beerdata/:bdata', function (req, res) {
             }
         }
     }, function (err, doc) {
-       res.json(doc); 
-    });
-});
-
-app.put('/beerdata/:uData', function (req, res) {
-
-//    console.log(req.params.uData);
-//    console.log(req.body);
-    var name = req.params.uData;
-    console.log('looking for: ' , name);
-
-    db.userlist.update({
-        username: name
-    }, {
-        $push: {
-            wishBeers: {
-
-                wname: req.body.wname,
-                wlabel: req.body.wlabel,
-                wstyle: req.body.wstyle,
-                wabv: req.body.wabv,
-                wdesc: req.body.wdesc
-            }
-        }
-    }, function (err, doc) {
         res.json(doc);
-        console.log(doc);
     });
-
-
 });
+
+//WISHLIST
+//WISHLIST
+app.put('/addwishlist', function (req, res) {
+
+    console.log(req.body);
+
+        db.userlist.update({
+            username: req.body.username
+        }, {
+            $push: {
+                wishList: {
+                    bname: req.body.bname,
+                    blabel: req.body.blabel,
+                    style: req.body.bstyle,
+                    abv: req.body.babv,
+                    desc: req.body.bdesc
+                }
+            }
+        }, function (err, doc) {
+            res.json(doc);
+        });
+});
+
+
+
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
     res.json(req.user);

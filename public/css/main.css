@@ -155,3 +155,6 @@ img {
     background: #fff;
     opacity: 0.9;
 }
+.check, .del {
+     height: 25px;   
+}
