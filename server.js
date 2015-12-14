@@ -132,7 +132,10 @@ app.put('/beerdata/:bdata', function (req, res) {
     console.log(req.params.bdata);
     console.log(req.body);
     var name = req.params.bdata;
-    
+
+    console.log('looking for: ' , name);
+
+
     db.userlist.update({
         username: name
     }, {
@@ -156,7 +159,6 @@ app.put('/beerdata/:uData', function (req, res) {
 //    console.log(req.params.uData);
 //    console.log(req.body);
     var name = req.params.uData;
-    console.log('looking for: ' , name);
 
     db.userlist.update({
         username: name

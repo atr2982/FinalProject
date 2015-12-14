@@ -127,6 +127,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.put('/beerdata/' + bdata, k).success(function (response) {
                 console.log(response);
 
+                if(response){
+                    $route.reload();
+                }
+
 
             });
 
