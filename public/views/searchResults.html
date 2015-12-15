@@ -1,0 +1,24 @@
+<div class="container" id="home-control" ng-controller="resultsCtrl">
+
+    <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in setBeer">
+        <h2>{{items.beer.beer_name}}</h2>
+        <img ng-src="{{items.beer.beer_label}}">
+        <p>STYLE - {{items.beer.beer_style}}</p>
+        <p>ABV - {{items.beer.beer_abv}}</p>
+        <p>INFO - {{items.beer.beer_description}}</p>
+        <button class="btn btn-primary" ng-click="checkin(items.beer.beer_name,
+                    items.beer.beer_label,
+                    items.beer.beer_style,
+                    items.beer.beer_abv,
+                    items.beer.beer_description)">CheckIn
+        </button>
+        <button class="btn btn-primary" ng-click="wishList(items.beer.beer_name,
+                    items.beer.beer_label,
+                    items.beer.beer_style,
+                    items.beer.beer_abv,
+                    items.beer.beer_description)">Add To WishList</button>
+    </div>
+</div>
+
+
+</div>

@@ -4,6 +4,8 @@
         <h2 class="navbar-text">Pocket Tap</h2>
         <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
         <button class="btn btn-danger" ng-click="bar()">Bars Near You</button>
+        <button class="btn btn-danger" ng-click="homeEsc()">Home</button>
+
 
     </nav>
 
@@ -37,15 +39,19 @@
     <div id="left-col" class="col-md-6">
         <h2>{{userObj.username}}'s Check Ins</h2>
 
-            <div>
-
+            <div class="col-sm-6">
                 <div ng-repeat="key in checked">
-
-                    <p>{{key.bname}}<button ng-click="deleteChecked()"></button></p>
-
+                    <p class="check">{{key.bname}}</p>
                 </div>
-
             </div>
+            
+            <div class="col-sm-6 list">
+                <div ng-repeat="key in checked">
+                    <p class="del"><button ng-click="deleteChecked(key.bname)">X</button></p>
+                </div>
+            </div>
+            
+            
     </div>
 
     <div id="right-col" class="col-md-6">
@@ -53,7 +59,7 @@
 
         <div ng-repeat="key in wished">
 
-            <p>{{key.wname}}</p>
+            <p>{{key.bname}}</p>
 
         </div>
 

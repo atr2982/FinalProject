@@ -15,7 +15,6 @@ form {
 ul{
     list-style-type: none;
     padding: 2% 0;
-    background: #000;
 }
 
 #addc{
@@ -134,6 +133,7 @@ img {
 
 #home-control{
     opacity: 0.9;
+    margin-top: 10%;
 }
 
 #search-beers{
@@ -155,3 +155,53 @@ img {
     background: #fff;
     opacity: 0.9;
 }
+.check, .del {
+     height: 25px;   
+}
+
+
+#navrBtn li{
+    width:100%;
+    color:#000;
+    padding:5% 0;
+    background: #f6fdff;
+    margin-top:1%;
+    opacity: 0.9;
+    font-size:3em;
+    text-align: center;
+
+}
+
+#navrBtn li:hover{
+    opacity: 0.7;
+}
+
+#home-head{
+    text-align: center;
+    font-size:2em;
+}
+
+img[alt="barIcon"]{
+     margin-right: 14%;
+     width:100px;
+     height:100px;
+     border: solid #000;
+
+}
+img[alt="beerIcon"]{
+    margin-right: 10%;
+    width:100px;
+    height:100px;
+    border: solid #000;
+
+}
+img[alt="wistListIcon"]{
+    margin-right: 28%;
+    width:100px;
+    height:100px;
+    border: solid #000;
+}
+
+
+
+
