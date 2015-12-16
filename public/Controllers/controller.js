@@ -16,12 +16,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 templateUrl: '/views/bars.html',
                 controller: 'barCtrl'
             })
-            .when('/searchResults', {
+            .when('/searchResults/:searchTerm', {
                 templateUrl: '/views/searchResults.html',
                 controller: 'resultsCtrl'
-            })
+            }).when('/resultInfo/:searchTerm/:beerIndex', {
+                templateUrl: '/views/result-info.html',
+                controller: 'infoCtrl'
+            }).otherwise('/')
     }])
-
 
     .run(['$rootScope', '$http', function ($rootScope, $http) {
         $http.get('/userCheck').success(function (response) {
@@ -31,18 +33,26 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         });
     }])
 
+    .factory('beerApi',['$http', function($http){
+        var _clientId = '905F449B2E3DAB14D4138D35623F50858F2D105D',
+            _clientSecret = 'B4DEB76167F86248BB68F5CDA7606A8EA2707752',
+            _resultLimit = 10,
+            _apiUrl = 'https://api.untappd.com/v4/search/beer?q=',
+            _apiDetails = '&limit='+ _resultLimit +'&client_id='+_clientId +'&client_secret='+ _clientSecret,
+            beerApi = {};
 
-.factory('masteryFactory', function(){
-    function masteryFactory(){
-        this.returnedCriteria;
-        this.set = function(args){
-            this.returnedCriteria = args;
-        }
-    }
-    return new masteryFactory();
-})
+        beerApi.getList = function(searchTerm){
+            var _concatUrl = _apiUrl + searchTerm +_apiDetails;
+            return $http.get(_concatUrl);
+        };
 
-    .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
+        beerApi.list = {};
+
+        return beerApi;
+    }])
+
+
+.controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
 
         $scope.signUp1 = false;
         $scope.signUp = function () {
@@ -62,9 +72,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $location.path('/home');
             })
         };
-    }])
+}])
 
-    .controller('homepageCtrl', ["$http", "$rootScope", "$scope", "$location", "masteryFactory", function ($http, $rootScope, $scope, $location, masteryFactory) {
+.controller('homepageCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
@@ -88,16 +98,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/bars');
         };
 
-        $scope.search = function () {
 
-            $http.get("https://api.untappd.com/v4/search/beer?q=" + $scope.search.term + "&limit=10&client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
-                .success(function (response) {
-
-                    masteryFactory.set(response.response.beers.items);
-                    $location.path('/searchResults')
-
-                });
-        };
 
         $scope.recent = function(){
 
@@ -138,18 +139,92 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 
 
-    }])
+}])
 
-    .controller('resultsCtrl', ["$http", "$rootScope", "$scope", "$location","$route","masteryFactory", function ($http, $rootScope, $scope, $location,$route,masteryFactory) {
+.controller('resultsCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
 
-        $scope.setBeer = masteryFactory;
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
+
+        beerApi.getList($routeParams.searchTerm)
+            .success(function(response){
+                console.log(response.response.beers.items);
+
+                $scope.Data = response.response.beers.items;
+
+                $scope.searchTerm = $routeParams.searchTerm;
 
 
+            });
+}])
 
-    }])
+.controller('infoCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
+
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
+
+        beerApi.getList($routeParams.searchTerm)
+            .success(function(response){
+                $scope.beer = response.response.beers.items[$routeParams.beerIndex].beer;
+
+                console.log('looking: ',$scope.beer);
+
+            });
+
+        $scope.checkin = function (name, label, style, abv, desc) {
+
+            console.log("NOT WISHLIST");
+
+            var beerstats = {
+                type: "checkin",
+                username: $rootScope.userObj.username,
+                bname: name,
+                blabel: label,
+                bstyle: style,
+                babv: abv,
+                bdesc: desc
+            };
+
+            $http.put('/addcheckin', beerstats).success(function (response) {
+                console.log(response);
+
+                if(response){
+                    $location.path('/mybeers')
+                }
+            });
+        };
 
 
-        .controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
+        $scope.wishList = function(name, label, style, abv, desc){
+
+            console.log("WISHLIST");
+
+            var wdata = $rootScope.userObj.username;
+
+            var beerstats = {
+                type: "wishlist",
+                username: $rootScope.userObj.username,
+                bname: name,
+                blabel: label,
+                bstyle: style,
+                babv: abv,
+                bdesc: desc
+            };
+
+            $http.put('/addwishlist', beerstats).success(function (response) {
+                console.log(response);
+
+                if(response){
+                    $location.path('/mybeers')
+                }
+            })
+        };
+
+}])
+
+.controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
@@ -203,7 +278,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 console.log(response);
 
                 if(response){
-                    $route.reload();
+                    $location.path('/mybeers')
                 }
             });
         };
@@ -229,26 +304,26 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 console.log(response);
 
                 if(response){
-                    $route.reload();
+                     $location.path('/mybeers')
                 }
             })
         };
 
         $scope.checkedData = function(){
 
-            console.log('function is working');
-
             var id = $rootScope.userObj._id;
 
             $http.get('/beerdata/' + id).success(function (response) {
-//                console.log(response.beers[0].bname);
+
+                console.log("Front End:",response);
+
                 $scope.checked = response.beers;
                 $scope.wished = response.wishList;
             });
         }
     }])
 
-    .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
@@ -260,10 +335,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 
 
-    }])
+}])
 
 
-    .controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
@@ -308,4 +383,4 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             }
         };
 
-    }]);
+}]);

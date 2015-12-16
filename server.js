@@ -39,6 +39,8 @@ passport.use(new LocalStrategy({
 ));
 
 
+
+
 passport.serializeUser(function (user, done) {
     done(null, user._id);
 });
@@ -59,6 +61,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //server routes
+
+
 
 app.get('/beerdata', function (req, res) {
     db.userlist.find(function (err, docs) {
@@ -93,6 +97,9 @@ app.get('/beerdata/:id', function (req, res){
     db.userlist.findOne({
         _id : mongojs.ObjectId(id)
     },function(err,docs){
+
+        console.log("my docs: ",docs);
+
         res.json(docs);
     })
 

@@ -1,0 +1,24 @@
+<div class="container" id="info-control" ng-controller="infoCtrl">
+
+    <div class="beers col-lg-6 col-lg-offset-3" id="search-beers">
+
+        <h1 class="search-info">{{beer.beer_name}}</h1>
+
+        <p class="search-info">STYLE - {{beer.beer_style}}</p>
+        <p class="search-info">ABV - {{beer.beer_abv}}</p>
+        <p class="search-info">INFO - {{beer.beer_description}}</p>
+
+        <button class="btn btn-primary" ng-click="checkin(beer.beer_name,
+                        beer.beer_label,
+                        beer.beer_style,
+                        beer.beer_abv,
+                        beer.beer_description)">CheckIn
+        </button>
+        <button class="btn btn-primary" ng-click="wishList(beer.beer_name,
+                        beer.beer_label,
+                        beer.beer_style,
+                        beer.beer_abv,
+                        beer.beer_description)">Add To WishList</button>
+    </div>
+
+</div>
