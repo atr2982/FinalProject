@@ -1,6 +1,18 @@
-<div class="container" id="info-control" ng-controller="infoCtrl">
+
+
+<div class="container" ng-init="getLocation()" id="info-control" ng-controller="infoCtrl">
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <h2 class="navbar-text">Pocket Tap</h2>
+        <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+        <button class="btn btn-danger" ng-click="bar()">Bars Near You</button>
+        <button class="btn btn-danger" ng-click="homeEsc()">Home</button>
+    </nav>
 
     <div class="beers col-lg-6 col-lg-offset-3" id="search-beers">
+
+
+
 
         <h1 class="search-info">{{beer.beer_name}}</h1>
 
@@ -8,11 +20,27 @@
         <p class="search-info">ABV - {{beer.beer_abv}}</p>
         <p class="search-info">INFO - {{beer.beer_description}}</p>
 
+        <h3>Choose Location</h3>
+        <select ng-model="usercheckin.location">
+            <option value="">Select a location</option>
+            <option ng-repeat="data in locations" value="{{data.venue.name}}">
+                {{data.venue.name}}
+            </option>
+        </select>
+
+        <textarea ng-model="usercheckin.desc"></textarea>
+
+
+        <h3>Rating</h3>
+        <div ng-init="rating = star.rating + 1"></div>
+        <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
+        </div>
+
         <button class="btn btn-primary" ng-click="checkin(beer.beer_name,
                         beer.beer_label,
                         beer.beer_style,
                         beer.beer_abv,
-                        beer.beer_description)">CheckIn
+                        beer.beer_description,usercheckin,rating)">CheckIn
         </button>
         <button class="btn btn-primary" ng-click="wishList(beer.beer_name,
                         beer.beer_label,

@@ -23,17 +23,17 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 templateUrl: '/views/result-info.html',
                 controller: 'infoCtrl'
             }).otherwise('/')
-    }])
+}])
 
-    .run(['$rootScope', '$http', function ($rootScope, $http) {
+.run(['$rootScope', '$http', function ($rootScope, $http) {
         $http.get('/userCheck').success(function (response) {
             if(response){
                 $rootScope.userObj = response;
             }
         });
-    }])
+}])
 
-    .factory('beerApi',['$http', function($http){
+.factory('beerApi',['$http', function($http){
         var _clientId = '905F449B2E3DAB14D4138D35623F50858F2D105D',
             _clientSecret = 'B4DEB76167F86248BB68F5CDA7606A8EA2707752',
             _resultLimit = 10,
@@ -48,9 +48,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         beerApi.list = {};
 
-        return beerApi;
-    }])
 
+
+
+        return beerApi;
+}])
 
 .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
 
@@ -60,14 +62,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $location.path('/');
                 alert("passwords do not match");
             } else {
-                $http.post('/beerdata', $scope.user).success(function (response) { //*data flow 3* $http(ajax call) to server.js file
+                $http.post('/beerdata', $scope.user).success(function (response) {
                     $location.path('/home');
                 })
             }
         };
 
         $scope.login = function () {
-            $http.post('/login', $scope.user).success(function (response) { //*data flow 3* $http(ajax call) to server.js file
+            $http.post('/login', $scope.user).success(function (response) {
                 $rootScope.userObj = response;
                 $location.path('/home');
             })
@@ -75,6 +77,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 }])
 
 .controller('homepageCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
@@ -98,8 +101,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/bars');
         };
 
-
-
         $scope.recent = function(){
 
             var id = $rootScope.userObj._id;
@@ -107,26 +108,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.get('/recent/' + id).success(function (response) {
                 console.log('target: ',response.beers);
 
-//                for(var i=0;i < response.beers.length;i++){
-//
-//                    console.log('target now: ',[i].bname);
-//
-//                }
-
                 $scope.recentList = response.beers;
 
             });
 
         };
 
-        //SEARCH
-        //SEARCH
-        //*data flow 2* controller receives data from view when button is clicked below
-
-
-        //TRENDING
-        //TRENDING
-        //*data flow 2* controller receives data from view when button is clicked below
         $scope.trending = function () {
 
             console.log("is it working?");
@@ -136,9 +123,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                     $scope.trendingBeers = response.response.micro.items;
                 });
         };
-
-
-
 }])
 
 .controller('resultsCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
@@ -146,6 +130,20 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
+
+        $scope.homeEsc = function(){
+            $location.path('/home');
+        };
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
+        };
 
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
@@ -158,12 +156,88 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             });
 }])
+.directive('starRating',
+    function () {
+        return {
+            restrict: 'A',
+            template: '<ul class="rating">' + '    <li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' + '\u2605' + '</li>' + '</ul>',
+            scope: {
+                ratingValue: '=',
+                max: '=',
+                onRatingSelected: '&'
+            },
+            link: function (scope, elem, attrs) {
+                var updateStars = function () {
+                    scope.stars = [];
+                    for (var i = 0; i < scope.max; i++) {
+                        scope.stars.push({
+                            filled: i < scope.ratingValue
+                        });
+                    }
+                };
+
+                scope.toggle = function (index) {
+                    scope.ratingValue = index + 1;
+                    scope.onRatingSelected({
+                        rating: index + 1
+                    });
+                };
+
+                scope.$watch('ratingValue',
+                    function (oldVal, newVal) {
+                        if (newVal) {
+                            updateStars();
+                        }
+                    }
+                );
+            }
+        };
+    }
+)
 
 .controller('infoCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
+
+        $scope.getLocation = function () {
+            var x = document.getElementById("loc");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+            function showPosition(position) {
+                var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
+                var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
+                var la = position.coords.latitude;
+                var lo = position.coords.longitude;
+                $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
+                    $rootScope.objArr = [];
+                    $rootScope.locations = response.response.groups[0].items;
+                });
+            }
+        };
+
+        $scope.rateFunction = function(rating) {
+            console.log(rating);
+        };
+
+        $scope.homeEsc = function(){
+            $location.path('/home');
+        };
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
+        };
 
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
@@ -196,7 +270,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
-
         $scope.wishList = function(name, label, style, abv, desc){
 
             console.log("WISHLIST");
@@ -221,7 +294,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 }
             })
         };
-
 }])
 
 .controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
@@ -260,6 +332,22 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
+        $scope.deleteWished = function (name) {
+
+            var deletestats = {username: $rootScope.userObj.username, bname: name};
+
+            console.log(deletestats);
+
+            $http.put('/deletewish', deletestats).success(function (response) {
+                console.log(response);
+
+                if(response){
+                    $route.reload();
+                }
+            });
+        };
+
+
         $scope.checkin = function (name, label, style, abv, desc) {
 
             console.log("NOT WISHLIST");
@@ -282,7 +370,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 }
             });
         };
-
 
         $scope.wishList = function(name, label, style, abv, desc){
 
@@ -320,7 +407,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $scope.checked = response.beers;
                 $scope.wished = response.wishList;
             });
-        }
+        };
+
     }])
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
@@ -332,8 +420,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.homeEsc = function(){
             $location.path('/home');
         }
-
-
 
 }])
 
@@ -360,27 +446,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         };
 
-        //LOCATION
-        //LOCATION
-        $scope.getLocation = function () {
-            var x = document.getElementById("loc");
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
 
-            function showPosition(position) {
-                var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
-                var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
-                var la = position.coords.latitude;
-                var lo = position.coords.longitude;
-                $http.get('https://api.foursquare.com/v2/venues/search?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + ',' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&query=tavern').success(function (response) {
-                    $rootScope.objArr = [];
-                    //                          $rootScope.objArr.push(response.response.venues);
-                    $rootScope.locations = response.response.venues;
-                });
-            }
-        };
 
 }]);

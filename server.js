@@ -142,6 +142,25 @@ app.put('/deletebeer', function (req, res) {
     });
 });
 
+app.put('/deletewish', function (req, res) {
+
+    console.log(req.body.username, req.body.bname);
+
+    db.userlist.update({
+        username: req.body.username
+    }, {
+        $pull: {
+            wishList: {
+                bname: req.body.bname
+            }
+        }
+    }, {
+        multi: true
+    }, function (err, doc) {
+        res.json(doc);
+    });
+});
+
 
 //EDIT
 //EDIT

@@ -39,9 +39,9 @@
     <div id="left-col" class="col-md-6">
         <h2>{{userObj.username}}'s Check Ins</h2>
 
-            <div class="col-sm-6">
+            <div class="col-sm-6 list">
                 <div ng-repeat="key in checked">
-                    <p class="check">{{key.bname}}</p>
+                   <a href="#/resultInfo/{{searchTerm}}/{{$index}}"><p class="check">{{key.bname}}</p></a>
                 </div>
             </div>
             
@@ -56,11 +56,17 @@
 
     <div id="right-col" class="col-md-6">
         <h2>{{userObj.username}}'s Wish List</h2>
+        <div class="col-sm-6 list">
+            <div ng-repeat="key in wished">
 
-        <div ng-repeat="key in wished">
+                <a href="#/resultInfo/{{searchTerm}}/{{$index}}"><p class="check">{{key.bname}}</p></a>
 
-            <p>{{key.bname}}</p>
-
+            </div>
+        </div>
+        <div class="col-sm-6 list">
+            <div ng-repeat="key in wished">
+                <p class="del"><button ng-click="deleteWished(key.bname)">X</button></p>
+            </div>
         </div>
 
     </div>

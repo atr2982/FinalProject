@@ -1,4 +1,15 @@
+
+
 <div class="container" id="home-control" ng-controller="resultsCtrl">
+
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <h2 class="navbar-text">Pocket Tap</h2>
+        <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
+        <button class="btn btn-danger" ng-click="bar()">Bars Near You</button>
+        <button class="btn btn-danger" ng-click="homeEsc()">Home</button>
+
+
+    </nav>
 
     <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in Data">
         <img ng-src="{{items.beer.beer_label}}">

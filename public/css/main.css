@@ -77,7 +77,6 @@ nav{
 ul li{
     font-size: 1.7em;
     text-align: center;
-    color: #FFF;
 }
 
 #register{
@@ -210,5 +209,29 @@ img[alt="wistListIcon"]{
 #beer-header{
     font-size: 3em;
     text-align: center;
+}
+
+
+.rating{
+    color: #a9a9a9 ;
+    margin: 0;
+    padding: 0;
+}
+
+ul.rating {
+    display: inline-block;
+}
+
+.rating li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rating .filled {
+    color: #21568b ;
 }
 
