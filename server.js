@@ -98,8 +98,6 @@ app.get('/beerdata/:id', function (req, res){
         _id : mongojs.ObjectId(id)
     },function(err,docs){
 
-        console.log("my docs: ",docs);
-
         res.json(docs);
     })
 
@@ -119,7 +117,21 @@ app.get('/recent/:id', function (req, res){
 
 });
 
+app.put('/brewInfo',function(req,res){
+    var id = req.body._id;
+    console.log("Body : ",req.body._id);
 
+    db.userlist.findOne({_id : mongojs.ObjectId(id)},
+        {
+                beers: [{
+                    bname: req.body.bname
+                }]
+
+        },function(err,doc){
+            res.json(doc);
+            console.log("My Response: ",doc);
+        });
+});
 
 //DELETE
 //DELETE
@@ -193,7 +205,10 @@ app.put('/addcheckin', function (req, res) {
                 blabel: req.body.blabel,
                 style: req.body.bstyle,
                 abv: req.body.babv,
-                desc: req.body.bdesc
+                desc: req.body.bdesc,
+                location : req.body.blocation,
+                userinput : req.body.buserinput,
+                rating : req.body.rating
             }
         }
     }, function (err, doc) {

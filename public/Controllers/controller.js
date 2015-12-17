@@ -22,7 +22,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             }).when('/resultInfo/:searchTerm/:beerIndex', {
                 templateUrl: '/views/result-info.html',
                 controller: 'infoCtrl'
-            }).otherwise('/')
+            }).when('/checkInfo', {
+                templateUrl: '/views/checkInfo.html',
+                controller: 'checkInfo'
+            }).when('/wishInfo', {
+                templateUrl: '/views/wishInfo',
+                controller: 'wishInfo'
+            })
+            .otherwise('/')
 }])
 
 .run(['$rootScope', '$http', function ($rootScope, $http) {
@@ -47,9 +54,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         beerApi.list = {};
-
-
-
 
         return beerApi;
 }])
@@ -160,7 +164,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     function () {
         return {
             restrict: 'A',
-            template: '<ul class="rating">' + '    <li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' + '\u2605' + '</li>' + '</ul>',
+            template: '<ul class="rating">' + '<li ng-repeat="star in stars" ng-class="star" ng-click="toggle($index)">' + '\u2605' + '</li>' + '</ul>',
             scope: {
                 ratingValue: '=',
                 max: '=',
@@ -247,18 +251,23 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             });
 
-        $scope.checkin = function (name, label, style, abv, desc) {
+        $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
 
             console.log("NOT WISHLIST");
 
             var beerstats = {
+
                 type: "checkin",
                 username: $rootScope.userObj.username,
                 bname: name,
                 blabel: label,
                 bstyle: style,
                 babv: abv,
-                bdesc: desc
+                bdesc: desc,
+                blocation : usercheckin.location,
+                buserinput : usercheckin.desc,
+                brating : rating
+
             };
 
             $http.put('/addcheckin', beerstats).success(function (response) {
@@ -347,7 +356,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
-
         $scope.checkin = function (name, label, style, abv, desc) {
 
             console.log("NOT WISHLIST");
@@ -409,6 +417,29 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
+        $scope.getBeerCheck = function(brew){
+
+            var id = $rootScope.userObj._id;
+
+            var beerObj = { _id : id,
+                            bname : brew
+        };
+            console.log("Beer Obj:",beerObj);
+
+            $http.put('/brewInfo', beerObj).success(function (response) {
+
+                console.log("the beer: ", response.beers);
+
+                if(response){
+                    $location.path('/checkInfo')
+                }
+
+            })
+
+
+
+        };
+
     }])
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
@@ -423,12 +454,58 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 }])
 
+.controller('checkInfo', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+    if ($rootScope.userObj == undefined) {
+        $location.path('/')
+    }
+
+
+
+    $scope.homeEsc = function(){
+        $location.path('/home');
+    }
+
+}])
+
+.controller('wishInfo', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+    if ($rootScope.userObj == undefined) {
+        $location.path('/')
+    }
+
+    $scope.homeEsc = function(){
+        $location.path('/home');
+    }
+
+}])
+
 
 .controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
+
+    $scope.getLocation = function () {
+        var x = document.getElementById("loc");
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+
+        function showPosition(position) {
+            var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
+            var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
+            var la = position.coords.latitude;
+            var lo = position.coords.longitude;
+            $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
+                $rootScope.objArr = [];
+                $rootScope.locations = response.response.groups[0].items;
+            });
+        }
+    };
 
         $scope.homeEsc = function(){
             $location.path('/home');

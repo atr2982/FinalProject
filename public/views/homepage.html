@@ -28,8 +28,6 @@
            <li><img src="../img/1450158018_list.svg" alt="wistListIcon">Wishlist</li>
        </ul>
        <div class="col-md-6">
-
-
            <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
            <div ng-repeat="beer in recentList | orderBy: '-'">
                <p class="user-header">{{beer.bname}}</p>

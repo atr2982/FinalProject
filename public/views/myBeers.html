@@ -41,7 +41,7 @@
 
             <div class="col-sm-6 list">
                 <div ng-repeat="key in checked">
-                   <a href="#/resultInfo/{{searchTerm}}/{{$index}}"><p class="check">{{key.bname}}</p></a>
+                    <p ng-click="getBeerCheck(key.bname)" class="check">{{key.bname}}</p>
                 </div>
             </div>
             
@@ -59,7 +59,7 @@
         <div class="col-sm-6 list">
             <div ng-repeat="key in wished">
 
-                <a href="#/resultInfo/{{searchTerm}}/{{$index}}"><p class="check">{{key.bname}}</p></a>
+                <p ng-click="getBeerCheck(key.bname)" class="check">{{key.bname}}</p>
 
             </div>
         </div>
