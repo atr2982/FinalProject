@@ -7,9 +7,7 @@ var express         = require('express'),
     LocalStrategy   = require('passport-local').Strategy,
     expressSession  = require('express-session'),
     objectId        = require('mongojs').ObjectId,
-    UserManagement  = require('user-management'),
     port 		    = process.env.PORT || 3000;
-
 
 //severside management
 
@@ -38,9 +36,6 @@ passport.use(new LocalStrategy({
     }
 ));
 
-
-
-
 passport.serializeUser(function (user, done) {
     done(null, user._id);
 });
@@ -61,8 +56,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //server routes
-
-
 
 app.get('/beerdata', function (req, res) {
     db.userlist.find(function (err, docs) {

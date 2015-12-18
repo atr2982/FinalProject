@@ -101,6 +101,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         };
 
+        $scope.wishListDirect = function(){
+
+            $location.path('/wishlist')
+
+        };
+
         $scope.bar = function(){
             $location.path('/bars');
         };
@@ -451,6 +457,58 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.homeEsc = function(){
             $location.path('/home');
         }
+
+        $scope.deleteWished = function (name) {
+
+            var deletestats = {username: $rootScope.userObj.username, bname: name};
+
+            console.log(deletestats);
+
+            $http.put('/deletewish', deletestats).success(function (response) {
+                console.log(response);
+
+                if(response){
+                    $route.reload();
+                }
+            });
+        };
+
+        $scope.wishList = function(name, label, style, abv, desc){
+
+            console.log("WISHLIST");
+
+            var wdata = $rootScope.userObj.username;
+
+            var beerstats = {
+                type: "wishlist",
+                username: $rootScope.userObj.username,
+                bname: name,
+                blabel: label,
+                bstyle: style,
+                babv: abv,
+                bdesc: desc
+            };
+
+            $http.put('/addwishlist', beerstats).success(function (response) {
+                console.log(response);
+
+                if(response){
+                    $location.path('/mybeers')
+                }
+            })
+        };
+
+        $scope.checkedData = function(){
+
+            var id = $rootScope.userObj._id;
+
+            $http.get('/beerdata/' + id).success(function (response) {
+
+                console.log("Front End:",response);
+
+                $scope.wished = response.wishList;
+            });
+        };
 
 }])
 
