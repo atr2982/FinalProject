@@ -166,6 +166,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
             });
 }])
+
+
 .directive('starRating',
     function () {
         return {
