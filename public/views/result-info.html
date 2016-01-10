@@ -20,33 +20,56 @@
         <p class="search-info">ABV - {{beer.beer_abv}}</p>
         <p class="search-info">INFO - {{beer.beer_description}}</p>
 
-        <h3>Choose Location</h3>
-        <select ng-model="usercheckin.location">
-            <option value="">Select a location</option>
-            <option ng-repeat="data in locations" value="{{data.venue.name}}">
-                {{data.venue.name}}
-            </option>
-        </select>
+        
+        
+<!--    IF CHECKIN TRUE-->
+    <div ng-show="showMe">
 
-        <textarea ng-model="usercheckin.desc"></textarea>
+        <div ng-init="usercheckin.location='No Location Added'">
+            <h3>Choose Location</h3>
+            <select ng-model="usercheckin.location">
+                <option value="">Select a location</option>
+                <option ng-repeat="data in locations" value="{{data.venue.name}}">
+                    {{data.venue.name}}
+                </option>
+            </select>
+        </div>
 
+        <div ng-init="usercheckin.desc='No Note Added'">
+            <h3>Leave A Note</h3>
+            <textarea placeholder="Leave yourself a note..." ng-model="usercheckin.desc"></textarea>
+        </div>
 
-        <h3>Rating</h3>
+        <h3>Rate This Beer</h3>
         <div ng-init="rating = star.rating + 1"></div>
         <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
         </div>
 
+        <button class="btn btn-primary" ng-click="showMe=false">Back</button>
         <button class="btn btn-primary" ng-click="checkin(beer.beer_name,
-                        beer.beer_label,
-                        beer.beer_style,
-                        beer.beer_abv,
-                        beer.beer_description,usercheckin,rating)">CheckIn
+                                    beer.beer_label,
+                                    beer.beer_style,
+                                    beer.beer_abv,
+                                    beer.beer_description,usercheckin,rating)">Confirm
         </button>
-        <button class="btn btn-primary" ng-click="wishList(beer.beer_name,
-                        beer.beer_label,
-                        beer.beer_style,
-                        beer.beer_abv,
-                        beer.beer_description)">Add To WishList</button>
+    </div>
+        
+<!--    IF CHECKIN FALSE-->
+        <div ng-hide="showMe">
+           <button class="btn btn-primary" ng-click="showMe=true">Check In Beer
+            </button>
+            
+            <button class="btn btn-primary" ng-click="wishList(beer.beer_name,
+                                beer.beer_label,
+                                beer.beer_style,
+                                beer.beer_abv,
+                                beer.beer_description)">Add To WishList
+            </button>
+        </div>
+
+
+
+
     </div>
 
 </div>

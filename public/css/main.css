@@ -235,3 +235,10 @@ ul.rating {
     color: #21568b ;
 }
 
+textarea, select {
+     color: black;
+}
+
+h3 {
+     color: black;
+}
