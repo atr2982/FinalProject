@@ -14,7 +14,6 @@
            <label for="search">Search</label>
            <input id="search" class="form-control" ng-model="search.term">
            <a class="btn btn-primary" href="#/searchResults/{{search.term}}">Search</a>
-           <!--            <p>{{beers}}</p>-->
        </div>
 
 
@@ -22,6 +21,7 @@
            <li ng-click="beerLocation()"><img alt="beerIcon" src="../img/1450157818_beer.svg">Checked In</li>
            <li ng-click="bar()"><img src="../img/1450157992_ic_local_bar_48px.svg" alt="barIcon">Local Bars</li>
            <li ng-click="wishListDirect()" > <img src="../img/1450158018_list.svg" alt="wistListIcon">Wishlist</li>
+           <li ng-click="trendingDirect()" > <img src="../img/1452223490_ic_trending_up_48px.svg" alt="wistListIcon">Trending</li>
        </ul>
        <div class="col-md-6">
            <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
@@ -31,22 +31,11 @@
        </div>
 
 
-       <h1 class="user-header">Search Trending Beers</h1>
-       <div class="col-lg-6">
-           <button class="btn btn-primary" ng-click="trending()">Search Them Now! Don't Miss Out!</button>
-       </div>
-       <div>
-           <div class="beers col-lg-6 col-lg-offset-3" id="trend-beers" ng-repeat="items in trendingBeers">
-               <h2>{{items.beer.beer_name}}</h2>
-               <img ng-src="{{items.beer.beer_label}}">
-               <p>STYLE - {{items.beer.beer_style}}</p>
-               <p>ABV - {{items.beer.beer_abv}}</p>
-               <p>INFO - {{items.beer.beer_description}}</p>
-           </div>
+
        </div>
 
    </div>
- </div>
+
 
 
 

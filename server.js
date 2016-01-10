@@ -116,9 +116,29 @@ app.put('/brewInfo',function(req,res){
 
     db.userlist.findOne({_id : mongojs.ObjectId(id)},
         {
-                beers: [{
+                _id:0,
+                beers:{
+                    $elemMatch:{
+                        bname: req.body.bname
+                    }
+                }
+
+        },function(err,doc){
+            res.json(doc);
+            console.log("My Response: ",doc);
+        });
+});
+
+app.put('/brewWish',function(req,res){
+    var id = req.body._id;
+    db.userlist.findOne({_id : mongojs.ObjectId(id)},
+        {
+            _id:0,
+            wishList:{
+                $elemMatch:{
                     bname: req.body.bname
-                }]
+                }
+            }
 
         },function(err,doc){
             res.json(doc);
@@ -129,8 +149,6 @@ app.put('/brewInfo',function(req,res){
 //DELETE
 //DELETE
 app.put('/deletebeer', function (req, res) {
-    
-    console.log(req.body.username, req.body.bname);
 
     db.userlist.update({
         username: req.body.username

@@ -1,5 +1,4 @@
-<div ng-init="getBeerCheck()" ng-controller="checkInfo">
-
+<div ng-init="getBeerWish()" ng-controller="wishInfo">
 
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
         <h2 class="navbar-text">Pocket Tap</h2>
@@ -8,11 +7,12 @@
         <button class="btn btn-danger navbar-text" ng-click="homeEsc()">Home</button>
     </nav>
 
+
     <div ng-repeat="key in finalMeta">
-            <h2>{{key.bname}}</h2>
-            <p>Alcohol: {{key.abv}}%</p>
-            <p>Style: {{key.style}}</p>
-            <p>Description: {{key.desc}}</p>
+        <h2>{{key.bname}}</h2>
+        <p>Alcohol: {{key.abv}}%</p>
+        <p>Style: {{key.style}}</p>
+        <p>Description: {{key.desc}}</p>
 
     </div>
 

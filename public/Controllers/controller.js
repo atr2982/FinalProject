@@ -22,12 +22,15 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             }).when('/resultInfo/:searchTerm/:beerIndex', {
                 templateUrl: '/views/result-info.html',
                 controller: 'infoCtrl'
-            }).when('/checkInfo', {
+            }).when('/checkInfo/:bname', {
                 templateUrl: '/views/checkInfo.html',
                 controller: 'checkInfo'
-            }).when('/wishInfo', {
-                templateUrl: '/views/wishInfo',
+            }).when('/wishListInfo/:bname', {
+                templateUrl: '/views/wishListMeta.html',
                 controller: 'wishInfo'
+            }).when('/trending', {
+                templateUrl: '/views/trending.html',
+                controller: 'trendingCtrl'
             })
             .otherwise('/')
 }])
@@ -59,7 +62,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 }])
 
 .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
-
         $scope.signUp1 = false;
         $scope.signUp = function () {
             if ($scope.user.password != $scope.user.confirm) {
@@ -81,13 +83,16 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 }])
 
 .controller('homepageCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
-
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
 
         $scope.homeEsc = function(){
             $location.path('/home');
+        };
+
+        $scope.trendingDirect = function(){
+          $location.path('/trending');
         };
 
         $scope.logout = function () {
@@ -98,17 +103,15 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         $scope.beerLocation = function(){
             $location.path('/mybeers');
-
-        };
-
-        $scope.wishListDirect = function(){
-
-            $location.path('/wishlist')
-
         };
 
         $scope.bar = function(){
             $location.path('/bars');
+        };
+
+        $scope.wishListDirect = function(){
+            $location.path('/wishlist')
+
         };
 
         $scope.recent = function(){
@@ -116,22 +119,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             var id = $rootScope.userObj._id;
 
             $http.get('/recent/' + id).success(function (response) {
-                console.log('target: ',response.beers);
-
                 $scope.recentList = response.beers;
-
             });
-
-        };
-
-        $scope.trending = function () {
-
-            console.log("is it working?");
-
-            $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
-                .success(function (response) {
-                    $scope.trendingBeers = response.response.micro.items;
-                });
         };
 }])
 
@@ -151,14 +140,15 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/');
         };
 
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
         $scope.bar = function(){
             $location.path('/bars');
         };
-
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
-                console.log(response.response.beers.items);
-
                 $scope.Data = response.response.beers.items;
 
                 $scope.searchTerm = $routeParams.searchTerm;
@@ -206,7 +196,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 )
 
 .controller('infoCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
-
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
@@ -245,6 +234,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/');
         };
 
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
         $scope.bar = function(){
             $location.path('/bars');
         };
@@ -252,15 +245,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
                 $scope.beer = response.response.beers.items[$routeParams.beerIndex].beer;
-
-                console.log('looking: ',$scope.beer);
-
             });
 
         $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
-
-            console.log("NOT WISHLIST");
-
             var beerstats = {
 
                 type: "checkin",
@@ -277,8 +264,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             };
 
             $http.put('/addcheckin', beerstats).success(function (response) {
-                console.log(response);
-
                 if(response){
                     $location.path('/mybeers')
                 }
@@ -286,11 +271,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.wishList = function(name, label, style, abv, desc){
-
-            console.log("WISHLIST");
-
             var wdata = $rootScope.userObj.username;
-
             var beerstats = {
                 type: "wishlist",
                 username: $rootScope.userObj.username,
@@ -302,17 +283,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             };
 
             $http.put('/addwishlist', beerstats).success(function (response) {
-                console.log(response);
-
                 if(response){
-                    $location.path('/mybeers')
+                    $location.path('/wishlist')
                 }
             })
         };
 }])
 
 .controller('myBeersCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
-
         if ($rootScope.userObj == undefined) {
             $location.path('/')
         }
@@ -331,31 +309,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/bars');
         };
 
-
         $scope.deleteChecked = function (name) {
-
             var deletestats = {username: $rootScope.userObj.username, bname: name};
-
-            console.log(deletestats);
-
             $http.put('/deletebeer', deletestats).success(function (response) {
-                console.log(response);
-
-                if(response){
-                    $route.reload();
-                }
-            });
-        };
-
-        $scope.deleteWished = function (name) {
-
-            var deletestats = {username: $rootScope.userObj.username, bname: name};
-
-            console.log(deletestats);
-
-            $http.put('/deletewish', deletestats).success(function (response) {
-                console.log(response);
-
                 if(response){
                     $route.reload();
                 }
@@ -363,9 +319,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.checkin = function (name, label, style, abv, desc) {
-
-            console.log("NOT WISHLIST");
-
             var beerstats = {
                 type: "checkin",
                 username: $rootScope.userObj.username,
@@ -377,76 +330,20 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             };
 
             $http.put('/addcheckin', beerstats).success(function (response) {
-                console.log(response);
-
                 if(response){
                     $location.path('/mybeers')
                 }
             });
         };
 
-        $scope.wishList = function(name, label, style, abv, desc){
-
-            console.log("WISHLIST");
-
-            var wdata = $rootScope.userObj.username;
-
-            var beerstats = {
-                type: "wishlist",
-                username: $rootScope.userObj.username,
-                bname: name,
-                blabel: label,
-                bstyle: style,
-                babv: abv,
-                bdesc: desc
-            };
-
-            $http.put('/addwishlist', beerstats).success(function (response) {
-                console.log(response);
-
-                if(response){
-                     $location.path('/mybeers')
-                }
-            })
-        };
-
         $scope.checkedData = function(){
-
             var id = $rootScope.userObj._id;
-
             $http.get('/beerdata/' + id).success(function (response) {
-
-                console.log("Front End:",response);
-
                 $scope.checked = response.beers;
                 $scope.wished = response.wishList;
             });
         };
-
-        $scope.getBeerCheck = function(brew){
-
-            var id = $rootScope.userObj._id;
-
-            var beerObj = { _id : id,
-                            bname : brew
-        };
-            console.log("Beer Obj:",beerObj);
-
-            $http.put('/brewInfo', beerObj).success(function (response) {
-
-                console.log("the beer: ", response.beers);
-
-                if(response){
-                    $location.path('/checkInfo')
-                }
-
-            })
-
-
-
-        };
-
-    }])
+ }])
 
 .controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
@@ -456,17 +353,21 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         $scope.homeEsc = function(){
             $location.path('/home');
-        }
+        };
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
 
         $scope.deleteWished = function (name) {
-
             var deletestats = {username: $rootScope.userObj.username, bname: name};
-
-            console.log(deletestats);
-
             $http.put('/deletewish', deletestats).success(function (response) {
-                console.log(response);
-
                 if(response){
                     $route.reload();
                 }
@@ -474,11 +375,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.wishList = function(name, label, style, abv, desc){
-
-            console.log("WISHLIST");
-
             var wdata = $rootScope.userObj.username;
-
             var beerstats = {
                 type: "wishlist",
                 username: $rootScope.userObj.username,
@@ -490,8 +387,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             };
 
             $http.put('/addwishlist', beerstats).success(function (response) {
-                console.log(response);
-
                 if(response){
                     $location.path('/mybeers')
                 }
@@ -499,26 +394,45 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.checkedData = function(){
-
             var id = $rootScope.userObj._id;
-
             $http.get('/beerdata/' + id).success(function (response) {
-
-                console.log("Front End:",response);
-
                 $scope.wished = response.wishList;
             });
         };
 
 }])
 
-.controller('checkInfo', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('checkInfo', ["$http", "$rootScope", "$scope", "$location","$routeParams", function ($http, $rootScope, $scope, $location, $routeParams) {
 
     if ($rootScope.userObj == undefined) {
         $location.path('/')
     }
 
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
 
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
+        };
+
+        console.log($routeParams.bname);
+        $scope.getBeerCheck = function(){
+            var id = $rootScope.userObj._id;
+            var beerObj = { _id : id,
+                bname : $routeParams.bname
+            };
+            $http.put('/brewInfo', beerObj).success(function (response) {
+                console.log("the beer: ", response.beers);
+                $scope.finalMeta = response.beers;
+            })
+        };
 
     $scope.homeEsc = function(){
         $location.path('/home');
@@ -526,18 +440,74 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
 }])
 
-.controller('wishInfo', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('wishInfo', ["$http", "$rootScope", "$scope", "$location","$routeParams", function ($http, $rootScope, $scope, $location, $routeParams) {
 
-    if ($rootScope.userObj == undefined) {
-        $location.path('/')
-    }
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
 
-    $scope.homeEsc = function(){
-        $location.path('/home');
-    }
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
+        };
+
+        console.log($routeParams.bname);
+        $scope.getBeerWish = function(){
+            var id = $rootScope.userObj._id;
+            var wishObj = { _id : id,
+                bname : $routeParams.bname
+            };
+            $http.put('/brewWish', wishObj).success(function (response) {
+                $scope.finalMeta = response.wishList;
+            })
+        };
+
+        $scope.homeEsc = function(){
+            $location.path('/home');
+        }
 
 }])
 
+.controller('trendingCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+
+        if ($rootScope.userObj == undefined) {
+            $location.path('/')
+        }
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.homeEsc = function(){
+            $location.path('/home');
+        }
+
+        $scope.logout = function () {
+            $http.post('/logout');
+            $rootScope.userObj = undefined;
+            $location.path('/');
+        };
+
+        $scope.trending = function () {
+            console.log("is it working?");
+            $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
+                .success(function (response) {
+                    $scope.trendingBeers = response.response.micro.items;
+                });
+        };
+
+}])
 
 .controller('barCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
 
@@ -561,6 +531,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
                 $rootScope.objArr = [];
                 $rootScope.locations = response.response.groups[0].items;
+                console.log($rootScope.locations);
             });
         }
     };
@@ -568,7 +539,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.homeEsc = function(){
             $location.path('/home');
         };
-
 
         $scope.logout = function () {
             $http.post('/logout');
@@ -580,7 +550,4 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/mybeers');
 
         };
-
-
-
 }]);

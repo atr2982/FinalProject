@@ -9,9 +9,7 @@
         <h2>{{userObj.username}}'s Wish List</h2>
         <div class="col-sm-6 list">
             <div ng-repeat="key in wished">
-                <a href="#/resultInfo/{{searchTerm}}/{{$index}}">
-                    <p class="check">{{key.bname}}</p>
-                </a>
+                <a href="#/wishListInfo/{{key.bname}}">{{key.bname}}</a>
             </div>
         </div>
         <div class="col-sm-6 list">
