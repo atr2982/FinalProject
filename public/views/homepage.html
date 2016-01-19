@@ -24,42 +24,55 @@
         </div>
     </div>
 
-
-
     <div class="col-md-12">
-
        <ul id="navrBtn">
-           <li ng-click="beerLocation()"><img alt="beerIcon" src="../img/newBeer.jpg">
+           <li ng-click="beerLocation()">
+               <div class="cont-wrapper">
+               <div class="img-cont">
+                   <img alt="beerIcon" src="../img/newBeer.jpg">
+               </div>
+
                <div class="tab-cont">
                    <h3 class="icon-head">My Beers</h3>
                    <p class="icon-text">View your favorites! All the beer that you checked are a click away!</p>
                </div>
+                </div>
            </li>
 
            <li ng-click="bar()">
                <div class="cont-wrapper">
-                   <img src="../img/newBar.jpg" alt="barIcon">
+                   <div class="img-cont">
+                         <img src="../img/newBar.jpg" alt="barIcon">
+                   </div>
                    <div class="tab-cont">
                        <h3 class="icon-head">Local Bars</h3>
                        <p class="icon-text">Where is the action!? Check the bars that have your favorite craft beer!</p>
                    </div>
                </div>
            </li>
-           <li ng-click="wishListDirect()" > <img src="../img/newWish.jpg" alt="wistListIcon">
-               <div class="tab-cont">
-                   <h3 class="icon-head">Wishlist</h3>
-                   <p class="icon-text">Wishful Thinking? View all the beers you want to experience in the future.</p>
-               </div>
-
+           <li ng-click="wishListDirect()">
+               <div class="cont-wrapper">
+                   <div class="img-cont">
+                        <img src="../img/newWish.jpg" alt="wistListIcon">
+                   </div>
+                   <div class="tab-cont">
+                       <h3 class="icon-head">Wishlist</h3>
+                       <p class="icon-text">Wishful Thinking? View all the beers you want to experience in the future.</p>
+                   </div>
+                </div>
            </li>
-           <li ng-click="trendingDirect()" > <img src="../img/newTrend.jpg" alt="trendListIcon">
-               <div class="tab-cont">
-                   <h3 class="icon-head">Trending</h3>
-                   <p class="icon-text">Check out what's popular! Here are the latest trending beers!</p>
+           <li ng-click="trendingDirect()" >
+               <div class="cont-wrapper">
+                   <div class="img-cont">
+                     <img src="../img/newTrend.jpg" alt="trendListIcon">
+                   </div>
+                   <div class="tab-cont">
+                       <h3 class="icon-head">Trending</h3>
+                       <p class="icon-text">Check out what's popular! Here are the latest trending beers!</p>
+                   </div>
                </div>
            </li>
        </ul>
-
     </div>
 
 </div>
