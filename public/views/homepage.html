@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 
    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-                <h2 class="navbar-text">Pocket Tap</h2>
-                <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
-
+                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
+                <!--<button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>-->
 </nav>
+
+<div class="container" id="home-control" ng-init="recent()" ng-controller="homepageCtrl">
+    <div id="search-cont" class="col-lg-12">
+        <label id="label-search" for="search">Search</label>
+        <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
+        <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
+    </div>
     <div class="col-lg-12">
-        <h1 id="home-head" class="user-header">Hello! {{userObj.username}}</h1>
+        <img src="../img/beer-banner.jpg" alt="banner">
+</div>
 
-   <div class="container" id="home-control" ng-init="recent()" ng-controller="homepageCtrl">
+    <div class="col-md-12">
+            <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
+            <p></p>
+            <h3 class="user-cont">{{userObj.username}}'s recent checked in beers:</h3>
+            <div ng-repeat="beer in recentList | orderBy: '-'">
+                <p class="user-header">{{beer.bname}}</p>
+        </div>
+    </div>
 
-       <div class="col-lg-12">
-           <label for="search">Search</label>
-           <input id="search" class="form-control" ng-model="search.term">
-           <a class="btn btn-primary" href="#/searchResults/{{search.term}}">Search</a>
-       </div>
 
+
+    <div class="col-md-12">
 
        <ul id="navrBtn">
-           <li ng-click="beerLocation()"><img alt="beerIcon" src="../img/1450157818_beer.svg">Checked In</li>
-           <li ng-click="bar()"><img src="../img/1450157992_ic_local_bar_48px.svg" alt="barIcon">Local Bars</li>
-           <li ng-click="wishListDirect()" > <img src="../img/1450158018_list.svg" alt="wistListIcon">Wishlist</li>
-           <li ng-click="trendingDirect()" > <img src="../img/1452223490_ic_trending_up_48px.svg" alt="wistListIcon">Trending</li>
+           <li ng-click="beerLocation()"><img alt="beerIcon" src="../img/newBeer.jpg">
+               <div class="tab-cont">
+                   <h3 class="icon-head">My Beers</h3>
+                   <p class="icon-text">View your favorites! All the beer that you checked are a click away!</p>
+               </div>
+           </li>
+
+           <li ng-click="bar()">
+               <div class="cont-wrapper">
+                   <img src="../img/newBar.jpg" alt="barIcon">
+                   <div class="tab-cont">
+                       <h3 class="icon-head">Local Bars</h3>
+                       <p class="icon-text">Where is the action!? Check the bars that have your favorite craft beer!</p>
+                   </div>
+               </div>
+           </li>
+           <li ng-click="wishListDirect()" > <img src="../img/newWish.jpg" alt="wistListIcon">
+               <div class="tab-cont">
+                   <h3 class="icon-head">Wishlist</h3>
+                   <p class="icon-text">Wishful Thinking? View all the beers you want to experience in the future.</p>
+               </div>
+
+           </li>
+           <li ng-click="trendingDirect()" > <img src="../img/newTrend.jpg" alt="trendListIcon">
+               <div class="tab-cont">
+                   <h3 class="icon-head">Trending</h3>
+                   <p class="icon-text">Check out what's popular! Here are the latest trending beers!</p>
+               </div>
+           </li>
        </ul>
-       <div class="col-md-6">
-           <h2 class="user-cont">{{userObj.username}}'s recent checked in beers:</h2>
-           <div ng-repeat="beer in recentList | orderBy: '-'">
-               <p class="user-header">{{beer.bname}}</p>
-           </div>
-       </div>
+
+    </div>
+
+</div>
 
 
 
-       </div>
-
-   </div>
 
 
 

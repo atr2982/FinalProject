@@ -1,7 +1,60 @@
 body{
     margin-top: 90px;
-    background: url('/img/background.jpg') no-repeat fixed;
+    background: #222;
+}
 
+#search{
+    width: 95%;
+    float: left;
+    clear: both;
+    overflow: hidden;
+}
+
+#search-btn{
+    margin-left: 0.8%;
+}
+
+img[alt="search"]{
+    max-width: 100%;
+    background: #fff;
+    padding:0.7%;
+    border-radius: 4px;
+}
+
+.icon-head{
+    font-size: 1.3em;
+    text-align: left;
+    margin-left: 4%;
+}
+
+.tab-cont{
+    overflow: hidden;
+}
+
+.del{
+    float: right;
+}
+
+.expand-beer-btn{
+    border: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 2em;
+    text-align: center;
+}
+
+.expand-beer-btn:hover{
+  opacity: 0.8;
+}
+
+.icon-text{
+    margin-left: 4%;
+    font-size: 0.6em;
+    text-align: left;
+}
+
+#label-search{
+    display: none;
 }
 
 .form-control{
@@ -25,7 +78,6 @@ ul{
 #signIn{
     margin-top: 1.5%;
     width:30%
-
 }
 
 #top-nav{
@@ -39,7 +91,6 @@ nav{
 
 .nav-list{
     background: #d63f3b;
-
 }
 
 .container{
@@ -58,7 +109,6 @@ nav{
 
 .log-header{
     font-family: 'Abel', sans-serif;
-
 }
 
 #header{
@@ -86,17 +136,11 @@ ul li{
     border:none;
 }
 
-img {
-    margin-bottom: 5px;
-    max-height: 100px;
-    max-width: 100px;
-}
 
 .beers {
     border: 1px solid black;
     margin-bottom: 60px;  
 }
-
 
 .appName {
     color: #f2f2f2;
@@ -106,16 +150,21 @@ img {
     background: #fff;
     padding: 5% 2%;
     font-size: 2em;
-
 }
 .user-cont{
     font-family: 'Abel', sans-serif;
     color: #fff;
+    text-align: center;
+}
+
+#nav-head{
+    text-align: center;
 }
 
 .user-header{
     font-family: 'Abel', sans-serif;
     color: #fff;
+    text-align: center;
 }
 
 .data-info{
@@ -158,17 +207,17 @@ img {
      height: 25px;   
 }
 
+.cont-wrapper{
+    max-width: 100%;
+}
 
 #navrBtn li{
-    width:100%;
     color:#000;
     padding:5% 0;
     background: #f6fdff;
     margin-top:1%;
     opacity: 0.9;
-    font-size:3em;
-    text-align: center;
-
+    font-size:2em;
 }
 
 #navrBtn li:hover{
@@ -176,41 +225,63 @@ img {
 }
 
 #home-head{
-    text-align: center;
     font-size:2em;
+    text-align: center;
 }
 
 img[alt="barIcon"]{
-     margin-right: 14%;
-     width:100px;
-     height:100px;
-     border: solid #000;
+    max-width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-left:5%;
+    display: block;
 
 }
+
 img[alt="beerIcon"]{
-    margin-right: 10%;
-    width:100px;
-    height:100px;
-    border: solid #000;
+    max-width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-left:5%;
+    display: block;
 
 }
 img[alt="wistListIcon"]{
-    margin-right: 28%;
-    width:100px;
-    height:100px;
-    border: solid #000;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-left:5%;
+}
+
+img[alt="trendListIcon"]{
+    max-width: 100%;
+    height: auto;
+    float: left;
+    overflow: hidden;
+    margin-left:5%;
+    display: block;
+
+}
+
+img[alt="banner"]{
+    max-width: 100%;
+    height: auto;
+
+
 }
 
 .search-info{
     color:#000;
 }
 
-
 #beer-header{
     font-size: 3em;
     text-align: center;
 }
-
 
 .rating{
     color: #a9a9a9 ;
@@ -242,3 +313,80 @@ textarea, select {
 h3 {
      color: black;
 }
+
+@media (max-width: 992px){
+    #search{
+        width: 94%;
+    }
+
+    img[alt="search"]{
+        max-width: 100%;
+        background: #fff;
+        padding:1%;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 586px){
+    #search{
+        width: 90%;
+    }
+
+    #search-cont{
+        margin-bottom: 3%;
+    }
+
+    .icon-head{
+        font-size: 1em;
+
+    }
+
+    .icon-text{
+        font-size: 0.5em;
+    }
+
+    .expand-beer-btn{
+        font-size: 1.5em;
+    }
+
+    img[alt="search"]{
+        max-width: 100%;
+        background: #fff;
+        padding:1%;
+        border-radius: 4px;
+    }
+}
+
+@media (max-width: 405px){
+    #search{
+        width: 88%;
+    }
+
+    #search-cont{
+        margin-bottom: 3%;
+    }
+
+    .icon-head{
+        font-size: 0.8em;
+
+    }
+
+    .icon-text{
+        font-size: 0.4em;
+
+    }
+
+    img[alt="search"]{
+        max-width: 100%;
+        background: #fff;
+        padding:2%;
+        border-radius: 4px;
+    }
+}
+
+
+
+
+
+
+

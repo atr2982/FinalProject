@@ -115,9 +115,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.recent = function(){
-
             var id = $rootScope.userObj._id;
-
             $http.get('/recent/' + id).success(function (response) {
                 $scope.recentList = response.beers;
             });
@@ -150,11 +148,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
                 $scope.Data = response.response.beers.items;
-
                 $scope.searchTerm = $routeParams.searchTerm;
 
-
             });
+
+
 }])
 
 
@@ -311,6 +309,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/bars');
         };
 
+        $scope.alcMeta = false;
+
         $scope.deleteChecked = function (name) {
             var deletestats = {username: $rootScope.userObj.username, bname: name};
             $http.put('/deletebeer', deletestats).success(function (response) {
@@ -318,6 +318,17 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                     $route.reload();
                 }
             });
+        };
+
+        $scope.getBeerCheck = function(){
+            var id = $rootScope.userObj._id;
+            var beerObj = { _id : id,
+                bname : $routeParams.bname
+            };
+            $http.put('/brewInfo', beerObj).success(function (response) {
+                console.log("the beer: ", response.beers);
+                $scope.finalMeta = response.beers;
+            })
         };
 
         $scope.checkin = function (name, label, style, abv, desc) {
@@ -425,16 +436,16 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         console.log($routeParams.bname);
-        $scope.getBeerCheck = function(){
-            var id = $rootScope.userObj._id;
-            var beerObj = { _id : id,
-                bname : $routeParams.bname
-            };
-            $http.put('/brewInfo', beerObj).success(function (response) {
-                console.log("the beer: ", response.beers);
-                $scope.finalMeta = response.beers;
-            })
-        };
+//        $scope.getBeerCheck = function(){
+//            var id = $rootScope.userObj._id;
+//            var beerObj = { _id : id,
+//                bname : $routeParams.bname
+//            };
+//            $http.put('/brewInfo', beerObj).success(function (response) {
+//                console.log("the beer: ", response.beers);
+//                $scope.finalMeta = response.beers;
+//            })
+//        };
 
     $scope.homeEsc = function(){
         $location.path('/home');

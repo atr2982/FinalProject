@@ -9,51 +9,34 @@
 
     </nav>
 
-    <div class="col-lg-12">
-        <label for="search">Search</label>
-        <input id="search" class="form-control" ng-model="search.term">
-        <a class="btn btn-primary" href="#/searchResults/{{search.term}}">Search</a>
-        <!--            <p>{{beers}}</p>-->
-    </div>
-    <div>
-        <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in beers">
-            <h2>{{items.beer.beer_name}}</h2>
-            <img ng-src="{{items.beer.beer_label}}">
-            <p>STYLE - {{items.beer.beer_style}}</p>
-            <p>ABV - {{items.beer.beer_abv}}</p>
-            <p>INFO - {{items.beer.beer_description}}</p>
-            <button class="btn btn-primary" ng-click="checkin(items.beer.beer_name,
-                    items.beer.beer_label,
-                    items.beer.beer_style,
-                    items.beer.beer_abv,
-                    items.beer.beer_description)">CheckIn
-            </button>
-            <button class="btn btn-primary" ng-click="wishList(items.beer.beer_name,
-                    items.beer.beer_label,
-                    items.beer.beer_style,
-                    items.beer.beer_abv,
-                    items.beer.beer_description)">Add To WishList</button>
-        </div>
+    <div id="search-cont" class="col-lg-12">
+        <label id="label-search" for="search">Search</label>
+        <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
+        <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
     </div>
 
     <div id="left-col" class="col-md-12">
-        <h2>{{userObj.username}}'s Check Ins</h2>
+        <h2>{{userObj.username}}'s Check Ins:</h2>
 
-            <div class="col-sm-6 list">
                 <div ng-repeat="key in checked">
-                    <a href="#/checkInfo/{{key.bname}}">{{key.bname}}</a>
-                    <!--<p ng-click="getBeerCheck(key.bname)" class="check">{{key.bname}}</p>-->
-                </div>
-            </div>
-            
-            <div class="col-sm-6 list">
-                <div ng-repeat="key in checked">
+                    <button class="expand-beer-btn" ng-click="alcMeta = true"><b>{{key.bname}}</b></button><hr>
 
-                    <p class="del"><button ng-click="deleteChecked(key.bname)">X</button></p>
+
+                <div ng-show="alcMeta">
+                    <p class="del"><button ng-click="deleteChecked(key.bname)">Remove Beer</button></p>
+                    <h4>Details:</h4>
+
+                    <p><b>Alcohol: </b>{{key.abv}}%</p>
+                    <p><b>Style: </b>{{key.style}}</p>
+                    <p><b>Description: </b>{{key.desc}}</p>
+
+                    <h4>Your Checkin Information:</h4>
+                    <p><b>Location: </b>{{key.location}}</p>
+                    <p><b>Rating: </b>{{key.rating}}</p><hr></div>
                 </div>
-            </div>
-            
-            
+
+
+
     </div>
 
 

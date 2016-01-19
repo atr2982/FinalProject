@@ -80,7 +80,6 @@ app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to m
                 }
 
             });
-
 });
 
 app.get('/beerdata/:id', function (req, res){
@@ -106,7 +105,6 @@ app.get('/recent/:id', function (req, res){
     },function(err,docs){
         res.json(docs);
     })
-
 
 });
 
@@ -219,7 +217,7 @@ app.put('/addcheckin', function (req, res) {
                 desc: req.body.bdesc,
                 location : req.body.blocation,
                 userinput : req.body.buserinput,
-                rating : req.body.rating
+                rating : req.body.brating
             }
         }
     }, function (err, doc) {
