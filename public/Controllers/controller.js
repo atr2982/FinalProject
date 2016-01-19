@@ -387,6 +387,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
+        $scope.alcMeta = false;
+
         $scope.wishList = function(name, label, style, abv, desc){
             var wdata = $rootScope.userObj.username;
             var beerstats = {
@@ -411,6 +413,16 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.get('/beerdata/' + id).success(function (response) {
                 $scope.wished = response.wishList;
             });
+        };
+
+        $scope.getBeerWish = function(){
+            var id = $rootScope.userObj._id;
+            var wishObj = { _id : id,
+                bname : $routeParams.bname
+            };
+            $http.put('/brewWish', wishObj).success(function (response) {
+                $scope.finalMeta = response.wishList;
+            })
         };
 
 }])
@@ -476,15 +488,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         console.log($routeParams.bname);
-        $scope.getBeerWish = function(){
-            var id = $rootScope.userObj._id;
-            var wishObj = { _id : id,
-                bname : $routeParams.bname
-            };
-            $http.put('/brewWish', wishObj).success(function (response) {
-                $scope.finalMeta = response.wishList;
-            })
-        };
+
 
         $scope.homeEsc = function(){
             $location.path('/home');
