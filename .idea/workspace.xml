@@ -55,7 +55,7 @@
       <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="672" column="8" selection-start="9444" selection-end="9444" vertical-scroll-proportion="0.82954544" vertical-offset="9642" max-vertical-offset="10230">
+            <state line="327" column="19" selection-start="4381" selection-end="4381" vertical-scroll-proportion="0.69123507" vertical-offset="4558" max-vertical-offset="10260">
               <folding />
             </state>
           </provider>
@@ -177,6 +177,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fonts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -411,7 +429,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="672" column="8" selection-start="9444" selection-end="9444" vertical-scroll-proportion="0.82954544" vertical-offset="9642" max-vertical-offset="10230">
+        <state line="327" column="19" selection-start="4381" selection-end="4381" vertical-scroll-proportion="0.69123507" vertical-offset="4558" max-vertical-offset="10260">
           <folding />
         </state>
       </provider>
