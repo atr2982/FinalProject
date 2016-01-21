@@ -25,11 +25,13 @@
         </div>
     </nav>
 
+
     <div id="search-cont" class="col-lg-12">
         <label id="label-search" for="search">Search</label>
         <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
         <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
     </div>
+
 
     <div id="left-col" class="col-md-12">
         <h2>{{userObj.username}}'s Check Ins:</h2>
@@ -51,9 +53,5 @@
                     <p><b>Rating: </b>{{key.rating}}</p><hr></div>
                 </div>
 
-
-
     </div>
-
-
 </div>

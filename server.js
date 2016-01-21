@@ -201,9 +201,6 @@ app.get('/beerdata/:id', function (req, res) {
 app.put('/addcheckin', function (req, res) {
 
     console.log(req.body);
-    var name = req.params.bdata;
-
-    console.log(req.params.checkFunt);
 
     db.userlist.update({
         username: req.body.username

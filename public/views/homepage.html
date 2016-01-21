@@ -25,30 +25,39 @@
         </div>
     </nav>
 
-    <div id="search-cont" class="col-lg-12">
-        <label id="label-search" for="search">Search</label>
-        <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
-        <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
-    </div>
-    <div class="col-lg-12">
-        <img src="../img/beer-banner.jpg" alt="banner">
-</div>
-
-    <div class="col-md-12">
+        <div id="greeting-cont" class="col-md-4">
             <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
             <p></p>
             <h3 class="user-cont">{{userObj.username}}'s recent checked in beers:</h3>
             <div ng-repeat="beer in recentList | orderBy: '-'">
                 <p class="user-header">{{beer.bname}}</p>
+            </div>
         </div>
-    </div>
+
+        <div id="search-cont" class="col-md-8">
+            <h2 id="search-greet">Search your favorite beers!</h2>
+            <label id="label-search" for="search">Search</label>
+            <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
+            <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
+        </div>
+        <div class="col-lg-12">
+            <img src="../img/beer-banner.jpg" alt="banner">
+        </div>
+
+
+
+
+
+
+
+
 
     <div class="col-md-12">
        <ul id="navrBtn">
            <li ng-click="beerLocation()">
                <div class="cont-wrapper">
                <div class="img-cont">
-                   <img alt="beerIcon" src="../img/newBeer.jpg">
+                   <img alt="beerIcon" src="../img/changeBeer.png">
                </div>
 
                <div class="tab-cont">

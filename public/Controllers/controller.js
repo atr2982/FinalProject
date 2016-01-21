@@ -248,8 +248,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
 
         $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
+            console.log("RATING RAW", rating);
+            
             var beerstats = {
-
                 type: "checkin",
                 username: $rootScope.userObj.username,
                 bname: name,
@@ -260,9 +261,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 blocation : usercheckin.location,
                 buserinput : usercheckin.desc,
                 brating : rating
-
             };
 
+            console.log("RATING AFTER", beerstats.brating);
+            
             $http.put('/addcheckin', beerstats).success(function (response) {
                 if(response){
                     $location.path('/mybeers')

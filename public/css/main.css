@@ -6,16 +6,22 @@ body{
 #nav-head{
     text-align: center;
     font-size: 3em;
-    margin-top:10%;
+    margin-top:13%;
+    color: rgb(201,182,123);
+    font-family: mainText;
+    letter-spacing: 3px;
 }
+
 
 #logout{
     margin-left:5%;
     padding: 2% 7%;
-    color:#fff;
     text-decoration: underline;
-    font-size: 1.7em;
+    font-size: 2em;
     float: right;
+    color: rgb(201,182,123);
+    font-family: mainText;
+    letter-spacing: 3px;
 }
 
 #logout:hover{
@@ -29,18 +35,34 @@ body{
 }
 
 .navbar-nav li{
+    color: rgb(201,182,123);
+    font-family: mainText;
+    letter-spacing: 3px;
     margin-left:5%;
     padding: 2% 7%;
-    color:#fff;
     text-decoration: underline;
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .navbar-nav li:hover{
-    opacity: 0.8;
+    opacity: 0.7;
     cursor: pointer;
-    background: #FFF;
-    color: #222;
+}
+
+input::-webkit-input-placeholder {
+    color: #000 !important;
+}
+
+input:-moz-placeholder { /* Firefox 18- */
+    color: #000 !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+    color: #000 !important;
+}
+
+input:-ms-input-placeholder {
+    color: #000 !important;
 }
 
 #search{
@@ -48,15 +70,38 @@ body{
     float: left;
     clear: both;
     overflow: hidden;
+    background: rgb(201,182,123);
+    color: #000;
+    border: none;
+    width: 90%;
 }
 
 #search-btn{
-    margin-left: 0.8%;
+    margin-left: 1%;
 }
+
+#search-cont{
+    margin-top: 1%;
+}
+
+#search-greet{
+    color: rgb(201,182,123);
+    font-family: mainText;
+    letter-spacing: 4px;
+    text-align: center;
+
+}
+
+#greeting-cont{
+    margin-top: 1%;
+    margin-bottom: 4%;
+
+}
+
 
 img[alt="search"]{
     max-width: 100%;
-    background: #fff;
+    background: rgb(201,182,123);
     padding:0.7%;
     border-radius: 4px;
 }
@@ -65,6 +110,10 @@ img[alt="search"]{
     font-size: 1.3em;
     text-align: left;
     margin-left: 4%;
+    color: #000;
+    font-family: mainText;
+
+
 }
 
 .img-cont{
@@ -77,6 +126,7 @@ img[alt="search"]{
     margin-left: 5%;
     float: left;
 }
+
 
 .del{
     float: right;
@@ -96,12 +146,20 @@ img[alt="search"]{
 
 .icon-text{
     margin-left: 4%;
-    font-size: 0.6em;
+    font-size: 0.8em;
     text-align: left;
+    color: #000;
+    font-family: mainText;
+
 }
 
 #label-search{
     display: none;
+}
+
+@font-face {
+    font-family: mainText;
+    src: url(../fonts/White_Elephant.ttf);
 }
 
 .form-control{
@@ -127,14 +185,6 @@ ul{
     width:30%
 }
 
-#top-nav{
-    background: #d63f3b;
-}
-
-nav{
-    background: #d63f3b;
-
-}
 
 .nav-list{
     background: #d63f3b;
@@ -142,12 +192,14 @@ nav{
 
 .container{
     color: #ffffff;
+    
 }
 
 .app-info{
-    font-family: 'Abel', sans-serif;
-    font-size: 1em;
-    color: #fff;
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.6em;
+    color: #c43a36;
 }
 
 #info-div{
@@ -155,7 +207,10 @@ nav{
 }
 
 .log-header{
-    font-family: 'Abel', sans-serif;
+    text-align: center;
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(201,182,123);
 }
 
 #header{
@@ -177,6 +232,7 @@ ul li{
 }
 
 #register{
+    font-family: 'Andale Mono';
     float: right;
     background: none;
     text-decoration: underline;
@@ -199,15 +255,17 @@ ul li{
     font-size: 2em;
 }
 .user-cont{
-    font-family: 'Abel', sans-serif;
-    color: #fff;
+    font-family: mainText;
+    color: rgb(201,182,123);
     text-align: center;
+    letter-spacing: 2px;
 }
 
 .user-header{
-    font-family: 'Abel', sans-serif;
-    color: #fff;
     text-align: center;
+    color: rgb(201,182,123);
+    letter-spacing: 2px;
+
 }
 
 .data-info{
@@ -258,7 +316,7 @@ ul li{
 #navrBtn li{
     color:#000;
     padding:5% 0;
-    background: #f6fdff;
+    background: #ddd;
     margin-top:1%;
     opacity: 0.9;
     font-size:2em;
@@ -272,6 +330,9 @@ ul li{
 #home-head{
     font-size:2em;
     text-align: center;
+    font-family: mainText;
+    color: rgb(201,182,123);
+
 }
 
 
@@ -358,15 +419,82 @@ h3 {
      color: black;
 }
 
+.mainlogo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#info-div {
+    height: 300px;
+}
+
+.landingUp {
+     margin-top: -90px;   
+}
+
+button {
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+}
+
+/*------------------*/
+ 
+.btn {
+    border: 0 none;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.active, .btn:active {
+    background-color: #fff;
+}
+
+/*-----------*/
+
+.btn.outline {
+    background: none;
+    font-size: 20px;
+}
+
+.btn-primary.outline {
+    border: 2px solid #fff;
+    color: #c43a36;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #f24540;
+    border-color: #fff;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #fff;
+    background: #fff;
+    color: #7e2522;
+    box-shadow: none;
+}
+
 @media (max-width: 992px){
     #search{
-        width: 94%;
+        width: 92%;
     }
 
     img[alt="search"]{
         max-width: 100%;
-        background: #fff;
-        padding:1%;
         border-radius: 4px;
     }
 
@@ -482,8 +610,6 @@ h3 {
 
     img[alt="search"]{
         max-width: 100%;
-        background: #fff;
-        padding:1%;
         border-radius: 4px;
     }
 
@@ -496,7 +622,7 @@ h3 {
 
 @media (max-width: 405px){
     #search{
-        width: 88%;
+        width: 85%;
     }
 
     #nav-head{
@@ -524,19 +650,9 @@ h3 {
 
     img[alt="search"]{
         max-width: 100%;
-        background: #fff;
-        padding:2%;
+        margin-left: 1%;
+        padding: 1.2%;
         border-radius: 4px;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
