@@ -1,29 +1,30 @@
 <div ng-init="checkedData()" ng-controller="wishListCtrl">
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-        <h2 class="navbar-text">Pocket Tap</h2>
-        <button id="logout" class="btn btn-danger navbar-text" ng-click="logout()">Logout</button>
-        <button class="btn btn-danger" ng-click="beerLocation()">My Beers</button>
-        <button class="btn btn-danger" ng-click="homeEsc()">Home</button>
+
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li ng-click="homeEsc()">Home</li>
+                    <li ng-click="beerLocation()">My Beers</li>
+                    <li ng-click="logout()">Logout</li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
-
-
-    <!--<div id="right-col" class="col-md-6">-->
-        <!--<h2>{{userObj.username}}'s Wish List</h2>-->
-        <!--<div class="col-sm-6 list">-->
-            <!--<div ng-repeat="key in wished">-->
-                <!--<a href="#/wishListInfo/{{key.bname}}">{{key.bname}}</a>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="col-sm-6 list">-->
-            <!--<div ng-repeat="key in wished">-->
-                <!--<p class="del">-->
-                    <!--<button ng-click="deleteWished(key.bname)">X</button>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
 
     <div id="left-col" class="col-md-12">
         <h2>{{userObj.username}}'s Check Ins:</h2>
