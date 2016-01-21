@@ -15,26 +15,7 @@
         <a class="btn btn-primary" href="#/searchResults/{{search.term}}">Search</a>
         <!--            <p>{{beers}}</p>-->
     </div>
-    <div>
-        <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in beers">
-            <h2>{{items.beer.beer_name}}</h2>
-            <img ng-src="{{items.beer.beer_label}}">
-            <p>STYLE - {{items.beer.beer_style}}</p>
-            <p>ABV - {{items.beer.beer_abv}}</p>
-            <p>INFO - {{items.beer.beer_description}}</p>
-            <button class="btn btn-primary" ng-click="checkin(items.beer.beer_name,
-                    items.beer.beer_label,
-                    items.beer.beer_style,
-                    items.beer.beer_abv,
-                    items.beer.beer_description)">CheckIn
-            </button>
-            <button class="btn btn-primary" ng-click="wishList(items.beer.beer_name,
-                    items.beer.beer_label,
-                    items.beer.beer_style,
-                    items.beer.beer_abv,
-                    items.beer.beer_description)">Add To WishList</button>
-        </div>
-    </div>
+
 
     <div id="left-col" class="col-md-12">
         <h2>{{userObj.username}}'s Check Ins</h2>
@@ -51,10 +32,6 @@
 
                     <p class="del"><button ng-click="deleteChecked(key.bname)">X</button></p>
                 </div>
-            </div>
-            
-            
+            </div>  
     </div>
-
-
 </div>

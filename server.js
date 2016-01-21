@@ -203,9 +203,6 @@ app.get('/beerdata/:id', function (req, res) {
 app.put('/addcheckin', function (req, res) {
 
     console.log(req.body);
-    var name = req.params.bdata;
-
-    console.log(req.params.checkFunt);
 
     db.userlist.update({
         username: req.body.username
@@ -219,7 +216,7 @@ app.put('/addcheckin', function (req, res) {
                 desc: req.body.bdesc,
                 location : req.body.blocation,
                 userinput : req.body.buserinput,
-                rating : req.body.rating
+                rating : req.body.brating
             }
         }
     }, function (err, doc) {

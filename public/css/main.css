@@ -1,7 +1,12 @@
 body{
     margin-top: 90px;
-    background: url('/img/background.jpg') no-repeat fixed;
+    background: #191919;
 
+}
+
+@font-face {
+    font-family: mainText;
+    src: url(../fonts/White_Elephant.ttf);
 }
 
 .form-control{
@@ -28,28 +33,21 @@ ul{
 
 }
 
-#top-nav{
-    background: #d63f3b;
-}
-
-nav{
-    background: #d63f3b;
-
-}
 
 .nav-list{
-    background: #d63f3b;
-
+/*    background: #d63f3b;*/
 }
 
 .container{
     color: #ffffff;
+    
 }
 
 .app-info{
-    font-family: 'Abel', sans-serif;
-    font-size: 1em;
-    color: #fff;
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+    font-size: 1.6em;
+    color: #c43a36;
 }
 
 #info-div{
@@ -57,7 +55,10 @@ nav{
 }
 
 .log-header{
-    font-family: 'Abel', sans-serif;
+    text-align: center;
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(201,182,123);
 
 }
 
@@ -80,6 +81,7 @@ ul li{
 }
 
 #register{
+    font-family: 'Andale Mono';
     float: right;
     background: none;
     text-decoration: underline;
@@ -241,4 +243,73 @@ textarea, select {
 
 h3 {
      color: black;
+}
+
+.mainlogo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#info-div {
+    height: 300px;
+}
+
+.landingUp {
+     margin-top: -90px;   
+}
+
+button {
+    font-family: 'mainText', sans-serif;
+    letter-spacing: 1px;
+}
+
+/*------------------*/
+ 
+.btn {
+    border: 0 none;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.active, .btn:active {
+    background-color: #fff;
+}
+
+/*-----------*/
+
+.btn.outline {
+    background: none;
+    font-size: 20px;
+}
+
+.btn-primary.outline {
+    border: 2px solid #fff;
+    color: #c43a36;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #f24540;
+    border-color: #fff;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #fff;
+    background: #fff;
+    color: #7e2522;
+    box-shadow: none;
 }
