@@ -1,6 +1,5 @@
 body{
     margin-top: 90px;
-
     background: #222;
 }
 
@@ -71,7 +70,7 @@ img[alt="search"]{
 }
 
 .form-control{
-    margin-bottom:2%;
+    margin-bottom: 6%;
 }
 
 form {
@@ -84,18 +83,11 @@ ul{
 }
 
 #addc{
-    margin-top: 1.5%;
-    width:30%
+    margin-top: 6%;
 }
 
 #signIn{
-    margin-top: 1.5%;
-    width:30%
-}
-
-
-.nav-list{
-    background: #d63f3b;
+    margin-top: 6%;
 }
 
 .container{
@@ -106,7 +98,7 @@ ul{
 .app-info{
     font-family: 'mainText', sans-serif;
     letter-spacing: 1px;
-    font-size: 1.6em;
+    font-size: 1.8em;
     color: #c43a36;
 }
 
@@ -115,6 +107,7 @@ ul{
 }
 
 .log-header{
+    font-size: 3.2em;
     text-align: center;
     font-family: 'mainText', sans-serif;
     letter-spacing: 1px;
@@ -143,8 +136,9 @@ ul li{
     font-family: 'Andale Mono';
     float: right;
     background: none;
-    text-decoration: underline;
+    text-decoration: none;
     border:none;
+    margin-top: 6%;
 }
 
 
@@ -378,7 +372,7 @@ button {
 
 .btn.outline {
     background: none;
-    font-size: 20px;
+    font-size: 1.7em;
 }
 
 .btn-primary.outline {
