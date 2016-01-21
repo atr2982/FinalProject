@@ -1,6 +1,46 @@
 body{
-    margin-top: 90px;
     background: #222;
+}
+
+
+#nav-head{
+    text-align: center;
+    font-size: 3em;
+    margin-top:10%;
+}
+
+#logout{
+    margin-left:5%;
+    padding: 2% 7%;
+    color:#fff;
+    text-decoration: underline;
+    font-size: 1.7em;
+    float: right;
+}
+
+#logout:hover{
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.navbar-nav{
+    width:60%;
+    float: right;
+}
+
+.navbar-nav li{
+    margin-left:5%;
+    padding: 2% 7%;
+    color:#fff;
+    text-decoration: underline;
+    font-size: 1.5em;
+}
+
+.navbar-nav li:hover{
+    opacity: 0.8;
+    cursor: pointer;
+    background: #FFF;
+    color: #222;
 }
 
 #search{
@@ -146,7 +186,7 @@ ul li{
 
 .beers {
     border: 1px solid black;
-    margin-bottom: 60px;  
+    margin-bottom: 60px;
 }
 
 .appName {
@@ -161,10 +201,6 @@ ul li{
 .user-cont{
     font-family: 'Abel', sans-serif;
     color: #fff;
-    text-align: center;
-}
-
-#nav-head{
     text-align: center;
 }
 
@@ -188,7 +224,6 @@ ul li{
 
 #home-control{
     opacity: 0.9;
-    margin-top: 10%;
 }
 
 #search-beers{
@@ -211,7 +246,7 @@ ul li{
     opacity: 0.9;
 }
 .check, .del {
-     height: 25px;   
+     height: 25px;
 }
 
 .cont-wrapper{
@@ -281,7 +316,6 @@ img[alt="banner"]{
     max-width: 100%;
     height: auto;
 
-
 }
 
 .search-info{
@@ -349,6 +383,67 @@ h3 {
         font-size: 0.5em;
     }
 
+    img[alt="banner"]{
+        margin-top: 3%;
+
+    }
+
+}
+
+@media (max-width: 767px){
+    .navbar-nav{
+        margin: 0;
+        width: 100%;
+    }
+
+    #nav-head{
+        text-align: center;
+        font-size: 3em;
+        margin-top:2%;
+        margin-left: 2%;
+    }
+
+    .navbar-inverse .navbar-toggle{
+        margin-top: 3%;
+    }
+
+    img[alt="barIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        display: block;
+
+    }
+
+    img[alt="beerIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        display: block;
+    }
+
+    img[alt="wistListIcon"]{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+    }
+
+    img[alt="trendListIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        display: block;
+    }
+
 }
 
 @media (max-width: 586px){
@@ -362,6 +457,18 @@ h3 {
 
     .icon-head{
         margin-left: 5%;
+
+    }
+
+    #nav-head{
+        text-align: center;
+        font-size: 2.7em;
+        margin-top:5%;
+        margin-left: 10%;
+    }
+
+    img[alt="banner"]{
+        margin-top: 5%;
 
     }
 
@@ -380,12 +487,21 @@ h3 {
         border-radius: 4px;
     }
 
+    .navbar-inverse .navbar-toggle{
+        margin-top: 6%;
+        margin-right: 5%;
+    }
 
 }
 
 @media (max-width: 405px){
     #search{
         width: 88%;
+    }
+
+    #nav-head{
+        font-size: 2.4em;
+
     }
 
     #search-cont{
@@ -413,6 +529,10 @@ h3 {
         border-radius: 4px;
     }
 }
+
+
+
+
 
 
 
