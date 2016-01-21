@@ -5,19 +5,47 @@
         <button class="btn btn-danger" ng-click="beerLocation()">My Beers</button>
         <button class="btn btn-danger" ng-click="homeEsc()">Home</button>
     </nav>
-    <div id="right-col" class="col-md-6">
-        <h2>{{userObj.username}}'s Wish List</h2>
-        <div class="col-sm-6 list">
-            <div ng-repeat="key in wished">
-                <a href="#/wishListInfo/{{key.bname}}">{{key.bname}}</a>
-            </div>
-        </div>
-        <div class="col-sm-6 list">
-            <div ng-repeat="key in wished">
-                <p class="del">
-                    <button ng-click="deleteWished(key.bname)">X</button>
-                </p>
-            </div>
-        </div>
-    </div>
+
+
+
+    <!--<div id="right-col" class="col-md-6">-->
+        <!--<h2>{{userObj.username}}'s Wish List</h2>-->
+        <!--<div class="col-sm-6 list">-->
+            <!--<div ng-repeat="key in wished">-->
+                <!--<a href="#/wishListInfo/{{key.bname}}">{{key.bname}}</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="col-sm-6 list">-->
+            <!--<div ng-repeat="key in wished">-->
+                <!--<p class="del">-->
+                    <!--<button ng-click="deleteWished(key.bname)">X</button>-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+    <div id="left-col" class="col-md-12">
+        <h2>{{userObj.username}}'s Check Ins:</h2>
+
+
+<div ng-repeat="key in wished">
+    <button class="expand-beer-btn" ng-click="alcMeta = true"><b>{{key.bname}}</b></button><hr>
+
+
+    <div ng-show="alcMeta">
+        <p class="del"><button class="btn btn-danger navbar-text" ng-click="deleteWished(key.bname)">Remove Beer</button></p>
+
+        <h4>Details:</h4>
+
+        <p><b>Alcohol: </b>{{key.abv}}%</p>
+        <p><b>Style: </b>{{key.style}}</p>
+        <p><b>Description: </b>{{key.desc}}</p>
+
+        <h4>Your Checkin Information:</h4>
+        <p><b>Location: </b>{{key.location}}</p>
+        <p><b>Rating: </b>{{key.rating}}</p><hr></div>
+</div>
+
+</div>
 </div>

@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7b1a55-7ff4-4b0a-a655-c98db651371a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/trending.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/views/wishListMeta.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/bars.html" afterPath="$PROJECT_DIR$/public/views/bars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/checkInfo.html" afterPath="$PROJECT_DIR$/public/views/checkInfo.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Controllers/controller.js" afterPath="$PROJECT_DIR$/public/Controllers/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/homepage.html" afterPath="$PROJECT_DIR$/public/views/homepage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/myBeers.html" afterPath="$PROJECT_DIR$/public/views/myBeers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/wishList.html" afterPath="$PROJECT_DIR$/public/views/wishList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FinalProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,25 +30,16 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="3" selection-start="3569" selection-end="3569" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="4170">
+            <state line="219" column="41" selection-start="5145" selection-end="5145" vertical-scroll-proportion="0.0" vertical-offset="2925" max-vertical-offset="4125">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="controller.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="478" column="0" selection-start="15375" selection-end="15375" vertical-scroll-proportion="3.9390018" vertical-offset="5144" max-vertical-offset="8520">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trending.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/trending.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="49" selection-start="455" selection-end="455" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="390">
+            <state line="425" column="10" selection-start="14041" selection-end="14041" vertical-scroll-proportion="-17.307692" vertical-offset="5925" max-vertical-offset="8625">
               <folding />
             </state>
           </provider>
@@ -64,16 +48,16 @@
       <file leaf-file-name="homepage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="720">
+            <state line="6" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="26.583334" vertical-offset="728" max-vertical-offset="1380">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wishList.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
+      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="59" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="420">
+            <state line="405" column="21" selection-start="5014" selection-end="5014" vertical-scroll-proportion="0.7669903" vertical-offset="5680" max-vertical-offset="6420">
               <folding />
             </state>
           </provider>
@@ -97,29 +81,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/views/nonAuthNav.html" />
         <option value="$PROJECT_DIR$/public/views/signUp.html" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/views/searchResults.html" />
         <option value="$PROJECT_DIR$/public/views/result-info.html" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/public/views/bars.html" />
         <option value="$PROJECT_DIR$/public/views/wishLishMeta.html" />
-        <option value="$PROJECT_DIR$/public/views/wishList.html" />
-        <option value="$PROJECT_DIR$/public/views/myBeers.html" />
-        <option value="$PROJECT_DIR$/public/views/checkInfo.html" />
         <option value="$PROJECT_DIR$/public/views/wishListMeta.html" />
         <option value="$PROJECT_DIR$/public/views/trending.html" />
-        <option value="$PROJECT_DIR$/public/views/homepage.html" />
         <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/js/toggle.js" />
+        <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/views/checkInfo.html" />
+        <option value="$PROJECT_DIR$/public/views/searchResults.html" />
+        <option value="$PROJECT_DIR$/public/views/myBeers.html" />
         <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
+        <option value="$PROJECT_DIR$/public/views/wishList.html" />
+        <option value="$PROJECT_DIR$/public/views/homepage.html" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="37" />
-    <option name="y" value="126" />
-    <option name="width" value="1384" />
+    <option name="x" value="558" />
+    <option name="y" value="97" />
+    <option name="width" value="1292" />
     <option name="height" value="689" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -148,6 +132,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -254,7 +239,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -270,6 +254,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -278,14 +270,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -328,14 +312,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="126" width="1384" height="689" extended-state="0" />
+    <frame x="558" y="97" width="1292" height="689" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20352682" sideWeight="0.7936508" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2494817" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21828212" sideWeight="0.7936508" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22263041" sideWeight="0.20634921" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871974" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -364,66 +348,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="-16.875" vertical-offset="0" max-vertical-offset="525" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/1450157818_beer.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="652" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.3322884" vertical-offset="283" max-vertical-offset="945" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="7" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="20" selection-start="0" selection-end="2863" vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="3645" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/bars.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="73" selection-start="430" selection-end="430" vertical-scroll-proportion="0.17110266" vertical-offset="0" max-vertical-offset="526" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/searchResults.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="48" selection-start="600" selection-end="600" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="390" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/result-info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="58" selection-start="727" selection-end="727" vertical-scroll-proportion="-10.625" vertical-offset="30" max-vertical-offset="855" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="22" selection-start="2094" selection-end="2094" vertical-scroll-proportion="-10.041667" vertical-offset="434" max-vertical-offset="975" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/checkInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="3" selection-start="62" selection-end="465" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="360" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/wishListMeta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="0" selection-start="464" selection-end="464" vertical-scroll-proportion="0.26112187" vertical-offset="0" max-vertical-offset="517" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="59" selection-end="445" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="420">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/trending.html">
@@ -433,23 +360,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="702" selection-end="702" vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="720">
+        <state line="27" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.78336555" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/searchResults.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="48" selection-start="560" selection-end="600" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="95" selection-start="1266" selection-end="1266" vertical-scroll-proportion="-9.458333" vertical-offset="283" max-vertical-offset="945">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="3" selection-start="3569" selection-end="3569" vertical-scroll-proportion="0.0" vertical-offset="570" max-vertical-offset="4170">
+        <state line="219" column="41" selection-start="5145" selection-end="5145" vertical-scroll-proportion="0.0" vertical-offset="2925" max-vertical-offset="4125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="28" selection-start="75" selection-end="75" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/result-info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="52" selection-start="1964" selection-end="1964" vertical-scroll-proportion="0.23210831" vertical-offset="630" max-vertical-offset="1200">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/checkInfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="475" selection-end="475" vertical-scroll-proportion="0.29013538" vertical-offset="0" max-vertical-offset="517">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/wishListMeta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="464" selection-end="464" vertical-scroll-proportion="0.26112187" vertical-offset="0" max-vertical-offset="517">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="478" column="0" selection-start="15375" selection-end="15375" vertical-scroll-proportion="3.9390018" vertical-offset="5144" max-vertical-offset="8520">
+        <state line="425" column="10" selection-start="14041" selection-end="14041" vertical-scroll-proportion="-17.307692" vertical-offset="5925" max-vertical-offset="8625">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="8" selection-start="1487" selection-end="1487" vertical-scroll-proportion="0.4777563" vertical-offset="308" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="3" selection-start="800" selection-end="889" vertical-scroll-proportion="0.0952381" vertical-offset="207" max-vertical-offset="720">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="279" selection-end="279" vertical-scroll-proportion="26.583334" vertical-offset="728" max-vertical-offset="1380">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="405" column="21" selection-start="5014" selection-end="5014" vertical-scroll-proportion="0.7669903" vertical-offset="5680" max-vertical-offset="6420">
           <folding />
         </state>
       </provider>
