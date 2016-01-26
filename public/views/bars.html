@@ -1,45 +1,55 @@
-<div ng-init="getLocation()" ng-controller="barCtrl">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
 
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
 
-                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
-
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="beerLocation()">My Beers</li>
-                    <li ng-click="logout()">Logout</li>
-
-                </ul>
-            </div>
         </div>
-    </nav>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-click="homeEsc()">Home</li>
+                <li ng-click="beerLocation()">My Beers</li>
+                <li ng-click="logout()">Logout</li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" ng-init="getLocation()" ng-controller="barCtrl">
 
 
 
+    <div class="col-md-12 mainPad">
+        <div class="tester col-md-12">
+            <p class="pageName">Local Bars</p>
+        </div>
 
-\
-    <div class="col-md-12">
-
-        <h1>Bars Near You</h1>
-
-        <div class="dataBar" ng-repeat="key in locations">
-            <div class="data-info"><b>{{key.venue.name}}</b></div>
+        <div class="dataBar myBeers" ng-repeat="key in locations">
+            <div class="locName"><b>{{key.venue.name}}</b></div>
+            <div class="data-info locDist">{{key.venue.location.distance}} miles</div>
             <div class="data-info">{{key.venue.location.address}}</div>
-            <p class="data-info">{{key.venue.location.city}}, {{key.venue.location.state}}</p>
-            <hr>
+            <div class="data-info">{{key.venue.location.city}}, {{key.venue.location.state}}</div>
+        </div>
+    </div>
+
+
+    <div class="myBeers col-md-12" ng-repeat="key in checked">
+        <div class="leftPic">
+            <img class="beerImg" ng-src="{{key.blabel}}">
+        </div>
+
+        <div class="rightName">
+            <button class="expand-beer-btn" ng-click="alcMeta = true"><b>{{key.bname}}</b></button>
         </div>
     </div>
 

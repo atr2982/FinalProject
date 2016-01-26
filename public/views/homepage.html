@@ -1,113 +1,98 @@
-<!DOCTYPE html>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <p id="logout" ng-click="logout()">Logout</p>
+
+        </div>
+    </div>
+</nav>
 
 <div class="container" id="home-control" ng-init="recent()" ng-controller="homepageCtrl">
 
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
-
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                    <p id="logout" ng-click="logout()">Logout</p>
-
-            </div>
+    <div id="greeting-cont" class="col-md-4">
+        <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
+        <p></p>
+        <h3 class="user-cont">{{userObj.username}}'s recent checked in beers:</h3>
+        <div ng-repeat="beer in recentList | orderBy: '-'">
+            <p class="user-header">{{beer.bname}}</p>
         </div>
-    </nav>
+    </div>
 
-        <div id="greeting-cont" class="col-md-4">
-            <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
-            <p></p>
-            <h3 class="user-cont">{{userObj.username}}'s recent checked in beers:</h3>
-            <div ng-repeat="beer in recentList | orderBy: '-'">
-                <p class="user-header">{{beer.bname}}</p>
-            </div>
-        </div>
-
-        <div id="search-cont" class="col-md-8">
-            <h2 id="search-greet">Search your favorite beers!</h2>
-            <label id="label-search" for="search">Search</label>
-            <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
-            <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
-        </div>
-        <div class="col-lg-12">
-            <img src="../img/beer-banner.jpg" alt="banner">
-        </div>
-
-
-
-
-
-
+    <div id="search-cont" class="col-md-8">
+        <h2 id="search-greet">Search your favorite beers!</h2>
+        <label id="label-search" for="search">Search</label>
+        <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
+        <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
+    </div>
+    <div class="col-lg-12">
+        <img src="../img/beer-banner.jpg" alt="banner">
+    </div>
 
 
 
     <div class="col-md-12">
-       <ul id="navrBtn">
-           <li ng-click="beerLocation()">
-               <div class="cont-wrapper">
-               <div class="img-cont">
-                   <img alt="beerIcon" src="../img/changeBeer.png">
-               </div>
+        <ul id="navrBtn">
+            <li ng-click="beerLocation()">
+                <div class="cont-wrapper">
+                    <div class="img-cont">
+                        <img alt="beerIcon" src="../img/changeBeer.png">
+                    </div>
 
-               <div class="tab-cont">
-                   <h3 class="icon-head">My Beers</h3>
-                   <p class="icon-text">View your favorites! All the beer that you checked are a click away!</p>
-               </div>
+                    <div class="tab-cont">
+                        <h3 class="icon-head">My Beers</h3>
+                        <p class="icon-text">View your favorites! All the beer that you checked are a click away!</p>
+                    </div>
                 </div>
-           </li>
+            </li>
 
-           <li ng-click="bar()">
-               <div class="cont-wrapper">
-                   <div class="img-cont">
-                         <img src="../img/newBar.jpg" alt="barIcon">
-                   </div>
-                   <div class="tab-cont">
-                       <h3 class="icon-head">Local Bars</h3>
-                       <p class="icon-text">Where is the action!? Check the bars that have your favorite craft beer!</p>
-                   </div>
-               </div>
-           </li>
-           <li ng-click="wishListDirect()">
-               <div class="cont-wrapper">
-                   <div class="img-cont">
+            <li ng-click="bar()">
+                <div class="cont-wrapper">
+                    <div class="img-cont">
+                        <img src="../img/newBar.jpg" alt="barIcon">
+                    </div>
+                    <div class="tab-cont">
+                        <h3 class="icon-head">Local Bars</h3>
+                        <p class="icon-text">Where is the action!? Check the bars that have your favorite craft beer!</p>
+                    </div>
+                </div>
+            </li>
+            <li ng-click="wishListDirect()">
+                <div class="cont-wrapper">
+                    <div class="img-cont">
                         <img src="../img/newWish.jpg" alt="wistListIcon">
-                   </div>
-                   <div class="tab-cont">
-                       <h3 class="icon-head">Wishlist</h3>
-                       <p class="icon-text">Wishful Drinking? View all the beers you want to experience in the future.</p>
-                   </div>
+                    </div>
+                    <div class="tab-cont">
+                        <h3 class="icon-head">Wishlist</h3>
+                        <p class="icon-text">Wishful Drinking? View all the beers you want to experience in the future.</p>
+                    </div>
                 </div>
-           </li>
-           <li ng-click="trendingDirect()" >
-               <div class="cont-wrapper">
-                   <div class="img-cont">
-                     <img src="../img/newTrend.jpg" alt="trendListIcon">
-                   </div>
-                   <div class="tab-cont">
-                       <h3 class="icon-head">Trending</h3>
-                       <p class="icon-text">Check out what's popular! Here are the latest trending beers!</p>
-                   </div>
-               </div>
-           </li>
-       </ul>
+            </li>
+            <li ng-click="trendingDirect()">
+                <div class="cont-wrapper">
+                    <div class="img-cont">
+                        <img src="../img/newTrend.jpg" alt="trendListIcon">
+                    </div>
+                    <div class="tab-cont">
+                        <h3 class="icon-head">Trending</h3>
+                        <p class="icon-text">Check out what's popular! Here are the latest trending beers!</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 
 </div>
-
-
-
-
-
-
-

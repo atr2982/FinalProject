@@ -354,6 +354,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.checkedData = function(){
             var id = $rootScope.userObj._id;
             $http.get('/beerdata/' + id).success(function (response) {
+                console.log("the beer: ", response.beers);
                 $scope.checked = response.beers;
                 $scope.wished = response.wishList;
             });
@@ -523,6 +524,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
                 .success(function (response) {
                     $scope.trendingBeers = response.response.micro.items;
+                    console.log($scope.trendingBeers);
                 });
         };
 
@@ -547,9 +549,19 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
             var la = position.coords.latitude;
             var lo = position.coords.longitude;
-            $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
+            $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer&limit=20').success(function (response) {
                 $rootScope.objArr = [];
                 $rootScope.locations = response.response.groups[0].items;
+                
+                
+                for (i = 0; i < $rootScope.locations.length; i++) {
+                $rootScope.locations[i].venue.location.distance = Math.round((($rootScope.locations[i].venue.location.distance * 0.000621371192)*100))/100;  
+                }
+                
+                $rootScope.locations.sort(function (a, b) {
+                    return a.venue.location.distance - b.venue.location.distance;
+                })
+                
                 console.log($rootScope.locations);
             });
         }

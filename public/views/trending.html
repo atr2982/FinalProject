@@ -1,42 +1,59 @@
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-click="homeEsc()">Home</li>
+                <li ng-click="beerLocation()">My Beers</li>
+                <li ng-click="logout()">Logout</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container" id="home-control" ng-init="trending()" ng-controller="homepageCtrl">
 
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
-
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="beerLocation()">My Beers</li>
-                    <li ng-click="logout()">Logout</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-    <h1 class="user-header">Trending Beers</h1>
-    <div>
-        <div class="beers col-lg-6 col-lg-offset-3" id="trend-beers" ng-repeat="items in trendingBeers">
-            <h2>{{items.beer.beer_name}}</h2>
-            <img ng-src="{{items.beer.beer_label}}">
-            <p>STYLE - {{items.beer.beer_style}}</p>
-            <p>ABV - {{items.beer.beer_abv}}</p>
-            <p>INFO - {{items.beer.beer_description}}</p>
+    <div class="col-md-12 mainPad">
+       
+       
+        <div class="tester col-md-12">
+            <p class="pageName">Trending Beers</p>
         </div>
 
-     </div>
 
- </div>
+       
+       
+        <div class="myBeers col-lg-12" ng-repeat="key in trendingBeers">
+            <div class="leftPic">
+                <img class="beerImg" ng-src="{{key.beer.beer_label}}">
+            </div>
+            <div class="rightName">
+                <button class="expand-beer-btn" ng-click="alcMeta = true"><b>{{key.beer.beer_name}}</b></button>
+            </div>
+
+
+            <div ng-show="alcMeta">
+                <p class="del">
+                    <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
+                </p>
+                <h4>Details:</h4>
+                <p><b>Alcohol: </b>{{key.beer.beer_abv}}%</p>
+                <p><b>Style: </b>{{key.beer.beer_style}}</p>
+            </div>
+        </div>
+
+   
+    </div>

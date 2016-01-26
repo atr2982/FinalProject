@@ -74,6 +74,7 @@ input:-ms-input-placeholder {
     background: rgb(201,182,123);
     color: #000;
     border: none;
+/*    width: 94.9%;*/
     width: 90%;
 }
 
@@ -83,6 +84,15 @@ input:-ms-input-placeholder {
 
 #search-cont{
     margin-top: 1%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: inherit; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 #search-greet{
@@ -136,8 +146,7 @@ img[alt="search"]{
 .expand-beer-btn{
     border: none;
     background: none;
-    text-decoration: underline;
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
 }
 
@@ -164,7 +173,7 @@ img[alt="search"]{
 }
 
 .form-control{
-    margin-bottom: 6%;
+/*    margin-bottom: 6%;*/
 }
 
 form {
@@ -215,6 +224,7 @@ ul{
 
 #banner{
     margin-bottom: 10%;
+    color: #fff;
 }
 
 #authNav li{
@@ -223,7 +233,7 @@ ul{
 
 ul li{
     font-size: 1.7em;
-    text-align: center;
+/*    text-align: center;*/
 }
 
 #register{
@@ -248,7 +258,8 @@ ul li{
 .dataBar{
     background: #fff;
     padding: 5% 2%;
-    font-size: 2em;
+    font-size: 1.2em;
+    font-family: 'Andale Mono', sans-serif;
 }
 .user-cont{
     font-family: mainText;
@@ -261,12 +272,21 @@ ul li{
     text-align: center;
     color: rgb(201,182,123);
     letter-spacing: 2px;
-
 }
 
 .data-info{
-    font-family: 'Abel', sans-serif;
     font-size: 1em;
+}
+
+.locName {
+     font-family: mainText;
+    font-size: 1.5em;
+    font-kerning: 1px;
+}
+
+.locDist {
+     margin-top: 10px; 
+    margin-bottom: 5px;
 }
 
 #spin{
@@ -276,7 +296,7 @@ ul li{
     background: url('../img/spinner.gif') no-repeat center center;
 }
 
-#home-control{
+#home-control{ 
     opacity: 0.9;
 }
 
@@ -290,10 +310,6 @@ ul li{
     opacity: 0.9;
 }
 
-#left-col{
-    background: #fff;
-    opacity: 0.9;
-}
 
 #right-col{
     background: #fff;
@@ -334,6 +350,45 @@ ul li{
     font-family: mainText;
     color: rgb(201,182,123);
 
+}
+
+.myBeers {
+    background: #fff;
+    color: black;
+    opacity: 0.9;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+
+.mainPad {
+    padding-left: 15px;
+    padding-right: 15px; 
+}
+
+.leftPic {
+    margin-left: 10px;   
+}
+
+.rightName {
+    height: 100%;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.pageName {
+    font-family: mainText;   
+}
+
+.tester {
+    font-size: 2.3em;
+    color: #fff;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.testing {
+    margin: 0;
 }
 
 
@@ -426,7 +481,8 @@ h3 {
 }
 
 #info-div {
-    height: 300px;
+    text-align: center;
+    font-family: 'Andale Mono';
 }
 
 button {
@@ -484,6 +540,24 @@ button {
     color: #7e2522;
     box-shadow: none;
 }
+
+.beerImg {
+    width: 75px;   
+}
+
+.saved-beer {
+    color: #fff;
+    text-align: center;
+     font-family: mainText;
+    font-size: 2.3em;
+}
+
+
+
+
+
+
+
 
 @media (max-width: 992px){
     #search{
@@ -603,6 +677,8 @@ button {
 
     .expand-beer-btn{
         font-size: 1.5em;
+        max-width: 235px;
+        text-align: left;
     }
 
     img[alt="search"]{
@@ -618,6 +694,16 @@ button {
 }
 
 @media (max-width: 405px){
+    
+    .expand-beer-btn{
+        font-size: 1.6em;
+        line-height: 22px;
+    }
+    
+    .leftPic, .rightName{
+        display: inline-block;   
+    }
+    
     #search{
         width: 85%;
     }
@@ -664,5 +750,6 @@ button {
     img[alt="banner"]{
         display: none;
     }
-}
+    
+  
 

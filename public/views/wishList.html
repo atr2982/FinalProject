@@ -1,52 +1,62 @@
-<div ng-init="checkedData()" ng-controller="wishListCtrl">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
 
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
 
-                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
-
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="beerLocation()">My Beers</li>
-                    <li ng-click="logout()">Logout</li>
-                </ul>
-            </div>
         </div>
-    </nav>
 
-    <div id="left-col" class="col-md-12">
-        <h2>{{userObj.username}}'s Check Ins:</h2>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-click="homeEsc()">Home</li>
+                <li ng-click="beerLocation()">My Beers</li>
+                <li ng-click="logout()">Logout</li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 
-<div ng-repeat="key in wished">
-    <button class="expand-beer-btn" ng-click="alcMeta = true"><b>{{key.bname}}</b></button><hr>
+<div class="container" ng-init="checkedData()" ng-controller="wishListCtrl">
+
+    <div class="col-md-12 mainPad">
+        <div class="tester col-md-12">
+            <p class="pageName">Wish List</p>
+        </div>
 
 
-    <div ng-show="alcMeta">
-        <p class="del"><button class="btn btn-danger navbar-text" ng-click="deleteWished(key.bname)">Remove Beer</button></p>
+            <div class="myBeers col-lg-12" ng-repeat="key in wished">
+                <div class="leftPic">
+                    <img class="beerImg" ng-src="{{key.blabel}}">
+                </div>
+                <div class="rightName">
+                    <button class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</button>
+                </div>
 
-        <h4>Details:</h4>
 
-        <p><b>Alcohol: </b>{{key.abv}}%</p>
-        <p><b>Style: </b>{{key.style}}</p>
-        <p><b>Description: </b>{{key.desc}}</p>
 
-        <h4>Your Checkin Information:</h4>
-        <p><b>Location: </b>{{key.location}}</p>
-        <p><b>Rating: </b>{{key.rating}}</p><hr></div>
-</div>
 
-</div>
+                <div ng-show="alcMeta">
+                    <p class="del">
+                        <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
+                    </p>
+                    <h4>Details:</h4>
+                    <p><b>Alcohol: </b>{{key.abv}}%</p>
+                    <p><b>Style: </b>{{key.style}}</p>
+                    <p><b>Description: </b>{{key.desc}}</p>
+                    <h4>Your Checkin Information:</h4>
+                    <p><b>Location: </b>{{key.location}}</p>
+                    <p><b>Rating: </b>{{key.rating}}/10</p>
+                </div>
+            </div>
+
+    </div>
 </div>
