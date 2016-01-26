@@ -62,6 +62,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 }])
 
 .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
+        if ($rootScope.userObj) {
+            $location.path('/home')
+        }
+
         $scope.signUp1 = false;
         $scope.signUp = function () {
             if ($scope.user.password != $scope.user.confirm) {
@@ -130,6 +134,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         $scope.homeEsc = function(){
             $location.path('/home');
+        };
+
+        $scope.wishListDirect = function(){
+            $location.path('/wishlist')
+        };
+
+        $scope.trendingDirect = function(){
+            $location.path('/trending');
         };
 
         $scope.logout = function () {
@@ -301,11 +313,20 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/home');
         };
 
+        $scope.wishListDirect = function(){
+            $location.path('/wishlist')
+        };
+
+        $scope.trendingDirect = function(){
+            $location.path('/trending');
+        };
+
         $scope.logout = function () {
             $http.post('/logout');
             $rootScope.userObj = undefined;
             $location.path('/');
         };
+
 
         $scope.bar = function(){
             $location.path('/bars');
@@ -371,14 +392,22 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/home');
         };
 
-        $scope.beerLocation = function(){
-            $location.path('/mybeers');
+        $scope.trendingDirect = function(){
+            $location.path('/trending');
         };
 
         $scope.logout = function () {
             $http.post('/logout');
             $rootScope.userObj = undefined;
             $location.path('/');
+        };
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
         };
 
         $scope.deleteWished = function (name) {
@@ -505,18 +534,30 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/')
         }
 
-        $scope.beerLocation = function(){
-            $location.path('/mybeers');
-        };
-
         $scope.homeEsc = function(){
             $location.path('/home');
-        }
+        };
+
+        $scope.wishListDirect = function(){
+            $location.path('/wishlist')
+        };
+
+        $scope.trendingDirect = function(){
+            $location.path('/trending');
+        };
 
         $scope.logout = function () {
             $http.post('/logout');
             $rootScope.userObj = undefined;
             $location.path('/');
+        };
+
+        $scope.beerLocation = function(){
+            $location.path('/mybeers');
+        };
+
+        $scope.bar = function(){
+            $location.path('/bars');
         };
 
         $scope.trending = function () {
@@ -571,6 +612,14 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/home');
         };
 
+        $scope.wishListDirect = function(){
+            $location.path('/wishlist')
+        };
+
+        $scope.trendingDirect = function(){
+            $location.path('/trending');
+        };
+
         $scope.logout = function () {
             $http.post('/logout');
             $rootScope.userObj = undefined;
@@ -579,6 +628,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         $scope.beerLocation = function(){
             $location.path('/mybeers');
-
         };
+
 }]);

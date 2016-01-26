@@ -6,13 +6,12 @@ body{
 
 #nav-head{
     text-align: center;
-    font-size: 3em;
+    font-size: 4em;
     margin-top:13%;
     color: rgb(201,182,123);
     font-family: mainText;
     letter-spacing: 3px;
 }
-
 
 #logout{
     margin-left:5%;
@@ -31,17 +30,17 @@ body{
 }
 
 .navbar-nav{
-    width:60%;
+    width:70%;
     float: right;
 }
 
 .navbar-nav li{
     color: rgb(201,182,123);
     font-family: mainText;
-    letter-spacing: 3px;
-    margin-left:5%;
-    padding: 2% 7%;
-    text-decoration: underline;
+    letter-spacing: 2px;
+    margin-left:2%;
+    padding: 1%;
+    text-decoration:   underline;
     font-size: 2em;
 }
 
@@ -67,7 +66,6 @@ input:-ms-input-placeholder {
 }
 
 #search{
-    width: 95%;
     float: left;
     clear: both;
     overflow: hidden;
@@ -301,8 +299,37 @@ ul li{
 }
 
 #search-beers{
-    background: #fff;
     opacity: 0.9;
+    border: none;
+    overflow: hidden;
+}
+
+#img-cont1{
+    max-width:20%;
+    float:left;
+    overflow: hidden;
+    margin-right: 4%;
+}
+
+img[alt='search-list']{
+    max-width:100%;
+    float:left;
+    overflow: hidden;
+    margin-top: 15%;
+}
+
+.beer-style{
+    color: #000;
+    font-family: mainText;
+    color: rgb(201,182,123);
+    font-size: 1.5em;
+}
+
+#term-cont{
+    max-width:80%;
+    float: left;
+    overflow: hidden;
+
 }
 
 #trend-beers{
@@ -337,6 +364,8 @@ ul li{
 
 #navrBtn li:hover{
     opacity: 0.7;
+    cursor: pointer;
+
 }
 
 .icon-bar{
@@ -435,13 +464,37 @@ img[alt="banner"]{
 
 }
 
+.functions{
+    background: rgb(201,182,123);
+    color: #222;
+    font-size: 1.5em;
+    border: none;
+    border-radius: 2px;
+    padding: 1.2% 5%;
+}
+
+textarea{
+    width:100%;
+}
+
 .search-info{
-    color:#000;
+    font-family: mainText;
+    color: rgb(201,182,123);
+    font-size: 3em;
+}
+
+.search-meta{
+    font-family: mainText;
+    color: rgb(201,182,123);
+    font-size: 1.4em;
+    letter-spacing: 1px;
 }
 
 #beer-header{
     font-size: 3em;
     text-align: center;
+    font-family: mainText;
+    color: rgb(201,182,123);
 }
 
 .rating{
@@ -564,13 +617,33 @@ button {
         width: 92%;
     }
 
+    #nav-head{
+        text-align: center;
+        font-size: 2.5em;
+        color: rgb(201,182,123);
+        font-family: mainText;
+        letter-spacing: 3px;
+    }
+
+    .navbar-nav{
+        width:70%;
+    }
+
+    .navbar-nav li{
+        color: rgb(201,182,123);
+        font-family: mainText;
+        letter-spacing: 2px;
+        text-decoration:   underline;
+        font-size: 1.7em;
+    }
+
     img[alt="search"]{
         max-width: 100%;
         border-radius: 4px;
     }
 
     .icon-head{
-        font-size: 1em;
+        font-size: 1.5em;
 
     }
 
@@ -579,11 +652,54 @@ button {
     }
 
     .icon-text{
-        font-size: 0.5em;
+        font-size: 0.9em;
     }
 
     img[alt="banner"]{
         margin-top: 3%;
+
+    }
+
+    img[alt="barIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:20%;
+        display: block;
+        margin-bottom: 20%;
+
+    }
+
+    img[alt="beerIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:20%;
+        display: block;
+        margin-bottom: 20%;
+    }
+
+    img[alt="wistListIcon"]{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:20%;
+        margin-bottom: 20%;
+
+    }
+
+    img[alt="trendListIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:20%;
+        display: block;
+        margin-bottom: 20%;
 
     }
 
@@ -672,7 +788,7 @@ button {
     }
 
     .icon-text{
-        font-size: 0.5em;
+        font-size: 0.7em;
     }
 
     .expand-beer-btn{
@@ -689,6 +805,17 @@ button {
     .navbar-inverse .navbar-toggle{
         margin-top: 6%;
         margin-right: 5%;
+    }
+
+    .beer-style{
+        color: #000;
+        font-family: mainText;
+        color: rgb(201,182,123);
+        font-size: 1.3em;
+    }
+
+    #beer-header{
+        font-size: 2em;
     }
 
 }
@@ -723,13 +850,14 @@ button {
     }
 
     .icon-head{
-        font-size: 0.8em;
+        font-size: 1.2em;
 
     }
 
     .icon-text{
-        font-size: 0.4em;
-
+        font-size: 0.5em;
+        padding-right: 4%;
+        letter-spacing: 1px;
     }
 
     .img-cont{
@@ -750,6 +878,67 @@ button {
     img[alt="banner"]{
         display: none;
     }
-    
-  
+
+
+    img[alt='search-list']{
+        max-width:100%;
+        float:left;
+        overflow: hidden;
+        margin-top: 30%;
+    }
+
+    img[alt="barIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        margin-top: 20%;
+        display: block;
+
+    }
+
+    img[alt="beerIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        margin-top: 20%;
+
+        display: block;
+    }
+
+    img[alt="wistListIcon"]{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        margin-top: 20%;
+
+    }
+
+    img[alt="trendListIcon"]{
+        max-width: 100%;
+        height: auto;
+        float: left;
+        overflow: hidden;
+        margin-left:25%;
+        margin-top: 20%;
+        display: block;
+    }
+
+    .beer-style{
+        color: #000;
+        font-family: mainText;
+        color: rgb(201,182,123);
+        font-size: 1.3em;
+    }
+
+    #beer-header{
+        font-size: 1.6em;
+    }
+}
 
