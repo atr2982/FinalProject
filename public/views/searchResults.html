@@ -21,17 +21,28 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="bar()">Bars Near You</li>
+                    <li ng-click="beerLocation()">My Beers</li>
+                    <li ng-click="wishListDirect()">Wishlist</li>
+                    <li ng-click="bar()">Bars</li>
+                    <li ng-click="trendingDirect()">Trending</li>
                     <li ng-click="logout()">Logout</li>
                 </ul>
             </div>
         </div>
     </nav>
+<div id="result-cont">
+    <div class="beers col-sm-12 col-lg-offset-3" id="search-beers" ng-repeat="items in Data">
+        <div id="img-cont1">
+            <img ng-src="{{items.beer.beer_label}}" alt="search-list">
+        </div>
 
-    <div class="beers col-lg-6 col-lg-offset-3" id="search-beers" ng-repeat="items in Data">
-        <img ng-src="{{items.beer.beer_label}}">
-        <a href="#/resultInfo/{{searchTerm}}/{{$index}}" id="beer-header" class="search-info">{{items.beer.beer_name}}</a>
-
-
+        <div id="term-cont">
+            <a href="#/resultInfo/{{searchTerm}}/{{$index}}" id="beer-header" class="search-info">{{items.beer.beer_name}}</a>
+            <p class="beer-style">{{items.beer.beer_style}}</p>
+            <p class="beer-style">ABV: {{items.beer.beer_abv}}</p>
+        </div>
     </div>
+
+</div>
+
 </div>

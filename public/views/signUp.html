@@ -10,6 +10,16 @@
             </nav>
         </div>
 
+        <div id="info-div" class="col-md-6">
+
+            <h3 id="banner">Become a beer master!</h3>
+            <p class="app-info">Craft Beer lovers commence!</p>
+            <p class="app-info">Create your own personal craft beer mastery log</p>
+            <p class="app-info">Discover Craft Beer from around the world</p>
+            <p class="app-info">Find local bars near you now!</p>
+
+        </div>
+
         <div class="col-md-6 bot-signup">
 
             <form ng-hide="signUp1">
@@ -22,11 +32,11 @@
                 <label class="app-info" for="passAuth">Password</label>
                 <input id="passAuth" type="password" class="form-control" ng-model="user.password">
 
-                <button id="signIn" class="btn btn-primary outline" ng-click="login()">Sign In</button>
+                <button id="signIn" class="btn btn-primary outline btn-block" ng-click="login()">Sign In</button>
 
                 <button id="register" ng-click="signUp1 = true">Click Here To Register</button>
             </form>
-            
+
 
             <form ng-show="signUp1">
 
@@ -44,7 +54,7 @@
                 <label class="app-info" for="Cpass">Confirm Password</label>
                 <input id="Cpass" type="password" class="form-control" ng-model="user.confirm">
 
-                <button id="addc" class="btn btn-primary outline" ng-click="signUp()">Sign Up</button>
+                <button id="addc" class="btn btn-primary outline btn-block" ng-click="signUp()">Sign Up</button>
 
                 <button id="register" ng-click="signUp1 = false">Click Here To Login</button>
 

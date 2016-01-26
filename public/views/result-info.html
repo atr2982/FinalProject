@@ -21,7 +21,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="bar()">Bars Near You</li>
+                    <li ng-click="beerLocation()">My Beers</li>
+                    <li ng-click="wishListDirect()">Wishlist</li>
+                    <li ng-click="bar()">Bars</li>
+                    <li ng-click="trendingDirect()">Trending</li>
                     <li ng-click="logout()">Logout</li>
                 </ul>
             </div>
@@ -36,9 +39,9 @@
 
         <h1 class="search-info">{{beer.beer_name}}</h1>
 
-        <p class="search-info">STYLE - {{beer.beer_style}}</p>
-        <p class="search-info">ABV - {{beer.beer_abv}}</p>
-        <p class="search-info">INFO - {{beer.beer_description}}</p>
+        <p class="search-meta">STYLE - {{beer.beer_style}}</p>
+        <p class="search-meta">ABV - {{beer.beer_abv}}</p>
+        <p class="search-meta">INFO - {{beer.beer_description}}</p>
 
         
         
@@ -46,7 +49,7 @@
     <div ng-show="showMe">
 
         <div ng-init="usercheckin.location='No Location Added'">
-            <h3>Choose Location</h3>
+            <h3 class="search-info">Choose Location</h3>
             <select ng-model="usercheckin.location">
                 <option value="">Select a location</option>
                 <option ng-repeat="data in locations" value="{{data.venue.name}}">
@@ -56,17 +59,17 @@
         </div>
 
         <div ng-init="usercheckin.desc='No Note Added'">
-            <h3>Leave A Note</h3>
+            <h3 class="search-info">Leave A Note</h3>
             <textarea placeholder="Leave yourself a note..." ng-model="usercheckin.desc"></textarea>
         </div>
 
-        <h3>Rate This Beer</h3>
+        <h3 class="search-info">Rate This Beer</h3>
         <div ng-init="rating = star.rating + 1"></div>
         <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
         </div>
 
-        <button class="btn btn-primary" ng-click="showMe=false">Back</button>
-        <button class="btn btn-primary" ng-click="checkin(beer.beer_name,
+        <button class="functions" ng-click="showMe=false">Back</button>
+        <button class="functions" ng-click="checkin(beer.beer_name,
                                     beer.beer_label,
                                     beer.beer_style,
                                     beer.beer_abv,
@@ -76,10 +79,10 @@
         
 <!--    IF CHECKIN FALSE-->
         <div ng-hide="showMe">
-           <button class="btn btn-primary" ng-click="showMe=true">Check In Beer
+           <button class="functions" ng-click="showMe=true">Check In Beer
             </button>
             
-            <button class="btn btn-primary" ng-click="wishList(beer.beer_name,
+            <button class="functions" ng-click="wishList(beer.beer_name,
                                 beer.beer_label,
                                 beer.beer_style,
                                 beer.beer_abv,
