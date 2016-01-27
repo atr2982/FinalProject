@@ -8,7 +8,7 @@ body{
     text-align: center;
     font-size: 4em;
     margin-top:13%;
-    color: rgb(201,182,123);
+    color: #c43a36;
     font-family: mainText;
     letter-spacing: 3px;
 }
@@ -49,6 +49,22 @@ body{
     cursor: pointer;
 }
 
+.details{
+    font-family: mainText;
+}
+
+.beer-data{
+    font-family: 'Andale Mono';
+}
+
+#collapse{
+    font-family: 'Andale Mono';
+}
+
+#remove-btn{
+    font-family: 'Andale Mono';
+}
+
 input::-webkit-input-placeholder {
     color: #000 !important;
 }
@@ -72,8 +88,8 @@ input:-ms-input-placeholder {
     background: rgb(201,182,123);
     color: #000;
     border: none;
-/*    width: 94.9%;*/
     width: 90%;
+    margin-bottom: 2%;
 }
 
 #search-btn{
@@ -111,8 +127,9 @@ input:-ms-input-placeholder {
 img[alt="search"]{
     max-width: 100%;
     background: rgb(201,182,123);
-    padding:0.7%;
+    padding:0.55%;
     border-radius: 4px;
+
 }
 
 .icon-head{
@@ -154,10 +171,11 @@ img[alt="search"]{
 
 .icon-text{
     margin-left: 4%;
-    font-size: 0.8em;
+    font-size: 0.6em;
     text-align: left;
     color: #000;
-    font-family: mainText;
+    font-family: 'Andale Mono';
+
 
 }
 
@@ -322,13 +340,15 @@ img[alt='search-list']{
     color: #000;
     font-family: mainText;
     color: rgb(201,182,123);
-    font-size: 1.5em;
+    font-size: 1.3em;
+    letter-spacing: 1px;
 }
 
 #term-cont{
     max-width:80%;
     float: left;
     overflow: hidden;
+    padding-top: 1%;
 
 }
 
@@ -491,7 +511,7 @@ textarea{
 }
 
 #beer-header{
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
     font-family: mainText;
     color: rgb(201,182,123);
@@ -606,12 +626,6 @@ button {
 }
 
 
-
-
-
-
-
-
 @media (max-width: 992px){
     #search{
         width: 92%;
@@ -620,7 +634,6 @@ button {
     #nav-head{
         text-align: center;
         font-size: 2.5em;
-        color: rgb(201,182,123);
         font-family: mainText;
         letter-spacing: 3px;
     }
@@ -640,6 +653,7 @@ button {
     img[alt="search"]{
         max-width: 100%;
         border-radius: 4px;
+        padding:0.6%;
     }
 
     .icon-head{
@@ -651,9 +665,7 @@ button {
         margin-top: 3%;
     }
 
-    .icon-text{
-        font-size: 0.9em;
-    }
+
 
     img[alt="banner"]{
         margin-top: 3%;
@@ -711,6 +723,10 @@ button {
         width: 100%;
     }
 
+    img[alt="search"]{
+        padding:0.67%;
+    }
+
     #nav-head{
         text-align: center;
         font-size: 3em;
@@ -763,17 +779,23 @@ button {
 
 @media (max-width: 586px){
     #search{
-        width: 90%;
+        width: 85%;
+        margin-bottom: 0;
+    }
+
+    img[alt="search"]{
+        padding:1%;
+
+    }
+
+    .tab-cont{
+        margin-top: 1%;
     }
 
     #search-cont{
         margin-bottom: 3%;
     }
 
-    .icon-head{
-        margin-left: 5%;
-
-    }
 
     #nav-head{
         text-align: center;
@@ -788,7 +810,7 @@ button {
     }
 
     .icon-text{
-        font-size: 0.7em;
+    display:none;
     }
 
     .expand-beer-btn{
@@ -811,11 +833,25 @@ button {
         color: #000;
         font-family: mainText;
         color: rgb(201,182,123);
-        font-size: 1.3em;
+        font-size: 1.4em;
+    }
+
+    #term-cont{
+        padding-top: 2%;
+
     }
 
     #beer-header{
-        font-size: 2em;
+        font-size: 2.2em;
+    }
+
+
+    .icon-head{
+        margin-left: 5%;
+    }
+
+    .cont-wrapper{
+        margin-bottom: 1%;
     }
 
 }
@@ -830,7 +866,11 @@ button {
     .leftPic, .rightName{
         display: inline-block;   
     }
-    
+
+    .tab-cont{
+        margin-top: 7%;
+    }
+
     #search{
         width: 85%;
     }
@@ -851,7 +891,6 @@ button {
 
     .icon-head{
         font-size: 1.2em;
-
     }
 
     .icon-text{
@@ -884,7 +923,6 @@ button {
         max-width:100%;
         float:left;
         overflow: hidden;
-        margin-top: 30%;
     }
 
     img[alt="barIcon"]{
@@ -935,10 +973,21 @@ button {
         font-family: mainText;
         color: rgb(201,182,123);
         font-size: 1.3em;
+        margin-bottom: 0;
     }
 
     #beer-header{
         font-size: 1.6em;
     }
+
+    #term-cont{
+        padding-top: 2%;
+
+    }
+
+    .cont-wrapper{
+        margin-bottom: 6%;
+    }
+
 }
 

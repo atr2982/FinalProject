@@ -7,7 +7,7 @@ var express         = require('express'),
     LocalStrategy   = require('passport-local').Strategy,
     expressSession  = require('express-session'),
     objectId        = require('mongojs').ObjectId,
-    port 		    = process.env.PORT || 3000;
+    port 		    = process.env.PORT || 80;
 
 //severside management
 
