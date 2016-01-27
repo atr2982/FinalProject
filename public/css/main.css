@@ -627,6 +627,10 @@ button {
 
 
 @media (max-width: 992px){
+    
+        #top-container {
+        text-align: center;
+    }
     #search{
         width: 92%;
     }
@@ -718,6 +722,11 @@ button {
 }
 
 @media (max-width: 767px){
+    
+    #top-container {
+        text-align: left;
+    }
+    
     .navbar-nav{
         margin: 0;
         width: 100%;
@@ -778,6 +787,11 @@ button {
 }
 
 @media (max-width: 586px){
+    
+        #top-container {
+        text-align: left;
+    }
+    
     #search{
         width: 85%;
         margin-bottom: 0;
@@ -857,6 +871,10 @@ button {
 }
 
 @media (max-width: 405px){
+    
+        #top-container {
+        text-align: left;
+    }
     
     .expand-beer-btn{
         font-size: 1.6em;

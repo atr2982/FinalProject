@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7b1a55-7ff4-4b0a-a655-c98db651371a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Controllers/controller.js" afterPath="$PROJECT_DIR$/public/Controllers/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/homepage.html" afterPath="$PROJECT_DIR$/public/views/homepage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/myBeers.html" afterPath="$PROJECT_DIR$/public/views/myBeers.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trending.html" afterPath="$PROJECT_DIR$/public/views/trending.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/wishList.html" afterPath="$PROJECT_DIR$/public/views/wishList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signUp.html" afterPath="$PROJECT_DIR$/public/views/signUp.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FinalProject.iws" />
@@ -44,7 +41,7 @@
       <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="378" column="27" selection-start="12449" selection-end="12449" vertical-scroll-proportion="0.0" vertical-offset="5385" max-vertical-offset="10095">
+            <state line="383" column="27" selection-start="12601" selection-end="12601" vertical-scroll-proportion="0.0" vertical-offset="5310" max-vertical-offset="9840">
               <folding />
             </state>
           </provider>
@@ -62,16 +59,25 @@
       <file leaf-file-name="signUp.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="0" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.25" vertical-offset="516" max-vertical-offset="1110">
+            <state line="30" column="0" selection-start="809" selection-end="809" vertical-scroll-proportion="0.25" vertical-offset="456" max-vertical-offset="1065">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="18" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.33266932" vertical-offset="1723" max-vertical-offset="14985">
+            <state line="6" column="10" selection-start="74" selection-end="74" vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="15255">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="541">
               <folding />
             </state>
           </provider>
@@ -103,7 +109,6 @@
         <option value="$PROJECT_DIR$/public/views/bars.html" />
         <option value="$PROJECT_DIR$/public/views/result-info.html" />
         <option value="$PROJECT_DIR$/public/views/searchResults.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/views/wishList.html" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/views/homepage.html" />
@@ -111,6 +116,7 @@
         <option value="$PROJECT_DIR$/public/views/myBeers.html" />
         <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -392,13 +398,6 @@
         <state line="25" column="45" selection-start="1139" selection-end="1139" vertical-scroll-proportion="-4.4166665" vertical-offset="269" max-vertical-offset="810" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="541">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="40" selection-start="2346" selection-end="2346" vertical-scroll-proportion="-15.291667" vertical-offset="503" max-vertical-offset="1050">
@@ -436,14 +435,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1046" selection-end="1046" vertical-scroll-proportion="0.25" vertical-offset="516" max-vertical-offset="1110">
+        <state line="30" column="0" selection-start="809" selection-end="809" vertical-scroll-proportion="0.25" vertical-offset="456" max-vertical-offset="1065">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="378" column="27" selection-start="12449" selection-end="12449" vertical-scroll-proportion="0.0" vertical-offset="5385" max-vertical-offset="10095">
+        <state line="383" column="27" selection-start="12601" selection-end="12601" vertical-scroll-proportion="0.0" vertical-offset="5310" max-vertical-offset="9840">
           <folding />
         </state>
       </provider>
@@ -457,7 +456,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="18" selection-start="2379" selection-end="2379" vertical-scroll-proportion="0.33266932" vertical-offset="1723" max-vertical-offset="14985">
+        <state line="6" column="10" selection-start="74" selection-end="74" vertical-scroll-proportion="-3.4615386" vertical-offset="0" max-vertical-offset="15255">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="541">
           <folding />
         </state>
       </provider>

@@ -604,6 +604,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
             var la = position.coords.latitude;
             var lo = position.coords.longitude;
+            
+            la = 40.953976; 
+            lo = -90.362549;
+                
             $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer&limit=20').success(function (response) {
                 $rootScope.objArr = [];
                 $rootScope.locations = response.response.groups[0].items;
