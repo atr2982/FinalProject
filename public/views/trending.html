@@ -49,12 +49,10 @@
 
 
             <div ng-show="alcMeta">
-                <p class="del">
-                    <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
-                </p>
-                <h4>Details:</h4>
-                <p><b>Alcohol: </b>{{key.beer.beer_abv}}%</p>
-                <p><b>Style: </b>{{key.beer.beer_style}}</p>
+
+                <h2 class="details">Details:</h2>
+                <p class="beer-data"><b>Alcohol: </b>{{key.beer.beer_abv}}%</p>
+                <p class="beer-data"><b>Style: </b>{{key.beer.beer_style}}</p>
             </div>
         </div>
 
