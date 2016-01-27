@@ -41,24 +41,16 @@
         <p class="pageName">My Saved Beers</p>
     </div>
 
-<!--
-    <ul>
-        <li class="mainListing">
--->
-
-
             <div class="myBeers col-lg-12" ng-repeat="key in checked">
                 <div class="leftPic">
                     <img class="beerImg" ng-src="{{key.blabel}}">
                 </div>
                 <div class="rightName">
-                    <button class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</button>
+                    <button class="expand-beer-btn" ng-click="widgetExpanded = !widgetExpanded">{{key.bname}}</button>
                 </div>
 
 
-
-
-                <div ng-show="alcMeta">
+                <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
                     <p class="del">
                         <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
                     </p>
@@ -72,12 +64,5 @@
                 </div>
             </div>
 
-
-
-
-<!--
-        </li>
-    </ul>
--->
 </div>
 </div>
