@@ -40,7 +40,10 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             if(response){
                 $rootScope.userObj = response;
             }
-        });
+        }).error(function(err){
+                return err;
+            });
+
 }])
 
 .factory('beerApi',['$http', function($http){
@@ -132,6 +135,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/')
         }
 
+        $scope.loading = true;
+
         $scope.homeEsc = function(){
             $location.path('/home');
         };
@@ -159,6 +164,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
+                $scope.loading = false;
                 $scope.Data = response.response.beers.items;
                 $scope.searchTerm = $routeParams.searchTerm;
 
@@ -226,6 +232,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/')
         }
 
+        $scope.loading = true;
+
+
         $scope.getLocation = function () {
             var x = document.getElementById("loc");
             if (navigator.geolocation) {
@@ -270,6 +279,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         beerApi.getList($routeParams.searchTerm)
             .success(function(response){
+                $scope.loading = false;
+
                 $scope.beer = response.response.beers.items[$routeParams.beerIndex].beer;
             });
 
@@ -341,10 +352,11 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $location.path('/');
         };
 
-
         $scope.bar = function(){
             $location.path('/bars');
         };
+
+        $scope.loading = true;
 
         $scope.alcMeta = false;
 
@@ -352,6 +364,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             var deletestats = {username: $rootScope.userObj.username, bname: name};
             $http.put('/deletebeer', deletestats).success(function (response) {
                 if(response){
+
                     $route.reload();
                 }
             });
@@ -364,6 +377,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             };
             $http.put('/brewInfo', beerObj).success(function (response) {
                 console.log("the beer: ", response.beers);
+
                 $scope.finalMeta = response.beers;
             })
         };
@@ -390,13 +404,15 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             var id = $rootScope.userObj._id;
             $http.get('/beerdata/' + id).success(function (response) {
                 console.log("the beer: ", response.beers);
+
+                $scope.loading = false;
                 $scope.checked = response.beers;
                 $scope.wished = response.wishList;
             });
         };
  }])
 
-.controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location", function ($http, $rootScope, $scope, $location) {
+.controller('wishListCtrl', ["$http", "$rootScope", "$scope", "$location","$route", function ($http, $rootScope, $scope, $location,$route) {
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
@@ -423,6 +439,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.bar = function(){
             $location.path('/bars');
         };
+
+        $scope.loading = true;
+
 
         $scope.deleteWished = function (name) {
             var deletestats = {username: $rootScope.userObj.username, bname: name};
@@ -457,6 +476,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         $scope.checkedData = function(){
             var id = $rootScope.userObj._id;
             $http.get('/beerdata/' + id).success(function (response) {
+                $scope.loading = false;
                 $scope.wished = response.wishList;
             });
         };
@@ -467,6 +487,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 bname : $routeParams.bname
             };
             $http.put('/brewWish', wishObj).success(function (response) {
+
                 $scope.finalMeta = response.wishList;
             })
         };
@@ -575,9 +596,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         };
 
         $scope.trending = function () {
-            console.log("is it working?");
+
+            $scope.loading = true;
+
             $http.get("https://api.untappd.com/v4/beer/trending?client_id=905F449B2E3DAB14D4138D35623F50858F2D105D&client_secret=B4DEB76167F86248BB68F5CDA7606A8EA2707752")
                 .success(function (response) {
+                    $scope.loading = false;
                     $scope.trendingBeers = response.response.micro.items;
                     console.log($scope.trendingBeers);
                 });
@@ -592,12 +616,17 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         }
 
     $scope.getLocation = function () {
+
+        $scope.loading = true;
+
         var x = document.getElementById("loc");
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(showPosition);
         } else {
             x.innerHTML = "Geolocation is not supported by this browser.";
         }
+
+
 
         function showPosition(position) {
             var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
@@ -609,6 +638,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             lo = -90.362549;
                 
             $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer&limit=20').success(function (response) {
+                $scope.loading = false;
+
                 $rootScope.objArr = [];
                 $rootScope.locations = response.response.groups[0].items;
                 
@@ -616,12 +647,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 for (i = 0; i < $rootScope.locations.length; i++) {
                 $rootScope.locations[i].venue.location.distance = Math.round((($rootScope.locations[i].venue.location.distance * 0.000621371192)*100))/100;  
                 }
-                
                 $rootScope.locations.sort(function (a, b) {
                     return a.venue.location.distance - b.venue.location.distance;
-                })
+                });
                 
                 console.log($rootScope.locations);
+
             });
         }
     };

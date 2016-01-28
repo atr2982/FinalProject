@@ -124,6 +124,11 @@ input:-ms-input-placeholder {
 }
 
 
+#lefting-wrap{
+    margin-bottom: 5%;
+}
+
+
 img[alt="search"]{
     max-width: 100%;
     background: rgb(201,182,123);
@@ -161,12 +166,46 @@ img[alt="search"]{
 .expand-beer-btn{
     border: none;
     background: none;
-    font-size: 1em;
-    text-align: center;
+    float: left;
+    font-family: mainText;
+    font-size: 3em;
+    margin-left: 2%;
+    margin-top: 4%;
 }
 
 .expand-beer-btn:hover{
   opacity: 0.8;
+    cursor: pointer;
+
+}
+
+#content-trend{
+    clear: right;
+    overflow: hidden;
+    padding: 2% 0;
+}
+
+#content-wrap{
+    margin-left:20%;
+    clear: right;
+    overflow: hidden;
+    padding: 2% 0;
+}
+
+.beerImg {
+    width: 15%;
+    float: left;
+    margin-left: 10%;
+}
+
+.myBeers {
+    background: #fff;
+    color: black;
+    opacity: 0.9;
+    padding: 6px;
+    margin-bottom: 10px;
+    clear: right;
+    overflow: hidden;
 }
 
 .icon-text{
@@ -401,17 +440,11 @@ img[alt='search-list']{
 
 }
 
-.myBeers {
-    background: #fff;
-    color: black;
-    opacity: 0.9;
-    padding: 6px;
-    margin-bottom: 10px;
-}
+
 
 .mainPad {
     padding-left: 15px;
-    padding-right: 15px; 
+    padding-right: 15px;
 }
 
 .leftPic {
@@ -614,9 +647,7 @@ button {
     box-shadow: none;
 }
 
-.beerImg {
-    width: 75px;   
-}
+
 
 .saved-beer {
     color: #fff;
@@ -627,8 +658,22 @@ button {
 
 
 @media (max-width: 992px){
+
+    #content-wrap{
+        margin-right: 5%;
+    }
+
+    .beerImg{
+        width: 20%;
+        margin-left: 0;
+    }
+
+    .expand-beer-btn{
+        margin-right: 5%;
+        margin-top: 5%;
+    }
     
-        #top-container {
+    #top-container {
         text-align: center;
     }
     #search{
@@ -726,6 +771,12 @@ button {
     #top-container {
         text-align: left;
     }
+
+    .expand-beer-btn{
+        margin-top: 8%;
+        font-size: 1.7em;
+        letter-spacing: 2px;
+    }
     
     .navbar-nav{
         margin: 0;
@@ -784,12 +835,33 @@ button {
         display: block;
     }
 
+    #content-wrap{
+        margin-left:25%;
+    }
+
 }
 
 @media (max-width: 586px){
     
-        #top-container {
+    #top-container {
         text-align: left;
+    }
+
+
+    .expand-beer-btn{
+        margin-top:3%;
+        font-size: 1.7em;
+        letter-spacing: 2px;
+    }
+
+    #content-wrap{
+        margin-left:25%;
+    }
+
+    .beerImg {
+        width: 13%;
+        float: left;
+        margin-left: 5%;
     }
     
     #search{
@@ -827,11 +899,6 @@ button {
     display:none;
     }
 
-    .expand-beer-btn{
-        font-size: 1.5em;
-        max-width: 235px;
-        text-align: left;
-    }
 
     img[alt="search"]{
         max-width: 100%;
@@ -866,19 +933,22 @@ button {
 
     .cont-wrapper{
         margin-bottom: 1%;
+        margin-left:22%;
     }
 
 }
 
 @media (max-width: 405px){
     
-        #top-container {
+    #top-container {
         text-align: left;
     }
     
     .expand-beer-btn{
-        font-size: 1.6em;
+        font-size: 1.5em;
         line-height: 22px;
+        letter-spacing: 1px;
+
     }
     
     .leftPic, .rightName{
@@ -886,7 +956,7 @@ button {
     }
 
     .tab-cont{
-        margin-top: 7%;
+        margin-top: 4%;
     }
 
     #search{
@@ -1003,9 +1073,61 @@ button {
 
     }
 
-    .cont-wrapper{
-        margin-bottom: 6%;
-    }
 
+}
+
+/*  spinner  */
+
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner > div {
+    background-color: #333;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+    20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+    0%, 40%, 100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }  20% {
+           transform: scaleY(1.0);
+           -webkit-transform: scaleY(1.0);
+       }
 }
 

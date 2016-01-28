@@ -31,59 +31,57 @@
 
     <div id="search-cont" class="col-lg-12">
         <label id="label-search" for="search">Search</label>
-        <input placeholder="Enter Search..." id="search" class="form-control" ng-enter="enter()" ng-model="search.term">
+        <input placeholder="Enter Search..." id="search" class="form-control" ng-enter="entrrt()" ng-model="search.term">
         <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
     </div>
 
     <br>
+    <div id="lefting-wrap">
+        <div class="tester col-md-12">
+            <p class="pageName">My Saved Beers</p>
+        </div>
 
-    <div class="tester col-md-12">
-        <p class="pageName">My Saved Beers</p>
     </div>
 
-<!--
-    <ul>
-        <li class="mainListing">
--->
-
+     <div ng-show="loading"><p class="pageName"><div class="spinner">
+         <div class="rect1"></div>
+         <div class="rect2"></div>
+         <div class="rect3"></div>
+         <div class="rect4"></div>
+         <div class="rect5"></div>
+     </div></p></div>
 
             <div class="myBeers col-lg-12" ng-repeat="key in checked">
-                <div class="leftPic">
-                    <img class="beerImg" ng-src="{{key.blabel}}">
-                </div>
-                <div class="rightName">
-                    <button class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</button>
-                </div>
+                <div class="col-lg-12">
 
 
+                    <div id="content-wrap">
 
-
-                <div ng-show="alcMeta">
-
-                    <div class="del">
-
-                            <button id="collapse" class="btn btn-danger navbar-text" ng-click="alcMeta = false" >Collapse</button>
-
-                            <button id="remove-btn" class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove </button>
-
+                        <img class="beerImg" ng-src="{{key.blabel}}">
+                        <h2 class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</h2>
 
                     </div>
-                    <h2 class="details">Details:</h2>
-                    <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
-                    <p class="beer-data"><b>Style: </b>{{key.style}}</p>
-                    <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
-                    <h2 class="details">Your Checkin Information:</h2>
-                    <p class="beer-data"><b>Location: </b>{{key.location}}</p>
-                    <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
+
+                </div>
+
+                <div class="col-lg-12" ng-show="alcMeta">
+
+                    <div class="del">
+                            <button id="collapse" class="btn btn-danger navbar-text" ng-click="alcMeta = false" >Collapse</button>
+                      <button id="remove-btn" class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove</button>
+                    </div>
+                    <div>
+                        <h2 class="details">Details:</h2>
+                        <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
+                        <p class="beer-data"><b>Style: </b>{{key.style}}</p>
+                        <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
+                        <h2 class="details">Your Checkin Information:</h2>
+                        <p class="beer-data"><b>Location: </b>{{key.location}}</p>
+                        <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
+                    </div>
+
                 </div>
             </div>
 
-
-
-
-<!--
-        </li>
-    </ul>
--->
 </div>
 </div>
