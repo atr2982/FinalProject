@@ -40,6 +40,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             if(response){
                 $rootScope.userObj = response;
             }
+        }).error(function(err) {
+            
         });
 }])
 
@@ -95,7 +97,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
           children = element.children();
           for (_i = 0, _len = children.length; _i < _len; _i++) {
             c = children[_i];
-            height += c.clientHeight + 20;
+            height += c.clientHeight + 22;
           }
           return '' + height + 'px';
         };
@@ -149,7 +151,9 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
     }])
 
 .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
-        if ($rootScope.userObj) {
+    $scope.errorShow = false;    
+    
+    if ($rootScope.userObj) {
             $location.path('/home')
         }
 
@@ -169,6 +173,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.post('/login', $scope.user).success(function (response) {
                 $rootScope.userObj = response;
                 $location.path('/home');
+            }).error(function(err) {
+                console.log(err);
+                
+                if (err === "Unauthorized") {
+                    $scope.errorShow = true;
+                }
             })
         };
 }])
@@ -217,7 +227,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
-        }
+        };
 
         $scope.homeEsc = function(){
             $location.path('/home');
@@ -311,7 +321,23 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 .controller('infoCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
         if ($rootScope.userObj == undefined) {
             $location.path('/')
-        }
+        };
+    
+    
+        $scope.checkedData = function(){
+            var id = $rootScope.userObj._id;
+            
+            $http.get('/beerdata/' + id).success(function (response) {
+                console.log("the beer n stuff: ", response.beers);
+                $rootScope.checked = response.beers;
+                $rootScope.wished = response.wishList;
+                
+                console.log($scope.checked);
+            });
+        };
+    
+        console.log("und", $rootScope.checked);
+
 
         $scope.getLocation = function () {
             var x = document.getElementById("loc");
@@ -360,29 +386,92 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $scope.beer = response.response.beers.items[$routeParams.beerIndex].beer;
             });
 
-        $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
-            console.log("RATING RAW", rating);
+//        $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
+//            console.log("RATING RAW", rating);
+//            
+//            var beerstats = {
+//                type: "checkin",
+//                username: $rootScope.userObj.username,
+//                bname: name,
+//                blabel: label,
+//                bstyle: style,
+//                babv: abv,
+//                bdesc: desc,
+//                blocation : usercheckin.location,
+//                buserinput : usercheckin.desc,
+//                brating : rating
+//            };
+//
+//            console.log("RATING AFTER", beerstats.brating);
+//            
+//            
+//            $http.put('/addcheckin', beerstats).success(function (response) {
+//                if(response){
+//                    $location.path('/mybeers')
+//                }
+//            });
+//        };
+    
+    
+    
+        $scope.checkin = function (name, label, style, abv, desc, usercheckin, rating) {
             
-            var beerstats = {
-                type: "checkin",
-                username: $rootScope.userObj.username,
-                bname: name,
-                blabel: label,
-                bstyle: style,
-                babv: abv,
-                bdesc: desc,
-                blocation : usercheckin.location,
-                buserinput : usercheckin.desc,
-                brating : rating
+            var counter = 0;
+            
+            
+
+
+            var id = $rootScope.userObj._id;
+
+            $http.get('/beerdata/' + id).success(function (response) {
+                console.log("RESPONSE:", response.beers, response.beers.length);
+
+                console.log(name);
+                for (i = 0; i < response.beers.length; i++) {
+                    
+                    console.log(response.beers[i].bname);
+                    
+
+                    if (response.beers[i].bname == name) {
+                        
+                        $scope.message = true;
+
+                        console.log("the same");
+                        counter = 1;
+                        
+                        break;
+                        
+                    };
+                };
+                
+                if (counter == 1) {
+                    return;   
+                }
+                else if (counter == 0) {
+                    var beerstats = {
+                        type: "checkin",
+                        username: $rootScope.userObj.username,
+                        bname: name,
+                        blabel: label,
+                        bstyle: style,
+                        babv: abv,
+                        bdesc: desc,
+                        blocation : usercheckin.location,
+                        buserinput : usercheckin.desc,
+                        brating : rating
             };
 
-            console.log("RATING AFTER", beerstats.brating);
-            
-            $http.put('/addcheckin', beerstats).success(function (response) {
-                if(response){
-                    $location.path('/mybeers')
+                    $http.put('/addcheckin', beerstats).success(function (response) {
+                        if (response) {
+                            $location.path('/mybeers')
+                        }
+                    });
                 }
+                
+                console.log(counter);
             });
+            
+
         };
 
         $scope.wishList = function(name, label, style, abv, desc){
@@ -444,34 +533,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             });
         };
 
-        $scope.getBeerCheck = function(){
-            var id = $rootScope.userObj._id;
-            var beerObj = { _id : id,
-                bname : $routeParams.bname
-            };
-            $http.put('/brewInfo', beerObj).success(function (response) {
-                console.log("the beer: ", response.beers);
-                $scope.finalMeta = response.beers;
-            })
-        };
-
-        $scope.checkin = function (name, label, style, abv, desc) {
-            var beerstats = {
-                type: "checkin",
-                username: $rootScope.userObj.username,
-                bname: name,
-                blabel: label,
-                bstyle: style,
-                babv: abv,
-                bdesc: desc
-            };
-
-            $http.put('/addcheckin', beerstats).success(function (response) {
-                if(response){
-                    $location.path('/mybeers')
-                }
-            });
-        };
 
         $scope.checkedData = function(){
             var id = $rootScope.userObj._id;
@@ -609,7 +670,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $rootScope.userObj = undefined;
             $location.path('/');
         };
-
 
 
         $scope.beerLocation = function(){

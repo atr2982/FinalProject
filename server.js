@@ -9,7 +9,7 @@ var express         = require('express'),
     objectId        = require('mongojs').ObjectId,
     port 		    = process.env.PORT || 80;
 
-//severside management
+var errorType = null;
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -21,15 +21,22 @@ passport.use(new LocalStrategy({
         db.userlist.findOne({
             username: username
         }, function (err, user) {
-            console.log(err, user)
             if (err) {
+                console.log("error");
                 return done(err);
+                
             }
             if (!user) {
-                return done(null, false);
+                errorType = 1;
+                console.log("no user");
+                return done(null, false, { message: 'Incorrect username.' });
+                
             }
             if (user.password != password) {
-                return done(null, false);
+                errorType = 2;
+                console.log("wrong password");
+                return done(null, false, { message: 'Incorrect password.' });
+                
             }
             return done(null, user);
         });
@@ -82,19 +89,7 @@ app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to m
             });
 });
 
-app.get('/beerdata/:id', function (req, res){
 
-    var id = req.params.id;
-
-    db.userlist.findOne({
-        _id : mongojs.ObjectId(id)
-    },function(err,docs){
-
-        res.json(docs);
-    })
-
-
-});
 
 app.get('/recent/:id', function (req, res){
 
@@ -212,7 +207,7 @@ app.put('/addcheckin', function (req, res) {
                 style: req.body.bstyle,
                 abv: req.body.babv,
                 desc: req.body.bdesc,
-                location : req.body.blocation,
+                location : [req.body.blocation],
                 userinput : req.body.buserinput,
                 rating : req.body.brating
             }
@@ -243,11 +238,13 @@ app.put('/addwishlist', function (req, res) {
 });
 
 app.post('/login', passport.authenticate('local'), function (req, res) {
+    
+    console.log("do i even go here?");
     res.json(req.user);
 });
 
 app.get('/userCheck', function (req, res) {
-//    console.log(req.user);
+    console.log("when does this happen");
     res.json(req.user);
 });
 

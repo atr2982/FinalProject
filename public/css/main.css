@@ -1,6 +1,6 @@
 body{
 /*    margin-top: 90px;*/
-    background-color: #222;
+    background-image: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg);
 }
 
 
@@ -256,7 +256,7 @@ ul li{
     font-family: 'Andale Mono';
     float: right;
     background: none;
-    text-decoration: none;
+    text-decoration: underline;
     border:none;
     margin-top: 6%;
 }
@@ -319,7 +319,7 @@ ul li{
 #search-beers{
     opacity: 0.9;
     border: none;
-    overflow: hidden;
+/*    overflow: hidden;*/
 }
 
 #img-cont1{
