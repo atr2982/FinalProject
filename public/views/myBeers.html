@@ -43,6 +43,7 @@
 
     </div>
 
+
      <div ng-show="loading"><p class="pageName"><div class="spinner">
          <div class="rect1"></div>
          <div class="rect2"></div>
@@ -51,34 +52,35 @@
          <div class="rect5"></div>
      </div></p></div>
 
+
+
+
             <div class="myBeers col-lg-12" ng-repeat="key in checked">
-                <div class="col-lg-12">
+
+                <div id="content-wrap">
+                    <img class="beerImg" ng-src="{{key.blabel}}">
 
 
-                    <div id="content-wrap">
-
-                        <img class="beerImg" ng-src="{{key.blabel}}">
-                        <h2 class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</h2>
-
-                    </div>
-
+                    <button class="expand-beer-btn" ng-click="widgetExpanded = !widgetExpanded">{{key.bname}}</button>
                 </div>
 
-                <div class="col-lg-12" ng-show="alcMeta">
 
-                    <div class="del">
-                            <button id="collapse" class="btn btn-danger navbar-text" ng-click="alcMeta = false" >Collapse</button>
-                      <button id="remove-btn" class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove</button>
-                    </div>
-                    <div>
-                        <h2 class="details">Details:</h2>
-                        <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
-                        <p class="beer-data"><b>Style: </b>{{key.style}}</p>
-                        <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
-                        <h2 class="details">Your Checkin Information:</h2>
-                        <p class="beer-data"><b>Location: </b>{{key.location}}</p>
-                        <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
-                    </div>
+
+
+
+                <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
+                    <p class="del">
+                        <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
+                    </p>
+                    <h2 class="details">Details:</h2>
+                    <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
+                    <p class="beer-data"><b>Style: </b>{{key.style}}</p>
+                    <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
+                    <h2 class="details">Your Checkin Information:</h2>
+                    <p class="beer-data"><b>Location: </b>{{botte.location}}</p>
+                    <p class="beer-data"><b>Comment: </b>{{key.userinput}}</p>
+                    <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
+>>>>>>> 104bfb7bb91815b556b121d75199af68f1ef0dd3
 
                 </div>
             </div>

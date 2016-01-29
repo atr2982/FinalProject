@@ -21,7 +21,7 @@
     </div>
 </nav>
 
-<div class="container" id="home-control" ng-init="recent()" ng-controller="homepageCtrl">
+<div class="container" id="home-control" ng-init="recent()">
 
     <div id="greeting-cont" class="col-md-4">
         <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
@@ -36,7 +36,7 @@
         <h2 id="search-greet">Search your favorite beers!</h2>
         <label id="label-search" for="search">Search</label>
         <input placeholder="Enter Search..." id="search" class="form-control" ng-model="search.term">
-        <a id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
+        <a type="submit" class="" id="search-btn" href="#/searchResults/{{search.term}}"><img src="../img/search.png" alt="search"></a>
     </div>
     <div class="col-lg-12">
         <img src="../img/beer-banner.jpg" alt="banner">

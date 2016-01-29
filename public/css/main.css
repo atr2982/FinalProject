@@ -1,6 +1,6 @@
 body{
 /*    margin-top: 90px;*/
-    background-color: #222;
+    background-image: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg);
 }
 
 
@@ -295,7 +295,7 @@ ul li{
     font-family: 'Andale Mono';
     float: right;
     background: none;
-    text-decoration: none;
+    text-decoration: underline;
     border:none;
     margin-top: 6%;
 }
@@ -335,8 +335,8 @@ ul li{
 
 .locName {
      font-family: mainText;
-    font-size: 1.5em;
-    font-kerning: 1px;
+     font-size: 1.5em;
+     font-kerning: 1px;
 }
 
 .locDist {
@@ -358,7 +358,7 @@ ul li{
 #search-beers{
     opacity: 0.9;
     border: none;
-    overflow: hidden;
+/*    overflow: hidden;*/
 }
 
 #img-cont1{
@@ -1087,7 +1087,7 @@ button {
 }
 
 .spinner > div {
-    background-color: #333;
+    background-color: #FFF;
     height: 100%;
     width: 6px;
     display: inline-block;
@@ -1129,5 +1129,8 @@ button {
            transform: scaleY(1.0);
            -webkit-transform: scaleY(1.0);
        }
+}
+@-ms-viewport{
+  width: device-width;
 }
 

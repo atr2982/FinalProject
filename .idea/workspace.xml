@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ac7b1a55-7ff4-4b0a-a655-c98db651371a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/default.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/1450157992_ic_local_bar_48px.svg" afterPath="$PROJECT_DIR$/public/img/1450157992_ic_local_bar_48px.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/img/1452223490_ic_trending_up_48px.svg" afterPath="$PROJECT_DIR$/public/img/1452223490_ic_trending_up_48px.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/bars.html" afterPath="$PROJECT_DIR$/public/views/bars.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/Black-Wood-Floor-Wallpaper-Background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/scuffedstatic_dark_1920x1234.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/Controllers/controller.js" afterPath="$PROJECT_DIR$/public/Controllers/controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/homepage.html" afterPath="$PROJECT_DIR$/public/views/homepage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
@@ -15,8 +13,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/searchResults.html" afterPath="$PROJECT_DIR$/public/views/searchResults.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.js" afterPath="$PROJECT_DIR$/server.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/signUp.html" afterPath="$PROJECT_DIR$/public/views/signUp.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/trending.html" afterPath="$PROJECT_DIR$/public/views/trending.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/views/wishList.html" afterPath="$PROJECT_DIR$/public/views/wishList.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FinalProject.iws" />
@@ -43,7 +39,7 @@
       <file leaf-file-name="server.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="31" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4080">
+            <state line="23" column="0" selection-start="800" selection-end="800" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="4080">
               <folding />
             </state>
           </provider>
@@ -52,7 +48,7 @@
       <file leaf-file-name="controller.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="370" column="10" selection-start="11965" selection-end="11965" vertical-scroll-proportion="0.0" vertical-offset="5550" max-vertical-offset="10560">
+            <state line="574" column="10" selection-start="18403" selection-end="18403" vertical-scroll-proportion="0.0" vertical-offset="8262" max-vertical-offset="13155">
               <folding />
             </state>
           </provider>
@@ -76,10 +72,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="177" column="20" selection-start="3017" selection-end="3017" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17085">
+            <state line="1089" column="8" selection-start="16462" selection-end="16462" vertical-scroll-proportion="0.12521441" vertical-offset="16262" max-vertical-offset="17130">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myBeers.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40" column="50" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-2.5833333" vertical-offset="538" max-vertical-offset="1425">
               <folding />
             </state>
           </provider>
@@ -88,16 +93,7 @@
       <file leaf-file-name="homepage.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="54" selection-start="3585" selection-end="3585" vertical-scroll-proportion="-16.291666" vertical-offset="869" max-vertical-offset="1515">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="61" selection-start="327" selection-end="389" vertical-scroll-proportion="0.21466905" vertical-offset="0" max-vertical-offset="559">
+            <state line="84" column="54" selection-start="3579" selection-end="3579" vertical-scroll-proportion="-16.291666" vertical-offset="869" max-vertical-offset="1515">
               <folding />
             </state>
           </provider>
@@ -125,18 +121,18 @@
         <option value="$PROJECT_DIR$/node_modules/bootstrap/js/transition.js" />
         <option value="$PROJECT_DIR$/public/views/checkInfo.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/public/views/signUp.html" />
-        <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/views/bars.html" />
         <option value="$PROJECT_DIR$/public/views/searchResults.html" />
         <option value="$PROJECT_DIR$/public/views/result-info.html" />
-        <option value="$PROJECT_DIR$/public/views/myBeers.html" />
-        <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
         <option value="$PROJECT_DIR$/public/views/wishList.html" />
         <option value="$PROJECT_DIR$/public/views/trending.html" />
-        <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/public/views/homepage.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/Controllers/controller.js" />
+        <option value="$PROJECT_DIR$/server.js" />
+        <option value="$PROJECT_DIR$/public/views/signUp.html" />
+        <option value="$PROJECT_DIR$/public/views/myBeers.html" />
+        <option value="$PROJECT_DIR$/public/css/main.css" />
       </list>
     </option>
   </component>
@@ -220,6 +216,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FinalProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -407,13 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="0" selection-start="1437" selection-end="1437" vertical-scroll-proportion="-13.75" vertical-offset="345" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/searchResults.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="3" selection-start="1361" selection-end="1617" vertical-scroll-proportion="0.4047619" vertical-offset="306" max-vertical-offset="930">
@@ -435,27 +442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="31" selection-start="148" selection-end="148" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="56" selection-start="3232" selection-end="3239" vertical-scroll-proportion="0.5778612" vertical-offset="847" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="370" column="10" selection-start="11965" selection-end="11965" vertical-scroll-proportion="0.0" vertical-offset="5550" max-vertical-offset="10560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/wishList.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="0" selection-start="1735" selection-end="1735" vertical-scroll-proportion="-3.9166667" vertical-offset="611" max-vertical-offset="1170">
@@ -470,23 +456,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+    <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="177" column="20" selection-start="3017" selection-end="3017" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="17085">
+        <state line="84" column="54" selection-start="3579" selection-end="3579" vertical-scroll-proportion="-16.291666" vertical-offset="869" max-vertical-offset="1515">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/homepage.html">
+    <entry file="file://$PROJECT_DIR$/public/Controllers/controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="54" selection-start="3585" selection-end="3585" vertical-scroll-proportion="-16.291666" vertical-offset="869" max-vertical-offset="1515">
+        <state line="574" column="10" selection-start="18403" selection-end="18403" vertical-scroll-proportion="0.0" vertical-offset="8262" max-vertical-offset="13155">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="61" selection-start="327" selection-end="389" vertical-scroll-proportion="0.21466905" vertical-offset="0" max-vertical-offset="559">
+        <state line="3" column="6" selection-start="45" selection-end="45" vertical-scroll-proportion="0.08050089" vertical-offset="0" max-vertical-offset="559">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="800" selection-end="800" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="4080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/signUp.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="90" selection-start="1820" selection-end="1820" vertical-scroll-proportion="-10.083333" vertical-offset="598" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/myBeers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="50" selection-start="1799" selection-end="1799" vertical-scroll-proportion="-2.5833333" vertical-offset="538" max-vertical-offset="1425">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1089" column="8" selection-start="16462" selection-end="16462" vertical-scroll-proportion="0.12521441" vertical-offset="16262" max-vertical-offset="17130">
           <folding />
         </state>
       </provider>

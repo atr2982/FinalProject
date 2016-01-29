@@ -1,33 +1,33 @@
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
 
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
+            <h2 id="nav-head" class="navbar-text">Pocket Tap</h2>
 
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li ng-click="homeEsc()">Home</li>
-                    <li ng-click="beerLocation()">My Beers</li>
-                    <li ng-click="wishListDirect()">Wishlist</li>
-                    <li ng-click="bar()">Bars</li>
-                    <li ng-click="trendingDirect()">Trending</li>
-                    <li ng-click="logout()">Logout</li>
-                </ul>
-            </div>
         </div>
-    </nav>
 
-<div class="container" ng-init="getLocation()" id="info-control" ng-controller="infoCtrl">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li ng-click="homeEsc()">Home</li>
+                <li ng-click="beerLocation()">My Beers</li>
+                <li ng-click="wishListDirect()">Wishlist</li>
+                <li ng-click="bar()">Bars</li>
+                <li ng-click="trendingDirect()">Trending</li>
+                <li ng-click="logout()">Logout</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" ng-init="getLocation(); checkedData()" id="info-control">
 
 
 
@@ -41,52 +41,15 @@
             <div class="rect5"></div>
         </div></p></div>
 
-
         <h1 class="search-info">{{beer.beer_name}}</h1>
 
         <p class="search-meta">STYLE - {{beer.beer_style}}</p>
         <p class="search-meta">ABV - {{beer.beer_abv}}</p>
         <p class="search-meta">INFO - {{beer.beer_description}}</p>
 
-        
-        
-<!--    IF CHECKIN TRUE-->
-    <div ng-show="showMe">
 
-        <div ng-init="usercheckin.location='No Location Added'">
-            <h3 class="search-info">Choose Location</h3>
-            <select ng-model="usercheckin.location">
-                <option value="">Select a location</option>
-                <option ng-repeat="data in locations" value="{{data.venue.name}}">
-                    {{data.venue.name}}
-                </option>
-            </select>
-        </div>
-
-        <div ng-init="usercheckin.desc='No Note Added'">
-            <h3 class="search-info">Leave A Note</h3>
-            <textarea placeholder="Leave yourself a note..." ng-model="usercheckin.desc"></textarea>
-        </div>
-
-        <h3 class="search-info">Rate This Beer</h3>
-        <div ng-init="rating = star.rating + 1"></div>
-        <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
-        </div>
-
-        <button class="functions" ng-click="showMe=false">Back</button>
-        <button class="functions" ng-click="checkin(beer.beer_name,
-                                    beer.beer_label,
-                                    beer.beer_style,
-                                    beer.beer_abv,
-                                    beer.beer_description,usercheckin,rating)">Confirm
-        </button>
-    </div>
-        
-<!--    IF CHECKIN FALSE-->
         <div ng-hide="showMe">
-           <button class="functions" ng-click="showMe=true">Check In Beer
-            </button>
-            
+            <button class="functions" ng-click="widgetExpanded = !widgetExpanded">Check In Beer</button>
             <button class="functions" ng-click="wishList(beer.beer_name,
                                 beer.beer_label,
                                 beer.beer_style,
@@ -94,6 +57,41 @@
                                 beer.beer_description)">Add To WishList
             </button>
         </div>
+        
+        
+        <!--    IF CHECKIN TRUE-->
+        <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
+
+            <div ng-init="usercheckin.location='No Location Added'">
+                <h3 class="search-info">Choose Location</h3>
+                <select ng-model="usercheckin.location">
+                    <option value="select a location">Select a location</option>
+                    <option ng-repeat="data in locations" value="{{data.venue.name}}">
+                        {{data.venue.name}}
+                    </option>
+                </select>
+            </div>
+
+            <div ng-init="usercheckin.desc='No Note Added'">
+                <h3 class="search-info">Leave A Note</h3>
+                <textarea placeholder="Leave yourself a note..." ng-model="usercheckin.desc"></textarea>
+            </div>
+
+            <h3 class="search-info">Rate This Beer</h3>
+            <div ng-init="rating = star.rating + 1"></div>
+            <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
+            </div>
+
+            <button class="functions" ng-click="checkin(beer.beer_name,
+                                    beer.beer_label,
+                                    beer.beer_style,
+                                    beer.beer_abv,
+                                    beer.beer_description,usercheckin,rating)">Confirm
+            </button>
+        </div>
+        
+        <div ng-show="message">This beer is already checked in, please proceed to "my beers" and recheckin this beer in</div>
+
 
 
 

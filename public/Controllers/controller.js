@@ -64,8 +64,97 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
         return beerApi;
 }])
 
+.directive('ngSlideDown', [
+    '$timeout',
+    function ($timeout) {
+      var getTemplate, link;
+      getTemplate = function (tElement, tAttrs) {
+        if (tAttrs.lazyRender !== void 0) {
+          return '<div ng-if=\'lazyRender\' ng-transclude></div>';
+        } else {
+          return '<div ng-transclude></div>';
+        }
+      };
+      link = function (scope, element, attrs, ctrl, transclude) {
+        var closePromise, duration, elementScope, emitOnClose, getHeight, hide, lazyRender, onClose, show;
+        duration = attrs.duration || 1;
+        elementScope = element.scope();
+        emitOnClose = attrs.emitOnClose;
+        onClose = attrs.onClose;
+        lazyRender = attrs.lazyRender !== void 0;
+        if (lazyRender) {
+          scope.lazyRender = scope.expanded;
+        }
+        closePromise = null;
+        element.css({
+          overflow: 'hidden',
+          transitionProperty: 'height',
+          transitionDuration: '' + duration + 's',
+          transitionTimingFunction: 'ease-in-out'
+        });
+        getHeight = function (passedScope) {
+          var c, children, height, _i, _len;
+          height = 0;
+          children = element.children();
+          for (_i = 0, _len = children.length; _i < _len; _i++) {
+            c = children[_i];
+            height += c.clientHeight + 22;
+          }
+          return '' + height + 'px';
+        };
+        show = function () {
+          if (closePromise) {
+            $timeout.cancel(closePromise);
+          }
+          if (lazyRender) {
+            scope.lazyRender = true;
+          }
+          return element.css('height', getHeight());
+        };
+        hide = function () {
+          element.css('height', '0px');
+          if (emitOnClose || onClose || lazyRender) {
+            return closePromise = $timeout(function () {
+              if (emitOnClose) {
+                scope.$emit(emitOnClose, {});
+              }
+              if (onClose) {
+                elementScope.$eval(onClose);
+              }
+              if (lazyRender) {
+                return scope.lazyRender = false;
+              }
+            }, duration * 1000);
+          }
+        };
+        scope.$watch('expanded', function (value, oldValue) {
+          if (value) {
+            return $timeout(show);
+          } else {
+            return $timeout(hide);
+          }
+        });
+        return scope.$watch(getHeight, function (value, oldValue) {
+          if (scope.expanded && value !== oldValue) {
+            return $timeout(show);
+          }
+        });
+      };
+      return {
+        restrict: 'A',
+        scope: { expanded: '=ngSlideDown' },
+        transclude: true,
+        link: link,
+        template: function (tElement, tAttrs) {
+          return getTemplate(tElement, tAttrs);
+        }
+      };
+    }])
+
 .controller('AppCtrl', ["$scope", "$rootScope", "$http", "$location", function ($scope, $rootScope, $http, $location) {
-        if ($rootScope.userObj) {
+    $scope.errorShow = false;    
+    
+    if ($rootScope.userObj) {
             $location.path('/home')
         }
 
@@ -85,6 +174,12 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $http.post('/login', $scope.user).success(function (response) {
                 $rootScope.userObj = response;
                 $location.path('/home');
+            }).error(function(err) {
+                console.log(err);
+                
+                if (err === "Unauthorized") {
+                    $scope.errorShow = true;
+                }
             })
         };
 }])
@@ -133,7 +228,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 
         if ($rootScope.userObj == undefined) {
             $location.path('/')
-        }
+        };
 
         $scope.loading = true;
 
@@ -230,7 +325,23 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
 .controller('infoCtrl', ["$http", "$rootScope", "$scope", "$location","$route","beerApi","$routeParams", function ($http, $rootScope, $scope, $location,$route, beerApi, $routeParams) {
         if ($rootScope.userObj == undefined) {
             $location.path('/')
-        }
+        };
+    
+    
+        $scope.checkedData = function(){
+            var id = $rootScope.userObj._id;
+            
+            $http.get('/beerdata/' + id).success(function (response) {
+                console.log("the beer n stuff: ", response.beers);
+                $rootScope.checked = response.beers;
+                $rootScope.wished = response.wishList;
+                
+                console.log($scope.checked);
+            });
+        };
+    
+        console.log("und", $rootScope.checked);
+
 
         $scope.loading = true;
 
@@ -284,29 +395,92 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $scope.beer = response.response.beers.items[$routeParams.beerIndex].beer;
             });
 
-        $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
-            console.log("RATING RAW", rating);
+//        $scope.checkin = function (name, label, style, abv, desc, usercheckin ,rating) {
+//            console.log("RATING RAW", rating);
+//            
+//            var beerstats = {
+//                type: "checkin",
+//                username: $rootScope.userObj.username,
+//                bname: name,
+//                blabel: label,
+//                bstyle: style,
+//                babv: abv,
+//                bdesc: desc,
+//                blocation : usercheckin.location,
+//                buserinput : usercheckin.desc,
+//                brating : rating
+//            };
+//
+//            console.log("RATING AFTER", beerstats.brating);
+//            
+//            
+//            $http.put('/addcheckin', beerstats).success(function (response) {
+//                if(response){
+//                    $location.path('/mybeers')
+//                }
+//            });
+//        };
+    
+    
+    
+        $scope.checkin = function (name, label, style, abv, desc, usercheckin, rating) {
             
-            var beerstats = {
-                type: "checkin",
-                username: $rootScope.userObj.username,
-                bname: name,
-                blabel: label,
-                bstyle: style,
-                babv: abv,
-                bdesc: desc,
-                blocation : usercheckin.location,
-                buserinput : usercheckin.desc,
-                brating : rating
+            var counter = 0;
+            
+            
+
+
+            var id = $rootScope.userObj._id;
+
+            $http.get('/beerdata/' + id).success(function (response) {
+                console.log("RESPONSE:", response.beers, response.beers.length);
+
+                console.log(name);
+                for (i = 0; i < response.beers.length; i++) {
+                    
+                    console.log(response.beers[i].bname);
+                    
+
+                    if (response.beers[i].bname == name) {
+                        
+                        $scope.message = true;
+
+                        console.log("the same");
+                        counter = 1;
+                        
+                        break;
+                        
+                    };
+                };
+                
+                if (counter == 1) {
+                    return;   
+                }
+                else if (counter == 0) {
+                    var beerstats = {
+                        type: "checkin",
+                        username: $rootScope.userObj.username,
+                        bname: name,
+                        blabel: label,
+                        bstyle: style,
+                        babv: abv,
+                        bdesc: desc,
+                        blocation : usercheckin.location,
+                        buserinput : usercheckin.desc,
+                        brating : rating
             };
 
-            console.log("RATING AFTER", beerstats.brating);
-            
-            $http.put('/addcheckin', beerstats).success(function (response) {
-                if(response){
-                    $location.path('/mybeers')
+                    $http.put('/addcheckin', beerstats).success(function (response) {
+                        if (response) {
+                            $location.path('/mybeers')
+                        }
+                    });
                 }
+                
+                console.log(counter);
             });
+            
+
         };
 
         $scope.wishList = function(name, label, style, abv, desc){
@@ -543,7 +717,6 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
             $rootScope.userObj = undefined;
             $location.path('/');
         };
-
 
 
         $scope.beerLocation = function(){
