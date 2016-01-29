@@ -1,8 +1,19 @@
 body{
 /*    margin-top: 90px;*/
-    background-image: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg);
+    background: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg) no-repeat fixed;
 }
 
+footer{
+    font-size: 2em;
+    text-align: center;
+    font-family: 'Andale Mono';
+    color: #fff;
+    margin-bottom: 3%;
+}
+
+#result-cont{
+    width:100%;
+}
 
 #nav-head{
     text-align: center;
@@ -85,7 +96,6 @@ input:-ms-input-placeholder {
     float: left;
     clear: both;
     overflow: hidden;
-    background: rgb(201,182,123);
     color: #000;
     border: none;
     width: 90%;
@@ -110,7 +120,7 @@ input:-ms-input-placeholder {
 }
 
 #search-greet{
-    color: rgb(201,182,123);
+    color: #c43a36;;
     font-family: mainText;
     letter-spacing: 4px;
     text-align: center;
@@ -131,7 +141,7 @@ input:-ms-input-placeholder {
 
 img[alt="search"]{
     max-width: 100%;
-    background: rgb(201,182,123);
+    background: #fff;
     padding:0.55%;
     border-radius: 4px;
 
@@ -169,9 +179,12 @@ img[alt="search"]{
     background: none;
     float: left;
     font-family: mainText;
-    font-size: 3em;
-    margin-left: 2%;
-    margin-top: 4%;
+    font-size: 2.4em;
+    margin-top: 2%;
+    width: 60%;
+
+
+
 }
 
 .expand-beer-btn:hover{
@@ -194,9 +207,8 @@ img[alt="search"]{
 }
 
 .beerImg {
-    width: 15%;
+    width: 10%;
     float: left;
-    margin-left: 10%;
 }
 
 .myBeers {
@@ -348,12 +360,15 @@ ul li{
 
 #info-cont{
     width: 50%;
+    margin: 0;
 }
 
-#show-mess{
+.show-mess{
+    text-align: center;
     animation: pulse 5s infinite;
     font-family: 'Andale Mono';
     width:88%;
+    color:#fff;
     margin-left:12%;
     margin-top:2%;
     padding:2% 2%;
@@ -411,6 +426,8 @@ ul li{
 
 #search-beers{
     opacity: 0.9;
+    clear:both;
+    overflow: hidden;
     border: none;
 /*    overflow: hidden;*/
 }
@@ -430,9 +447,8 @@ img[alt='search-list']{
 }
 
 .beer-style{
-    color: #000;
+    color: #fff;
     font-family: mainText;
-    color: rgb(201,182,123);
     font-size: 1.3em;
     letter-spacing: 1px;
 }
@@ -512,7 +528,8 @@ img[alt='search-list']{
 }
 
 .pageName {
-    font-family: mainText;   
+    font-family: mainText;
+    color: #c43a36;
 }
 
 .tester {
@@ -601,7 +618,7 @@ textarea{
     font-size: 2.5em;
     text-align: center;
     font-family: mainText;
-    color: rgb(201,182,123);
+    color: #c43a36;
 }
 
 .rating{
@@ -725,6 +742,7 @@ button {
     .expand-beer-btn{
         margin-right: 5%;
         margin-top: 5%;
+        font-size: 2em;
     }
     
     #top-container {
@@ -821,6 +839,20 @@ button {
 }
 
 @media (max-width: 767px){
+
+
+    #btn-cont{
+        width:100%;
+        float: none;
+        padding: 0;
+    }
+
+    #reform{
+        width:100%;
+        float: none;
+        clear:both;
+        overflow: hidden;
+    }
     
     #top-container {
         text-align: left;
@@ -828,7 +860,7 @@ button {
 
     .expand-beer-btn{
         margin-top: 8%;
-        font-size: 1.7em;
+        font-size: 1.8em;
         letter-spacing: 2px;
     }
     
@@ -890,7 +922,7 @@ button {
     }
 
     #content-wrap{
-        margin-left:25%;
+        margin-left:0;
     }
 
 }
@@ -901,16 +933,34 @@ button {
         text-align: left;
     }
 
+    #show{
+        display: none;
+    }
+
+    .details{
+        font-size: 1.5em;
+    }
+
+    #btn-cont{
+        width:100%;
+        float: none;
+        padding: 0;
+    }
+
+    #reform{
+        width:100%;
+        float: none;
+        clear:both;
+        overflow: hidden;
+    }
 
     .expand-beer-btn{
         margin-top:3%;
-        font-size: 1.7em;
+        font-size: 1.6em;
         letter-spacing: 2px;
+        width:77%;
     }
 
-    #content-wrap{
-        margin-left:25%;
-    }
 
     .beerImg {
         width: 13%;
@@ -965,9 +1015,8 @@ button {
     }
 
     .beer-style{
-        color: #000;
+        color: #fff;
         font-family: mainText;
-        color: rgb(201,182,123);
         font-size: 1.4em;
     }
 
@@ -997,9 +1046,22 @@ button {
     #top-container {
         text-align: left;
     }
+
+    #btn-cont{
+        width:100%;
+        float: none;
+        padding: 0;
+    }
+
+    #reform{
+        width:100%;
+        float: none;
+        clear:both;
+        overflow: hidden;
+    }
     
     .expand-beer-btn{
-        font-size: 1.5em;
+        font-size: 1.3em;
         line-height: 22px;
         letter-spacing: 1px;
 
@@ -1111,9 +1173,8 @@ button {
     }
 
     .beer-style{
-        color: #000;
+        color: #fff;
         font-family: mainText;
-        color: rgb(201,182,123);
         font-size: 1.3em;
         margin-bottom: 0;
     }
