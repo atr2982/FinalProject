@@ -25,7 +25,7 @@
     </nav>
 
 
-<div id="home-control" class="container" ng-init="checkedData()" ng-controller="myBeersCtrl">
+<div id="home-control" class="container" ng-init="getLocation(); checkedData()" ng-controller="myBeersCtrl">
 
  <div class="mainPad">
 
@@ -52,37 +52,70 @@
          <div class="rect5"></div>
      </div></p></div>
 
-
-
-
             <div class="myBeers col-lg-12" ng-repeat="key in checked">
 
                 <div id="content-wrap">
+
                     <img class="beerImg" ng-src="{{key.blabel}}">
 
 
                     <button class="expand-beer-btn" ng-click="widgetExpanded = !widgetExpanded">{{key.bname}}</button>
                 </div>
 
+                <div id="slide1" ng-slide-down="widgetExpanded" lazy-render duration=".7">
+
+                    <div class="col-lg-6" id="btn-cont">
+                        <button class="btn btn-danger navbar-text" ng-click="updateAgain = true">Re-Checkin</button>
+                        <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
+                    </div>
 
 
+                    <div class="col-lg-6" id="reform" ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'"><hr>
+                        <h2 class="details">Choose Location</h2>
+                        <select id="loc1" ng-model="usercheckin.location">
+                            <option>this is dummy content</option>
+                            <option ng-repeat="data in locations" value="{{data.venue.name}}">
+                                {{data.venue.name}}
+                            </option>
+                        </select>
+                        <button id="update" ng-click="updateBeer()">Submit</button>
+                    </div>
 
+
+                <div id="info-cont">
 
                 <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
-                    <p class="del">
+
+                        <button class="btn btn-danger navbar-text" ng-click="updateAgain = true">Re-Checkin</button>
                         <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
-                    </p>
+                        
+                    <div ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'">
+                        <h2 class="details">Choose Location</h2>
+                        <select ng-model="usercheckin.location">
+                    <option value="select a location">Select a location</option>
+                    <option ng-repeat="data in locations" value="{{data.venue.name}}">
+                        {{data.venue.name}}
+                    </option>
+                </select>
+                         <button class="btn btn-danger navbar-text" ng-click="updateBeer(key.bname, usercheckin)">Submit</button>
+                         
+                    </div>
+                   
+
                     <h2 class="details">Details:</h2>
                     <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
                     <p class="beer-data"><b>Style: </b>{{key.style}}</p>
                     <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
                     <h2 class="details">Your Checkin Information:</h2>
-                    <p class="beer-data"><b>Location: </b>{{botte.location}}</p>
+                    <span><b>Locations:</b></span><p ng-repeat="place in key.location" class="beer-data"><b></b>{{place}}</p>
                     <p class="beer-data"><b>Comment: </b>{{key.userinput}}</p>
                     <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
+                </div>
+
 
                 </div>
             </div>
+        </div>
 
 </div>
 </div>

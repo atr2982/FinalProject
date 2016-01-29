@@ -160,7 +160,8 @@ img[alt="search"]{
 
 
 .del{
-    float: right;
+    position: absolute;
+    top: 30px;
 }
 
 .expand-beer-btn{
@@ -306,6 +307,59 @@ ul li{
     margin-bottom: 60px;
 }
 
+
+@keyframes pulse {
+    0% {
+        background-color: #000;
+    }
+    100% {
+        background-color:#c43a36;;
+    }
+}
+
+#slide1{
+    clear: both;
+    overflow: hidden;
+}
+
+#btn-cont{
+    width: 50%;
+    float: right;
+}
+
+#loc1{
+    float: left;
+    width:50%;
+}
+
+#reform{
+    width:50%;
+    float: right;
+    clear:both;
+    overflow: hidden;
+}
+
+#update{
+    float: left;
+    width:28%;
+    margin-top: 10%;
+    margin-right: 25%;
+}
+
+#info-cont{
+    width: 50%
+}
+
+#show-mess{
+    animation: pulse 5s infinite;
+    font-family: 'Andale Mono';
+    width:88%;
+    margin-left:12%;
+    margin-top:2%;
+    padding:2% 2%;
+    font-size: 1em;
+}
+
 .appName {
     color: #f2f2f2;
 }
@@ -317,7 +371,7 @@ ul li{
     font-family: 'Andale Mono', sans-serif;
 }
 .user-cont{
-    font-family: mainText;
+    font-size: 1.15em;
     color: rgb(201,182,123);
     text-align: center;
     letter-spacing: 2px;
