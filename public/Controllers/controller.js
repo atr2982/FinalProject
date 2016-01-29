@@ -362,6 +362,7 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
                     $rootScope.objArr = [];
                     $rootScope.locations = response.response.groups[0].items;
+                    $scope.optionValue = "No Location Selected";
                 });
             }
         };
@@ -543,6 +544,51 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 }
             });
         };
+    
+        $scope.getLocation = function () {
+            var x = document.getElementById("loc");
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+
+            function showPosition(position) {
+                var clientId = 'BCLHOHAALKGEP1TSBVATOYJSIVOH0MB51NRQ24IFRKKRMHCO';
+                var clientSecret = 'LOGV4UOQGXCIPHNTYMKPYX1IPKDSTMYGJY2ZD0XYZ2WDMXA5';
+                var la = position.coords.latitude;
+                var lo = position.coords.longitude;
+                $http.get('https://api.foursquare.com/v2/venues/explore?client_id=' + clientId + '&client_secret=' + clientSecret + '&v=20130815&ll=' + la + '%2C' + lo + '&oauth_token=L2H43J5FGR3HFTNXFQP5OSYRZDDSUI4HXXW422QGT2JGO2W5&v=20151209&mode=url&query=beer').success(function (response) {
+                    $rootScope.objArr = [];
+                    $rootScope.locations = response.response.groups[0].items;
+                    $scope.optionValue = "No Location Selected";
+                });
+            }
+        };
+    
+    
+        $scope.updateBeer = function (name, usercheckin) {
+
+            var id = $rootScope.userObj._id;
+
+                    var beerstats = {
+                        type: "update",
+                        username: $rootScope.userObj.username,
+                        bname: name,
+                        blocation: usercheckin.location
+                    };
+            
+            console.log("TESTING", beerstats);
+
+                    $http.put('/updateBeer', beerstats).success(function (response) {
+                        if (response) {
+                            $route.reload();
+                        }
+                    });
+            };
+    
+    
+    
 
         $scope.getBeerCheck = function(){
             var id = $rootScope.userObj._id;

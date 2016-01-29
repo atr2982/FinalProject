@@ -220,6 +220,21 @@ app.put('/addcheckin', function (req, res) {
     });
 });
 
+//UPDATE BEER
+//UPDATE BEER
+app.put('/updateBeer', function (req, res) {
+
+    console.log(req.body);
+    
+    db.userlist.update({
+        username: req.body.username, 'beers.bname':req.body.bname
+    }, {$push: {
+            "beers.$.location":req.body.blocation}},
+                      function(err, doc) {
+       res.json(doc); 
+    });
+});
+
 
 app.put('/addwishlist', function (req, res) {
 
