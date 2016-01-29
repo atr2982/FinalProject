@@ -26,7 +26,7 @@
     </div>
 </nav>
 
-<div class="container" ng-init="getLocation()" ng-controller="barCtrl">
+<div class="container" ng-init="getLocation()">
 
 
 
@@ -35,7 +35,16 @@
             <p class="pageName">Local Bars</p>
         </div>
 
+        <div ng-show="loading"><p class="pageName"><div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div></p></div>
+
         <div class="dataBar myBeers" ng-repeat="key in locations">
+
             <div class="locName"><b>{{key.venue.name}}</b></div>
             <div class="data-info locDist">{{key.venue.location.distance}} miles</div>
             <div class="data-info">{{key.venue.location.address}}</div>

@@ -21,6 +21,9 @@ passport.use(new LocalStrategy({
         db.userlist.findOne({
             username: username
         }, function (err, user) {
+
+            console.log(err, user);
+
             if (err) {
                 console.log("error");
                 return done(err);

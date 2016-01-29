@@ -33,7 +33,13 @@
 
     <div class="beers col-lg-6 col-lg-offset-3" id="search-beers">
 
-
+        <div ng-show="loading"><p class="pageName"><div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div></p></div>
 
         <h1 class="search-info">{{beer.beer_name}}</h1>
 
