@@ -69,8 +69,8 @@
 
                 <div id="slide1" ng-slide-down="widgetExpanded" lazy-render duration=".7">
                     <div class="col-lg-6" id="btn-cont">
-                        <button class="btn btn-danger navbar-text" ng-click="updateAgain = true">Re-Checkin</button>
-                        <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
+                        <button class="btn btn-primary outline" ng-click="updateAgain = true">Re-Checkin</button>
+                        <button class="btn btn-primary outline" ng-click="deleteChecked(key.bname)">Remove Beer</button>
                     </div>
                     <div class="col-lg-6" id="reform" ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'">
                         <h2 class="details">Choose Location</h2>
@@ -80,7 +80,7 @@
                         {{data.venue.name}}
                     </option>
                 </select>
-                         <button id="update" class="btn btn-danger navbar-text" ng-click="updateBeer(key.bname, usercheckin)">Submit</button>
+                         <button id="update" class="btn btn-primary outline" ng-click="updateBeer(key.bname, usercheckin)">Submit</button>
                          
                     </div>
 
@@ -90,9 +90,9 @@
                     <p class="beer-data"><b>Style: </b>{{key.style}}</p>
                     <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
                     <h2 class="details">Your Checkin Information:</h2>
-                    <span><b>Locations:</b></span><p ng-repeat="place in key.location" class="beer-data"><b></b>{{place}}</p>
-                    <p class="beer-data"><b>Comment: </b>{{key.userinput}}</p>
-                    <p class="beer-data"><b>Rating: </b>{{key.rating}}/10</p>
+                    <span class="mycheckInfo"><b>Locations:</b></span><p ng-repeat="place in key.location" class="beer-data">{{place}}</p>
+                    <span class="mycheckInfo"><b>Comment:</b></span><p class="beer-data">{{key.userinput}}</p>
+                    <span class="mycheckInfo"><b>Rating:</b></span><p class="beer-data">{{key.rating}}/10</p>
                 </div>
 
 

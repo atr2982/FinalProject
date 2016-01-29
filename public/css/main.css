@@ -1,6 +1,7 @@
 body{
 /*    margin-top: 90px;*/
-    background: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg) no-repeat fixed;
+    background: url(/img/Black-Wood-Floor-Wallpaper-Background.jpg);
+    background-attachment: fixed;
 }
 
 footer{
@@ -8,7 +9,7 @@ footer{
     text-align: center;
     font-family: 'Andale Mono';
     color: #fff;
-    margin-bottom: 3%;
+/*    margin-bottom: 3%;*/
 }
 
 #result-cont{
@@ -73,7 +74,7 @@ footer{
 }
 
 #remove-btn{
-    font-family: 'Andale Mono';
+    font-family: mainText;
 }
 
 input::-webkit-input-placeholder {
@@ -167,8 +168,7 @@ img[alt="search"]{
 
 
 .del{
-    position: absolute;
-    top: 30px;
+    float: right;
 }
 
 .expand-beer-btn{
@@ -280,7 +280,7 @@ ul{
     text-align: center;
     font-family: 'mainText', sans-serif;
     letter-spacing: 1px;
-    color: rgb(201,182,123);
+    color: #c43a36;
 }
 
 #header{
@@ -385,7 +385,7 @@ ul li{
     font-family: 'Andale Mono', sans-serif;
 }
 .user-cont{
-    font-size: 2em;
+    font-size: 2.4em;
     font-family: mainText;
     color: #c43a36;
     text-align: center;
@@ -394,6 +394,7 @@ ul li{
 }
 
 .user-header{
+    font-size: 1.2em;
     text-align: center;
     color: #fff;
     letter-spacing: 2px;
@@ -449,8 +450,8 @@ img[alt='search-list']{
 
 .beer-style{
     color: #fff;
-    font-family: mainText;
-    font-size: 1.3em;
+    font-family: Andale Mono;
+    font-size: 1.2em;
     letter-spacing: 1px;
 }
 
@@ -604,7 +605,7 @@ textarea{
 
 .search-info{
     font-family: mainText;
-    color: rgb(201,182,123);
+    color: #c43a36;
     font-size: 3em;
 }
 
@@ -617,7 +618,7 @@ textarea{
 
 .search-meta .standout {
     font-size: 1.4em;
-     color: #c43a36;   
+/*     color: #c43a36;   */
 }
 
 #beer-header{
@@ -722,7 +723,7 @@ button {
 }
 
 .btn-primary.outline {
-    border: 2px solid #fff;
+    border: 2px solid #f24540;
     color: #c43a36;
 }
 
@@ -787,8 +788,13 @@ button {
         color: #fff;
         font-family: mainText;
         letter-spacing: 2px;
-        text-decoration:   underline;
+        text-decoration: underline;
         font-size: 1.7em;
+    }
+    
+    .mycheckInfo {
+         font-size: 1.3em; 
+        font-family: Andale Mono;
     }
 
     img[alt="search"]{
@@ -1007,6 +1013,7 @@ button {
     }
 
     #search-cont{
+        font-size: 2.4em;
         margin-bottom: 3%;
     }
 
@@ -1040,7 +1047,7 @@ button {
 
     .beer-style{
         color: #fff;
-        font-family: mainText;
+        font-family: Andale Mono;
         font-size: 1.4em;
     }
 
@@ -1139,7 +1146,7 @@ button {
     }
 
     #search-greet{
-        font-size: 1.7em;
+        font-size: 1em;
     }
 
     img[alt="banner"]{

@@ -50,16 +50,15 @@
                     <div id="content-wrap">
 
                         <img class="beerImg" ng-src="{{key.blabel}}">
-                        <h2 class="expand-beer-btn" ng-click="alcMeta = true">{{key.bname}}</h2>
+                        <h2 class="expand-beer-btn" ng-click="widgetExpanded = !widgetExpanded">{{key.bname}}</h2>
 
                     </div>
                 </div>
 
-                <div ng-show="alcMeta">
+                <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
                     <p class="del">
-                        <button id="collapse" class="btn btn-danger navbar-text" ng-click="alcMeta = false" >Collapse</button>
 
-                        <button id="remove-btn" class="btn btn-danger navbar-text" ng-click="deleteWished(key.bname)">Remove</button>
+                        <button id="remove-btn" class="btn btn-primary outline" ng-click="deleteWished(key.bname)">Remove</button>
                     </p>
                     <h2 class="details">Details:</h2>
                     <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
