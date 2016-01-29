@@ -155,7 +155,8 @@ img[alt="search"]{
 
 
 .del{
-    float: right;
+    position: absolute;
+    top 30px;
 }
 
 .expand-beer-btn{
