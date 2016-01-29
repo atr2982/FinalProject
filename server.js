@@ -93,7 +93,6 @@ app.post('/beerdata', function (req, res) { //*data flow 4* app.get written to m
 });
 
 
-
 app.get('/recent/:id', function (req, res){
 
     var id = req.params.id;
