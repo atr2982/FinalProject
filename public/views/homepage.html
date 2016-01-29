@@ -24,9 +24,7 @@
 <div class="container" id="home-control" ng-init="recent()">
 
     <div id="greeting-cont" class="col-md-4">
-        <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
-        <p></p>
-        <h4 class="user-cont">{{userObj.username}}'s recent checked in beers:</h4>
+        <p class="user-cont">Here Are Your Recent Checkins</p>
         <div ng-repeat="beer in recentList | orderBy: '-'">
             <p class="user-header">{{beer.bname}}</p>
         </div>

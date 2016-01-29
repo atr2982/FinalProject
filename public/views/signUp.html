@@ -10,7 +10,7 @@
 
             <div id="info-div" class="col-md-12">
 
-                <h3 id="banner">Become a beer master!</h3>
+                <h2 id="banner">Become a beer master!</h2>
                 <p>Create your own personal craft beer mastery log!</p>
                 <p>Discover Craft Beer from around the world!</p>
                 <p>Find local watering holes near you now!</p>
@@ -30,7 +30,7 @@
                 <label class="app-info" for="userAuth">Username</label>
                 <input id="userAuth" type="text" class="form-control" ng-model="user.username">
 
-                <label class="app-info" for="passAuth">Password</label>
+                <label class="app-info logpass" for="passAuth">Password</label>
                 <input id="passAuth" type="password" class="form-control" ng-model="user.password">
 
                 <button id="signIn" class="btn btn-primary outline btn-block" ng-click="login()">Sign In</button>
@@ -53,13 +53,13 @@
                 <label class="app-info" for="user">Username</label>
                 <input id="user" type="text" class="form-control" ng-model="user.username">
 
-                <label class="app-info" for="email">Email</label>
+                <label class="app-info logpass" for="email">Email</label>
                 <input id="email" type="email" class="form-control" ng-model="user.email">
 
-                <label class="app-info" for="pass">Password</label>
+                <label class="app-info logpass" for="pass">Password</label>
                 <input id="pass" type="password" class="form-control" ng-model="user.password">
 
-                <label class="app-info" for="Cpass">Confirm Password</label>
+                <label class="app-info logpass" for="Cpass">Confirm Password</label>
                 <input id="Cpass" type="password" class="form-control" ng-model="user.confirm">
 
                 <button id="addc" class="btn btn-primary outline btn-block" ng-click="signUp()">Sign Up</button>

@@ -43,14 +43,14 @@
 
         <h1 class="search-info">{{beer.beer_name}}</h1>
 
-        <p class="search-meta">STYLE - {{beer.beer_style}}</p>
-        <p class="search-meta">ABV - {{beer.beer_abv}}</p>
-        <p class="search-meta">INFO - {{beer.beer_description}}</p>
+        <p class="search-meta"><span class="standout">STYLE</span> - {{beer.beer_style}}</p>
+        <p class="search-meta"><span class="standout">ABV</span> - {{beer.beer_abv}}</p>
+        <p class="search-meta"><span class="standout">INFO</span> - {{beer.beer_description}}</p>
 
 
         <div ng-hide="showMe">
-            <button class="functions" ng-click="widgetExpanded = !widgetExpanded">Check In Beer</button>
-            <button class="functions" ng-click="wishList(beer.beer_name,
+            <button class="btn btn-primary outline" ng-click="widgetExpanded = !widgetExpanded">Check In Beer</button>
+            <button class="btn btn-primary outline" ng-click="wishList(beer.beer_name,
                                 beer.beer_label,
                                 beer.beer_style,
                                 beer.beer_abv,
@@ -82,7 +82,7 @@
             <div class="star-rating" star-rating rating-value="rating" data-max="10" on-rating-selected="rateFunction(rating)">
             </div>
 
-            <button class="functions" ng-click="checkin(beer.beer_name,
+            <button class="btn btn-primary outline" ng-click="checkin(beer.beer_name,
                                     beer.beer_label,
                                     beer.beer_style,
                                     beer.beer_abv,
