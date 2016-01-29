@@ -26,7 +26,7 @@
     <div id="greeting-cont" class="col-md-4">
         <h2 id="home-head" class="user-header">Hello! {{userObj.username}}, Glad You're Back!</h2>
         <p></p>
-        <h3 class="user-cont">{{userObj.username}}'s recent checked in beers:</h3>
+        <h4 class="user-cont">{{userObj.username}}'s recent checked in beers:</h4>
         <div ng-repeat="beer in recentList | orderBy: '-'">
             <p class="user-header">{{beer.bname}}</p>
         </div>
