@@ -437,6 +437,8 @@ angular.module('myApp', ['ngRoute']).config(["$routeProvider", function ($routeP
                 console.log("RESPONSE:", response.beers, response.beers.length);
 
                 console.log(name);
+                
+                
                 for (i = 0; i < response.beers.length; i++) {
                     
                     console.log(response.beers[i].bname);

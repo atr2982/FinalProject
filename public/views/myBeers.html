@@ -86,13 +86,13 @@
 
                <div id="info-cont">
                     <h2 class="details">Details:</h2>
-                    <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
-                    <p class="beer-data"><b>Style: </b>{{key.style}}</p>
-                    <p class="beer-data"><b>Description: </b>{{key.desc}}</p>
+                    <span class="mycheckInfo">Alcohol:</span><p class="beer-data">{{key.abv}}</p>
+                    <span class="mycheckInfo">Style:</span><p class="beer-data">{{key.style}}</p>
+                    <span class="mycheckInfo">Description:</span><p class="beer-data">{{key.desc}}</p>
                     <h2 class="details">Your Checkin Information:</h2>
-                    <span class="mycheckInfo"><b>Locations:</b></span><p ng-repeat="place in key.location" class="beer-data">{{place}}</p>
-                    <span class="mycheckInfo"><b>Comment:</b></span><p class="beer-data">{{key.userinput}}</p>
-                    <span class="mycheckInfo"><b>Rating:</b></span><p class="beer-data">{{key.rating}}/10</p>
+                    <span class="mycheckInfo">Locations:</span><p ng-repeat="place in key.location" class="beer-data">{{place}}</p>
+                    <span class="mycheckInfo">Comment:</span><p class="beer-data">{{key.userinput}}</p>
+                    <span class="mycheckInfo">Rating: </span><p class="beer-data">{{key.rating}}/10</p>
                 </div>
 
 

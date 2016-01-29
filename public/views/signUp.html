@@ -32,10 +32,10 @@
 
                 <label class="app-info logpass" for="passAuth">Password</label>
                 <input id="passAuth" type="password" class="form-control" ng-model="user.password">
-<button id="register" ng-click="signUp1 = true">Get Registered</button>
+
                 <button id="signIn" class="btn btn-primary outline btn-block" ng-click="login()">Sign In</button>
 
-
+<button id="register" ng-click="signUp1 = true">Get Registered</button>
 
                 <p class="show-mess" ng-show="errorShow">Incorrect Username or Password.</p>
 
@@ -61,10 +61,10 @@
 
                 <label class="app-info logpass" for="Cpass">Confirm Password</label>
                 <input id="Cpass" type="password" class="form-control" ng-model="user.confirm">
-<button id="register" ng-click="signUp1 = false">Member Login</button>
+
                 <button id="addc" class="btn btn-primary outline btn-block" ng-click="signUp()">Sign Up</button>
 
-                
+                <button id="register" ng-click="signUp1 = false">Member Login</button>
 
             </form>
             <!-- *data flow 1* user click add contact sends to controller-->
