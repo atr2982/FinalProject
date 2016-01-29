@@ -92,6 +92,10 @@ input:-ms-input-placeholder {
     color: #000 !important;
 }
 
+.col-md-6 #info-div p {
+     font-size: 1.2em;   
+}
+
 #search{
     float: left;
     clear: both;
@@ -124,27 +128,22 @@ input:-ms-input-placeholder {
     font-family: mainText;
     letter-spacing: 4px;
     text-align: center;
-
 }
 
 #greeting-cont{
     margin-top: 1%;
     margin-bottom: 4%;
-
 }
-
 
 #lefting-wrap{
     margin-bottom: 5%;
 }
-
 
 img[alt="search"]{
     max-width: 100%;
     background: #fff;
     padding:0.55%;
     border-radius: 4px;
-
 }
 
 .icon-head{
@@ -153,8 +152,6 @@ img[alt="search"]{
     margin-left: 4%;
     color: #000;
     font-family: mainText;
-
-
 }
 
 .img-cont{
@@ -182,12 +179,11 @@ img[alt="search"]{
     font-size: 2.4em;
     margin-top: 2%;
     width: 60%;
-
 }
 
 .expand-beer-btn:hover{
   opacity: 0.8;
-    cursor: pointer;
+  cursor: pointer;
 
 }
 
@@ -271,7 +267,7 @@ ul{
 .app-info{
     font-family: 'mainText', sans-serif;
     letter-spacing: 1px;
-    font-size: 1.8em;
+    font-size: 1.9em;
     color: #c43a36;
 }
 
@@ -307,6 +303,7 @@ ul li{
 }
 
 #register{
+    font-size: 1.2em;
     font-family: 'Andale Mono';
     float: right;
     background: none;
@@ -388,15 +385,17 @@ ul li{
     font-family: 'Andale Mono', sans-serif;
 }
 .user-cont{
-    font-size: 1.15em;
-    color: rgb(201,182,123);
+    font-size: 2em;
+    font-family: mainText;
+    color: #c43a36;
     text-align: center;
+    font-kerning: 5px;
     letter-spacing: 2px;
 }
 
 .user-header{
     text-align: center;
-    color: rgb(201,182,123);
+    color: #fff;
     letter-spacing: 2px;
 }
 
@@ -610,10 +609,15 @@ textarea{
 }
 
 .search-meta{
-    font-family: mainText;
-    color: rgb(201,182,123);
-    font-size: 1.4em;
+    font-family: Andale Mono;
+    color: #fff;
+    font-size: 1.2em;
     letter-spacing: 1px;
+}
+
+.search-meta .standout {
+    font-size: 1.4em;
+     color: #c43a36;   
 }
 
 #beer-header{
@@ -633,6 +637,10 @@ ul.rating {
     display: inline-block;
 }
 
+.star-rating {
+     margin-bottom: 10px;   
+}
+
 .rating li {
     list-style-type: none;
     display: inline-block;
@@ -643,7 +651,7 @@ ul.rating {
 }
 
 .rating .filled {
-    color: #21568b ;
+    color: #c43a36;
 }
 
 textarea, select {
@@ -659,6 +667,12 @@ h3 {
     max-height: 100%;
 }
 
+.logpass {
+     margin-top: 10px;   
+}
+
+
+
 #info-div {
     text-align: center;
     font-family: 'Andale Mono';
@@ -666,7 +680,7 @@ h3 {
 
 button {
     font-family: 'mainText', sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 /*------------------*/
@@ -701,7 +715,10 @@ button {
 
 .btn.outline {
     background: none;
-    font-size: 1.7em;
+    font-size: 1.9em;
+    padding: 5px 0 0 0;
+    vertical-align: middle;
+    width: 200px;
 }
 
 .btn-primary.outline {
@@ -862,7 +879,7 @@ button {
     }
     
     #top-container {
-        text-align: left;
+        text-align: center;
     }
 
     .expand-beer-btn{
