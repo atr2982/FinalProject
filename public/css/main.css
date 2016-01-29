@@ -129,27 +129,22 @@ input:-ms-input-placeholder {
     font-family: mainText;
     letter-spacing: 4px;
     text-align: center;
-
 }
 
 #greeting-cont{
     margin-top: 1%;
     margin-bottom: 4%;
-
 }
-
 
 #lefting-wrap{
     margin-bottom: 5%;
 }
-
 
 img[alt="search"]{
     max-width: 100%;
     background: #fff;
     padding:0.55%;
     border-radius: 4px;
-
 }
 
 .icon-head{
@@ -158,8 +153,6 @@ img[alt="search"]{
     margin-left: 4%;
     color: #000;
     font-family: mainText;
-
-
 }
 
 .img-cont{
@@ -190,8 +183,12 @@ img[alt="search"]{
 
 .expand-beer-btn:hover{
   opacity: 0.8;
-    cursor: pointer;
+  cursor: pointer;
 
+}
+
+#tre{
+    margin-left: 5%;
 }
 
 #content-trend{
@@ -784,6 +781,7 @@ button {
 
     .navbar-nav{
         width:70%;
+
     }
 
     .navbar-nav li{
@@ -868,6 +866,10 @@ button {
 
 @media (max-width: 767px){
 
+    .navbar-nav li{
+        margin-left: 80%;
+        text-align: right;
+    }
 
     #btn-cont{
         width:100%;

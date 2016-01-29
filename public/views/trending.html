@@ -50,7 +50,7 @@
                 <div id="content-trend">
 
                     <img class="beerImg" ng-src="{{key.beer.beer_label}}">
-                    <h2 class="expand-beer-btn" ng-click="alcMeta = true">{{key.beer.beer_name}}</h2>
+                    <h2 id="tre" class="expand-beer-btn" ng-click="alcMeta = true">{{key.beer.beer_name}}</h2>
 
                 </div>
 
@@ -64,9 +64,9 @@
 
             <div ng-show="alcMeta">
 
-                <h2 class="details">Details:</h2>
-                <p class="beer-data"><b>Alcohol: </b>{{key.beer.beer_abv}}%</p>
-                <p class="beer-data"><b>Style: </b>{{key.beer.beer_style}}</p>
+                <h2  class="details">Details:</h2>
+                <p  class="beer-data"><b>Alcohol: </b>{{key.beer.beer_abv}}%</p>
+                <p  class="beer-data"><b>Style: </b>{{key.beer.beer_style}}</p>
             </div>
         </div>
 

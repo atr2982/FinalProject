@@ -96,7 +96,6 @@ app.post('/beerdata', function (req, res) {
     });
 });
 
-
 app.get('/recent/:id', function (req, res) {
     var id = req.params.id;
     db.userlist.findOne({
