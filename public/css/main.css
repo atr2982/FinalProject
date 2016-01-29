@@ -30,7 +30,7 @@ footer{
     text-decoration: underline;
     font-size: 2em;
     float: right;
-    color: rgb(201,182,123);
+    color: #fff;
     font-family: mainText;
     letter-spacing: 3px;
 }
@@ -46,7 +46,7 @@ footer{
 }
 
 .navbar-nav li{
-    color: rgb(201,182,123);
+    color: #fff;
     font-family: mainText;
     letter-spacing: 2px;
     margin-left:2%;
@@ -183,14 +183,16 @@ img[alt="search"]{
     margin-top: 2%;
     width: 60%;
 
-
-
 }
 
 .expand-beer-btn:hover{
   opacity: 0.8;
     cursor: pointer;
 
+}
+
+#tre{
+    margin-left: 5%;
 }
 
 #content-trend{
@@ -761,10 +763,11 @@ button {
 
     .navbar-nav{
         width:70%;
+
     }
 
     .navbar-nav li{
-        color: rgb(201,182,123);
+        color: #fff;
         font-family: mainText;
         letter-spacing: 2px;
         text-decoration:   underline;
@@ -840,6 +843,10 @@ button {
 
 @media (max-width: 767px){
 
+    .navbar-nav li{
+        margin-left: 80%;
+        text-align: right;
+    }
 
     #btn-cont{
         width:100%;
