@@ -62,46 +62,29 @@
                     <button class="expand-beer-btn" ng-click="widgetExpanded = !widgetExpanded">{{key.bname}}</button>
                 </div>
 
-                <div id="slide1" ng-slide-down="widgetExpanded" lazy-render duration=".7">
 
+
+
+
+
+                <div id="slide1" ng-slide-down="widgetExpanded" lazy-render duration=".7">
                     <div class="col-lg-6" id="btn-cont">
                         <button class="btn btn-danger navbar-text" ng-click="updateAgain = true">Re-Checkin</button>
                         <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
                     </div>
-
-
-                    <div class="col-lg-6" id="reform" ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'"><hr>
+                    <div class="col-lg-6" id="reform" ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'">
                         <h2 class="details">Choose Location</h2>
                         <select id="loc1" ng-model="usercheckin.location">
-                            <option>this is dummy content</option>
-                            <option ng-repeat="data in locations" value="{{data.venue.name}}">
-                                {{data.venue.name}}
-                            </option>
-                        </select>
-                        <button id="update" ng-click="updateBeer()">Submit</button>
-                    </div>
-
-
-                <div id="info-cont">
-
-                <div ng-slide-down="widgetExpanded" lazy-render duration=".7">
-
-                        <button class="btn btn-danger navbar-text" ng-click="updateAgain = true">Re-Checkin</button>
-                        <button class="btn btn-danger navbar-text" ng-click="deleteChecked(key.bname)">Remove Beer</button>
-                        
-                    <div ng-show="updateAgain" ng-init="usercheckin.location='No Location Added'">
-                        <h2 class="details">Choose Location</h2>
-                        <select ng-model="usercheckin.location">
                     <option value="select a location">Select a location</option>
                     <option ng-repeat="data in locations" value="{{data.venue.name}}">
                         {{data.venue.name}}
                     </option>
                 </select>
-                         <button class="btn btn-danger navbar-text" ng-click="updateBeer(key.bname, usercheckin)">Submit</button>
+                         <button id="update" class="btn btn-danger navbar-text" ng-click="updateBeer(key.bname, usercheckin)">Submit</button>
                          
                     </div>
-                   
 
+               <div id="info-cont">
                     <h2 class="details">Details:</h2>
                     <p class="beer-data"><b>Alcohol: </b>{{key.abv}}%</p>
                     <p class="beer-data"><b>Style: </b>{{key.style}}</p>
